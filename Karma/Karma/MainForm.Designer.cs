@@ -30,14 +30,16 @@ namespace Karma
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.userControlLogIn1 = new Karma.UserControlLogIn();
+            this.userControlRegister1 = new Karma.UserControlRegister();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,16 +55,42 @@ namespace Karma
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 673);
+            this.panel1.Size = new System.Drawing.Size(312, 841);
             this.panel1.TabIndex = 0;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(214, 102);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(75, 25);
+            this.linkLabel2.TabIndex = 6;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Register";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(15, 102);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(56, 25);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Login";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button4
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(0, 326);
+            this.button4.Location = new System.Drawing.Point(0, 408);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(250, 66);
+            this.button4.Size = new System.Drawing.Size(312, 82);
             this.button4.TabIndex = 4;
             this.button4.Text = "Options";
             this.button4.UseVisualStyleBackColor = true;
@@ -70,9 +98,10 @@ namespace Karma
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(0, 254);
+            this.button3.Location = new System.Drawing.Point(0, 318);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(250, 66);
+            this.button3.Size = new System.Drawing.Size(312, 82);
             this.button3.TabIndex = 3;
             this.button3.Text = "Donate";
             this.button3.UseVisualStyleBackColor = true;
@@ -80,9 +109,10 @@ namespace Karma
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(0, 182);
+            this.button2.Location = new System.Drawing.Point(0, 228);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 66);
+            this.button2.Size = new System.Drawing.Size(312, 82);
             this.button2.TabIndex = 2;
             this.button2.Text = "Market";
             this.button2.UseVisualStyleBackColor = true;
@@ -93,8 +123,9 @@ namespace Karma
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 79);
+            this.panel2.Size = new System.Drawing.Size(312, 99);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -102,51 +133,53 @@ namespace Karma
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Wide Latin", 22.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Location = new System.Drawing.Point(4, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 46);
+            this.label1.Size = new System.Drawing.Size(297, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "Karma";
             // 
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(0, 110);
+            this.button1.Location = new System.Drawing.Point(0, 138);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 66);
+            this.button1.Size = new System.Drawing.Size(312, 82);
             this.button1.TabIndex = 0;
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // linkLabel1
+            // userControlLogIn1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 82);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(46, 20);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Login";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.userControlLogIn1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.userControlLogIn1.Location = new System.Drawing.Point(319, 0);
+            this.userControlLogIn1.Name = "userControlLogIn1";
+            this.userControlLogIn1.Size = new System.Drawing.Size(1257, 841);
+            this.userControlLogIn1.TabIndex = 1;
+            this.userControlLogIn1.Visible = false;
             // 
-            // linkLabel2
+            // userControlRegister1
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(171, 82);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(63, 20);
-            this.linkLabel2.TabIndex = 6;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Register";
+            this.userControlRegister1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.userControlRegister1.Location = new System.Drawing.Point(319, 0);
+            this.userControlRegister1.Name = "userControlRegister1";
+            this.userControlRegister1.Size = new System.Drawing.Size(1886, 1262);
+            this.userControlRegister1.TabIndex = 2;
+            this.userControlRegister1.Visible = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1578, 841);
+            this.Controls.Add(this.userControlRegister1);
+            this.Controls.Add(this.userControlLogIn1);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -168,6 +201,8 @@ namespace Karma
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private UserControlLogIn userControlLogIn1;
+        private UserControlRegister userControlRegister1;
     }
 }
 
