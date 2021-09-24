@@ -8,19 +8,19 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ernes\\.nuget\\packages\\": {}
+    "C:\\Users\\justj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ernes\\UniversityProjects\\Karma\\Karma\\Karma\\Karma.csproj",
+      "projectUniqueName": "C:\\Users\\justj\\Desktop\\Karma\\Karma_UniversityProject\\Karma\\Karma\\Karma.csproj",
       "projectName": "Karma",
-      "projectPath": "C:\\Users\\ernes\\UniversityProjects\\Karma\\Karma\\Karma\\Karma.csproj",
-      "packagesPath": "C:\\Users\\ernes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ernes\\UniversityProjects\\Karma\\Karma\\Karma\\obj\\",
+      "projectPath": "C:\\Users\\justj\\Desktop\\Karma\\Karma_UniversityProject\\Karma\\Karma\\Karma.csproj",
+      "packagesPath": "C:\\Users\\justj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\justj\\Desktop\\Karma\\Karma_UniversityProject\\Karma\\Karma\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ernes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\justj\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
