@@ -62,7 +62,6 @@ namespace Karma
             this.label2.Size = new System.Drawing.Size(313, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Enter your future username:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -73,7 +72,6 @@ namespace Karma
             this.label3.Size = new System.Drawing.Size(282, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "Enter your email address:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -84,7 +82,6 @@ namespace Karma
             this.label4.Size = new System.Drawing.Size(235, 32);
             this.label4.TabIndex = 3;
             this.label4.Text = "Enter your password:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -95,7 +92,6 @@ namespace Karma
             this.label5.Size = new System.Drawing.Size(253, 32);
             this.label5.TabIndex = 4;
             this.label5.Text = "Repeat your password:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox1
             // 
@@ -104,7 +100,6 @@ namespace Karma
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(371, 39);
             this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -113,7 +108,6 @@ namespace Karma
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(371, 39);
             this.textBox2.TabIndex = 6;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -122,7 +116,6 @@ namespace Karma
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(371, 39);
             this.textBox3.TabIndex = 7;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -131,12 +124,11 @@ namespace Karma
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(371, 39);
             this.textBox4.TabIndex = 8;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(60, 513);
+            this.button1.Location = new System.Drawing.Point(60, 511);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(371, 81);
             this.button1.TabIndex = 9;

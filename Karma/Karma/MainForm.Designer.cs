@@ -169,7 +169,6 @@ namespace Karma
             this.userControlRegister1.Size = new System.Drawing.Size(1886, 1262);
             this.userControlRegister1.TabIndex = 2;
             this.userControlRegister1.Visible = false;
-            this.userControlRegister1.Load += new System.EventHandler(this.userControlRegister1_Load);
             // 
             // MainForm
             // 

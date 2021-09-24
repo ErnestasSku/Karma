@@ -26,10 +26,5 @@ namespace Karma
             userControlRegister1.Show();
             userControlRegister1.BringToFront();
         }
-
-        private void userControlRegister1_Load(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }
