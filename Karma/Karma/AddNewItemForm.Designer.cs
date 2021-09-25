@@ -81,6 +81,7 @@ namespace Karma
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(283, 27);
             this.nameTextBox.TabIndex = 4;
+
             // 
             // descriptionTextBox
             // 
@@ -111,7 +112,7 @@ namespace Karma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Chartreuse;
+            this.BackColor = System.Drawing.Color.LightGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.uploasButton);
             this.Controls.Add(this.contactInfoTextBox);
