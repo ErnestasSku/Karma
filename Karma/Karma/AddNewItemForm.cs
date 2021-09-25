@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,28 @@ namespace Karma
         /// <param name="e"></param>
         private void uploadButton_Click(object sender, EventArgs e)
         {
-
+            TextBox[] textBoxes =
+            {
+                nameTextBox, descriptionTextBox, contactInfoTextBox
+            };
+            saveToFile(textBoxes);
             this.Close();
         }
+        private void saveToFile(TextBox[] textBoxes)
+        {
+            string text = ""; 
+            foreach(TextBox textBox in textBoxes)
+            {
+                text += textBox.Text;
+                text += ",";
+            }
+            text = text.Remove(text.Length - 1);
+            CSVProcessing csvProcessing = new CSVProcessing();
+
+            csvProcessing.AppendToCSV(text);
+        }
+        
+        
+
     }
 }
