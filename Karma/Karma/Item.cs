@@ -11,5 +11,13 @@ namespace Karma
         public string name { get; set; }
         public string description { get; set; }
         public string contactInfo { get; set; }
+
+        public Item(string[] itemInfo)
+        {
+            this.name = itemInfo[0];
+            this.description = itemInfo[1];
+            this.contactInfo = itemInfo[2];
+        }
     }
+    
 }

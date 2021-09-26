@@ -42,9 +42,7 @@ namespace Karma
                 text += ",";
             }
             text = text.Remove(text.Length - 1);
-            CSVProcessing csvProcessing = new CSVProcessing();
-
-            csvProcessing.AppendToCSV(text);
+            CSVProcessing.AppendToCSV(text);
         }
         
         
