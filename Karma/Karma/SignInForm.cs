@@ -17,13 +17,13 @@ namespace Karma
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonLogIn_Click(object sender, EventArgs e)
         {
             userControlLogIn1.Show();
             userControlLogIn1.BringToFront();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonRegister_Click(object sender, EventArgs e)
         {
             userControlRegister1.Show();
             userControlRegister1.BringToFront();
