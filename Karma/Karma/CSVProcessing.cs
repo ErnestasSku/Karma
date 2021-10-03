@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Karma
 {
@@ -22,7 +17,7 @@ namespace Karma
             result = FromDataTable(LineArray);
             return result;
         }
-        
+
         private static DataTable FromDataTable(string[] LineArray)
         {
             DataTable dt = new DataTable();
@@ -33,7 +28,7 @@ namespace Karma
         private static void AddColumnToTable(string[] columnCollection, ref DataTable dt)
         {
             string[] columns = columnCollection[0].Split(',');
-            foreach(string columnName in columns)
+            foreach (string columnName in columns)
             {
                 DataColumn dc = new DataColumn(columnName, typeof(string));
                 dt.Columns.Add(dc);
@@ -41,16 +36,16 @@ namespace Karma
         }
         private static void AddRowToTable(string[] valueCollection, ref DataTable dt)
         {
-            for(int i = 1; i < valueCollection.Length; i++)
+            for (int i = 1; i < valueCollection.Length; i++)
             {
                 string[] values = valueCollection[i].Split(',');
 
                 //Items[i - 1] = new Item(values);
-             
+
 
                 DataRow dr = dt.NewRow();
 
-                for(int j = 0; j < values.Length; j++)
+                for (int j = 0; j < values.Length; j++)
                 {
                     dr[j] = values[j];
                 }
@@ -60,6 +55,6 @@ namespace Karma
         }
     }
 
-   
+
 
 }

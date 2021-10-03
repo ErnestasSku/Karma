@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Karma
@@ -35,8 +27,8 @@ namespace Karma
         }
         private void saveToFile(TextBox[] textBoxes)
         {
-            string text = ""; 
-            foreach(TextBox textBox in textBoxes)
+            string text = "";
+            foreach (TextBox textBox in textBoxes)
             {
                 text += textBox.Text;
                 text += ",";
@@ -44,8 +36,8 @@ namespace Karma
             text = text.Remove(text.Length - 1);
             CSVProcessing.AppendToCSV(text);
         }
-        
-        
+
+
 
     }
 }
