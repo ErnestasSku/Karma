@@ -9,7 +9,7 @@ namespace Karma
         public MarketForm()
         {
             InitializeComponent();
-            dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
+            //dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
             //prodLabel.Text = "There are " + CSVProcessing.Items.Length + " items in the market";
         }
 
@@ -28,12 +28,20 @@ namespace Karma
 
         private void Button1Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
+            //dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
             //prodLabel.Text = "There are " + CSVProcessing.Items.Length + " items in the market";
         }
 
-        private void MarketFormLoad(object sender, EventArgs e)
+        private void MarketForm_Paint(object sender, PaintEventArgs e)
         {
+            ItemLayoutPanel.Controls.Clear();
+
+            if (CSVProcessing.Items == null)
+                return;
+            foreach (var item in CSVProcessing.Items)
+            {
+                ItemLayoutPanel.Controls.Add(new UserControlItem(item));
+            }
 
         }
     }

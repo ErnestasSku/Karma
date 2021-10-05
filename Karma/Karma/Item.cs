@@ -1,4 +1,6 @@
-﻿namespace Karma
+﻿using System;
+
+namespace Karma
 {
     public class Item
     {
@@ -8,9 +10,17 @@
 
         public Item(string[] itemInfo)
         {
-            this.name = itemInfo[0];
-            this.description = itemInfo[1];
-            this.contactInfo = itemInfo[2];
+            try
+            {
+                this.name = itemInfo[0];
+                this.description = itemInfo[1];
+                this.contactInfo = itemInfo[2];
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
     }
 
