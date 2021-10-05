@@ -11,6 +11,8 @@ namespace Karma
         [STAThread]
         static void Main()
         {
+            CSVProcessing.LoadItems();
+
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
