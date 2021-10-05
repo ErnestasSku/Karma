@@ -14,7 +14,7 @@ namespace Karma
         }
 
 
-        private void AddNewButton_Click(object sender, EventArgs e)
+        private void AddNewButtonClick(object sender, EventArgs e)
         {
             Form addNewItemForm = new AddNewItemForm();
 
@@ -26,13 +26,13 @@ namespace Karma
             addNewItemForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
             //prodLabel.Text = "There are " + CSVProcessing.Items.Length + " items in the market";
         }
 
-        private void MarketForm_Load(object sender, EventArgs e)
+        private void MarketFormLoad(object sender, EventArgs e)
         {
 
         }

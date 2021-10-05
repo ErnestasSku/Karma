@@ -106,7 +106,7 @@ namespace Karma
             this.uploasButton.TabIndex = 7;
             this.uploasButton.Text = "Upload";
             this.uploasButton.UseVisualStyleBackColor = true;
-            this.uploasButton.Click += new System.EventHandler(this.uploadButton_Click);
+            this.uploasButton.Click += new System.EventHandler(this.UploadButtonClick);
             // 
             // AddNewItemForm
             // 

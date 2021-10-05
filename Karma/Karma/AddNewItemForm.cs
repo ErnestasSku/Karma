@@ -16,16 +16,16 @@ namespace Karma
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void uploadButton_Click(object sender, EventArgs e)
+        private void UploadButtonClick(object sender, EventArgs e)
         {
             TextBox[] textBoxes =
             {
                 nameTextBox, descriptionTextBox, contactInfoTextBox
             };
-            saveToFile(textBoxes);
+            SaveToFile(textBoxes);
             this.Close();
         }
-        private void saveToFile(TextBox[] textBoxes)
+        private void SaveToFile(TextBox[] textBoxes)
         {
             string text = "";
             foreach (TextBox textBox in textBoxes)

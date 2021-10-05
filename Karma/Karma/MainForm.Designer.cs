@@ -86,7 +86,7 @@ namespace Karma
             this.MarketButton.TabIndex = 2;
             this.MarketButton.Text = "Market";
             this.MarketButton.UseVisualStyleBackColor = true;
-            this.MarketButton.Click += new System.EventHandler(this.MarketButton_Click);
+            this.MarketButton.Click += new System.EventHandler(this.MarketButtonClick);
             // 
             // panel2
             // 
@@ -121,7 +121,7 @@ namespace Karma
             this.button1.TabIndex = 0;
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
             // MainForm
             // 

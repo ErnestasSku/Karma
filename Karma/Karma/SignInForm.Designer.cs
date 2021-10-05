@@ -62,7 +62,7 @@ namespace Karma
             this.buttonRegister.TabIndex = 4;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = true;
-            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            this.buttonRegister.Click += new System.EventHandler(this.ButtonRegisterClick);
             // 
             // buttonLogIn
             // 
@@ -74,7 +74,7 @@ namespace Karma
             this.buttonLogIn.TabIndex = 3;
             this.buttonLogIn.Text = "Log In";
             this.buttonLogIn.UseVisualStyleBackColor = true;
-            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
+            this.buttonLogIn.Click += new System.EventHandler(this.ButtonLogInClick);
             // 
             // panel2
             // 
