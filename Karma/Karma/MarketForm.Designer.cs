@@ -58,7 +58,7 @@ namespace Karma
             this.AddNewButton.TabIndex = 0;
             this.AddNewButton.Text = "Add new product";
             this.AddNewButton.UseVisualStyleBackColor = true;
-            this.AddNewButton.Click += new System.EventHandler(this.AddNewButton_Click);
+            this.AddNewButton.Click += new System.EventHandler(this.AddNewButtonClick);
             // 
             // prodLabel
             // 
@@ -88,7 +88,7 @@ namespace Karma
             this.button1.TabIndex = 3;
             this.button1.Text = "refresh";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
             // MarketForm
             // 
@@ -102,7 +102,7 @@ namespace Karma
             this.Controls.Add(this.panel1);
             this.Name = "MarketForm";
             this.Text = "MarketForm";
-            this.Load += new System.EventHandler(this.MarketForm_Load);
+            this.Load += new System.EventHandler(this.MarketFormLoad);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
