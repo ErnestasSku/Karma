@@ -14,7 +14,9 @@ namespace Karma
 
             //Temporary, this should not be called, since it will be created during LoadItems()
             if (Items == null) Items = new List<Item>();
-            Items.Add(new Item(text.Split(',')));
+            var newItem = new Item(text.Split(','));
+            Items.Add(newItem);
+            
         }
 
         public static void LoadItems()

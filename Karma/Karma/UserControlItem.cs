@@ -18,9 +18,14 @@ namespace Karma
 
             TitleLabel.Text = item.name;
             DescriptionLabel.Text = item.description;
+            try
+            {
+                PreviewImage.Image = Image.FromFile("TestImage.png");
+            }
+            catch
+            {
 
-            PreviewImage.Image = Image.FromFile("TestImage.png");
-            
+            }
         }
     }
 }
