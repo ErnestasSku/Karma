@@ -5,6 +5,7 @@ namespace Karma
 {
     public partial class AddNewItemForm : Form
     {
+       
         public AddNewItemForm()
         {
             InitializeComponent();
@@ -23,7 +24,9 @@ namespace Karma
                 nameTextBox, descriptionTextBox, contactInfoTextBox
             };
             SaveToFile(textBoxes);
+
             this.Close();
+            
         }
         private void SaveToFile(TextBox[] textBoxes)
         {

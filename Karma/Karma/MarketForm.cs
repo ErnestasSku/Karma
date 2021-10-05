@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Karma
@@ -16,14 +17,25 @@ namespace Karma
 
         private void AddNewButtonClick(object sender, EventArgs e)
         {
+
+            
             Form addNewItemForm = new AddNewItemForm();
 
             addNewItemForm.TopLevel = false;
             addNewItemForm.FormBorderStyle = FormBorderStyle.None;
             addNewItemForm.Dock = DockStyle.Fill;
+
+            addNewItemForm.FormClosing += new FormClosingEventHandler(ChildFormClosing);
+           
             this.Controls.Add(addNewItemForm);
             addNewItemForm.BringToFront();
             addNewItemForm.Show();
+        }
+
+        private void ChildFormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            ItemLayoutPanel.Controls.Add(new UserControlItem(CSVProcessing.Items.Last()));
         }
 
         private void Button1Click(object sender, EventArgs e)
@@ -44,5 +56,7 @@ namespace Karma
             }
 
         }
+
+
     }
 }
