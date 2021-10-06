@@ -21,6 +21,12 @@
 **/[Ll]og/
 **/[Ll]ogs/
 
+#Ignore packahes
+**/[Pp]ackages/*
+
+#Ignore nuget packages
+*.nupkg
+
 # Ignore .NET Core
 project.lock.json
 project.fragment.json
