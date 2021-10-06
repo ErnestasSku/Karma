@@ -2,7 +2,8 @@
 using System.Data;
 using System.IO;
 
-namespace Karma
+
+namespace BusinessLogic
 {
     public class CSVProcessing
     {
