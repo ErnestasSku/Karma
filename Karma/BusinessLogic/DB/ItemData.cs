@@ -9,13 +9,8 @@ using BusinessLogic.Utils;
 namespace BusinessLogic
 {
     /// <summary>
-    /// Thinking: It might not make sense for ItemData to be a singletone. Since there may be a lot of data, 
-    /// unless some kind of limit is ensured, so it doesn't consume too much memory. For UserProfile being a static class
-    /// it probably makes sense.
-    /// 
-    /// Friend told me about reflections. We could probably use that when we learn how to work with DB
+    /// All loaded items are saved in this class.
     /// </summary>
-    /// We can add IEnumerable here
     public class ItemData : DataInteface<Item>, IEnumerable<Item>
     {
         private static ItemData instance = null;
@@ -85,17 +80,6 @@ namespace BusinessLogic
         {
             
         }
-
-        /// <summary>
-        ///  TODO:
-        /// </summary>
-        /// <param name="flag"></param>
-        /// <returns>A sorted list by a specific flag</returns>
-        public List<Item> Sort(int flag)
-        {
-            return ItemList;
-        }
-
 
         public IEnumerator GetEnumerator()
         {
