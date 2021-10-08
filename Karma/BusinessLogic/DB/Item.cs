@@ -21,6 +21,10 @@ namespace BusinessLogic
             Name
         }
 
+        public Item()
+        {
+        }
+
         public Item(string[] itemInfo)
         {
             try
