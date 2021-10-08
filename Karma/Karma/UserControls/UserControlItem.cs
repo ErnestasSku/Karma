@@ -17,8 +17,8 @@ namespace Karma
         {
             InitializeComponent();
 
-            TitleLabel.Text = item.name;
-            DescriptionLabel.Text = item.description;
+            TitleLabel.Text = item.Name;
+            DescriptionLabel.Text = item.Description;
             try
             {
                 PreviewImage.Image = Image.FromFile("TestImage.png");

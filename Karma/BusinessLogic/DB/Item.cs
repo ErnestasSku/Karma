@@ -3,19 +3,17 @@
 namespace BusinessLogic
 {
     /// <summary>
-    /// 
+    /// Item template.
     /// </summary>
-    /// We can add IComparable here
-    /// Another exta fields which can be added are Date, FUTURE: we should add a List 
-    /// for images (or maybe just path (string/URI) to images, and we can load them later)
-    /// 
-    public class Item
+    public class Item : IComparable
     {
-        public string name { get; set; }
-        public string description { get; set; }
-        public string contactInfo { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ContactInfo { get; set; }
 
-        public string category { get; set; }
+        public string Category { get; set; }
+
+        public DateTime Date { get; set; }
 
         public enum SortType
         {
@@ -27,9 +25,9 @@ namespace BusinessLogic
         {
             try
             {
-                this.name = itemInfo[0];
-                this.description = itemInfo[1];
-                this.contactInfo = itemInfo[2];
+                this.Name = itemInfo[0];
+                this.Description = itemInfo[1];
+                this.ContactInfo = itemInfo[2];
             }
             catch (Exception)
             {
@@ -37,6 +35,15 @@ namespace BusinessLogic
             }
             
         }
+
+
+        public int CompareTo(object obj)
+        {
+            return Date.CompareTo(obj);
+        }
+
+       
+
     }
 
 }
