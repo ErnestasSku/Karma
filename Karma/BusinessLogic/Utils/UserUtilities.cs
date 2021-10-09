@@ -22,5 +22,9 @@ namespace BusinessLogic.Utils
             }
             return false;
         }
+        public void RegisterUserToFile(string name, string lastName, string userName, string password)
+        {
+            File.AppendAllText("user.csv", name + "," + lastName + "," + userName + "," + password + "\n");
+        }
     }
 }
