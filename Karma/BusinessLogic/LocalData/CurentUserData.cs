@@ -17,20 +17,7 @@ namespace BusinessLogic.LocalData
     public class CurentUserData
     {
         User currentUser;
-        public bool CheckLogIn(string userName, string password)
-        {
-            var fileText = File.ReadAllText("users.csv").Split('\n');
-            foreach (var line in fileText)
-            {
-                var dataPieces = line.Split(",");
-                if (dataPieces[2] == userName && dataPieces[3] == password)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        public User GetUser(string userName, string password)
+        public User Authenticate(string userName, string password)
         {
             var fileText = File.ReadAllText("users.csv").Split('\n');
             foreach (var line in fileText)
@@ -43,14 +30,6 @@ namespace BusinessLogic.LocalData
                 }
             }
             return null;
-        }
-        public User Authenticate(string userName, string password)
-        {
-            if (CheckLogIn(userName, password))
-            {
-                return GetUser(userName, password);
-            }
-            else return null;
         }
     }
 }
