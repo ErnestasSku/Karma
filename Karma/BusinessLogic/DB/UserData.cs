@@ -26,7 +26,7 @@ namespace BusinessLogic
             }
         }
 
-        static public UserData GetData()
+        static public UserData GetInstance()
         {
             if (instance == null)
                 instance = new UserData();

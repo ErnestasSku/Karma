@@ -12,13 +12,20 @@ namespace BusinessLogic
     /// </summary>
     public class User
     {
-        string Name { get; set; }
-        string LastName { get; set; }
-        string UserName { get; set; }
-        string password { get; set; }
-
-        //Stuff like House Adress, Phone number (they can also be optional if people don't want to give their data)
         
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public User(string _Name, string _LastName, string _UserName, string _Password)
+        {
+            Name = _Name;
+            LastName = _LastName;
+            UserName = _UserName;
+            Password = _Password;
+        }
+        //Stuff like House Adress, Phone number (they can also be optional if people don't want to give their data)
+
         //Token might be useful for authentification stuff maybe? 
         //string Token;
 
