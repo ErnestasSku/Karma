@@ -71,7 +71,7 @@ namespace Karma
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Descritpion:";
+            this.label3.Text = "Description:";
             // 
             // DescriptionLabel
             // 

@@ -11,8 +11,8 @@ namespace Karma
         public MarketForm()
         {
             InitializeComponent();
-            //dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
-            //prodLabel.Text = "There are " + CSVProcessing.Items.Length + " items in the market";
+            string[] items = { "Name A-Z", "Name Z-A" };
+            comboBox1.Items.AddRange(items);
         }
 
 
@@ -39,11 +39,6 @@ namespace Karma
             ItemLayoutPanel.Controls.Add(new UserControlItem(CSVProcessing.Items.Last()));
         }
 
-        private void Button1Click(object sender, EventArgs e)
-        {
-            //dataGridView1.DataSource = CSVProcessing.DataTableFromCSV();
-            //prodLabel.Text = "There are " + CSVProcessing.Items.Length + " items in the market";
-        }
 
         private void MarketForm_Paint(object sender, PaintEventArgs e)
         {
@@ -58,6 +53,11 @@ namespace Karma
 
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var selected = comboBox1.SelectedIndex;
+            BusinessLogic.Utils.ItemUtilities.SortItems(CSVProcessing.Items, Item.SortType.Name, false);
+            this.InvokePaint(this, new PaintEventArgs(this.CreateGraphics(), this.DisplayRectangle));
+        }
     }
 }
