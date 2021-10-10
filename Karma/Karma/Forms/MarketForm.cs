@@ -8,10 +8,11 @@ namespace Karma
     public partial class MarketForm : Form
     {
 
+
         public MarketForm()
         {
             InitializeComponent();
-            string[] items = { "Name A-Z", "Name Z-A" };
+            string[] items = { "Name A-Z", "Name Z-A", "Newest", "Oldest" };
             comboBox1.Items.AddRange(items);
         }
 
@@ -56,7 +57,13 @@ namespace Karma
         private void button1_Click(object sender, EventArgs e)
         {
             var selected = comboBox1.SelectedIndex;
-            BusinessLogic.Utils.ItemUtilities.SortItems(CSVProcessing.Items, Item.SortType.Name, false);
+            var descending = false;
+            
+
+            if (selected % 2 != 0)
+                descending = true;
+
+            BusinessLogic.Utils.ItemUtilities.SortItems(CSVProcessing.Items, BusinessLogic.Utils.ItemUtilities.GetSortType(selected), descending);
             this.InvokePaint(this, new PaintEventArgs(this.CreateGraphics(), this.DisplayRectangle));
         }
     }

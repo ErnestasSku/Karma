@@ -37,7 +37,9 @@ namespace Karma
                 text += textBox.Text;
                 text += ",";
             }
-            text = text.Remove(text.Length - 1);
+            DateTime time = DateTime.Now;
+            text += time.ToString("u");
+
             CSVProcessing.AppendToCSV(text);
         }
 
