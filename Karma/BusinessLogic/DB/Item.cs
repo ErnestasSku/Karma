@@ -32,6 +32,7 @@ namespace BusinessLogic
                 this.Name = itemInfo[0];
                 this.Description = itemInfo[1];
                 this.ContactInfo = itemInfo[2];
+                this.Date = DateTime.Parse(itemInfo[3]);
             }
             catch (Exception)
             {
