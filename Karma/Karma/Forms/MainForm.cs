@@ -20,18 +20,20 @@ namespace Karma
 
         private void MarketButtonClick(object sender, System.EventArgs e)
         {
+            if (currentForm != null)
+                currentForm.Close();
             // TODO: move the logic somewhere else maybe for faster loads in the future when there will be a lot of items
             Form marketForm = new MarketForm();
-
-            marketForm.TopLevel = false;
-            marketForm.FormBorderStyle = FormBorderStyle.None;
-            marketForm.Dock = DockStyle.Fill;
-            this.Controls.Add(marketForm);
-            marketForm.BringToFront();
-            marketForm.Show();
-
-            //Todo: refactor in the future.
             currentForm = marketForm;
+
+            currentForm.TopLevel = false;
+            currentForm.FormBorderStyle = FormBorderStyle.None;
+            currentForm.Dock = DockStyle.Fill;
+            this.Controls.Add(currentForm);
+            currentForm.BringToFront();
+            currentForm.Show();
+
+            
         }
     }
 }
