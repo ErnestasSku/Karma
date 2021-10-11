@@ -104,8 +104,8 @@ namespace Karma
 
         private System.Windows.Forms.PictureBox PreviewImage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label TitleLabel;
+        public System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label DescriptionLabel;
+        public System.Windows.Forms.Label DescriptionLabel;
     }
 }
