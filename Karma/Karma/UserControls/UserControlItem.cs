@@ -13,10 +13,12 @@ namespace Karma
 {
     public partial class UserControlItem : UserControl
     {
+        public Item item;
+
         public UserControlItem(Item item)
         {
             InitializeComponent();
-
+            this.item = item;
             TitleLabel.Text = item.Name;
             DescriptionLabel.Text = item.Description;
             try
