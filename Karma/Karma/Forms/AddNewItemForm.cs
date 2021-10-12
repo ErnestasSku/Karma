@@ -10,6 +10,9 @@ namespace Karma
         public AddNewItemForm()
         {
             InitializeComponent();
+            categoryComboBox.DataSource = Enum.GetValues(typeof(Item.Categories));
+            locationComboBox.DataSource = Enum.GetValues(typeof(Item.Locations));
+
         }
 
         /// <summary>
@@ -24,12 +27,17 @@ namespace Karma
             {
                 nameTextBox, descriptionTextBox, contactInfoTextBox
             };
-            SaveToFile(textBoxes);
+            ComboBox[] comboBoxes =
+            {
+                categoryComboBox, locationComboBox
+            };
+            
+            SaveToFile(textBoxes, comboBoxes);
 
             this.Close();
             
         }
-        private void SaveToFile(TextBox[] textBoxes)
+        private void SaveToFile(TextBox[] textBoxes, ComboBox[] comboBoxes)
         {
             string text = "";
             foreach (TextBox textBox in textBoxes)
@@ -37,6 +45,12 @@ namespace Karma
                 text += textBox.Text;
                 text += ",";
             }
+            foreach(ComboBox comboBox in comboBoxes)
+            {
+                text += comboBox.Text;
+                text += ",";
+            }
+
             DateTime time = DateTime.Now;
             text += time.ToString("u");
 
