@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using BusinessLogic;
+using BusinessLogic.Utils;
 using System.Collections.Generic;
 
 namespace Karma
@@ -65,7 +66,7 @@ namespace Karma
             if (selected % 2 != 0)
                 descending = true;
 
-            BusinessLogic.Utils.ItemUtilities.SortItems(CSVProcessing.Items, BusinessLogic.Utils.ItemUtilities.GetSortType(selected), descending);
+            ItemUtilities.SortItems(CSVProcessing.Items, ItemUtilities.GetSortType(selected), descending);
             this.InvokePaint(this, new PaintEventArgs(this.CreateGraphics(), this.DisplayRectangle));
         }
 
@@ -73,8 +74,13 @@ namespace Karma
         {
             foreach(UserControlItem uc in ItemLayoutPanel.Controls.OfType<UserControlItem>())
             {
-                if (!uc.TitleLabel.Text.Contains(textBox1.Text) && !uc.DescriptionLabel.Text.Contains(textBox1.Text))
+                if (!uc.TitleLabel.Text.ToLower().Contains(textBox1.Text.ToLower()) && 
+                    !uc.DescriptionLabel.Text.ToLower().Contains(textBox1.Text.ToLower()) && 
+                    !uc.item.Location.ToString().ToLower().Contains(textBox1.Text.ToLower()) &&
+                    !uc.item.Category.ToString().ToLower().Contains(textBox1.Text.ToLower()))
+                {
                     uc.Visible = false;
+                }
                 else
                     uc.Visible = true;
 
