@@ -1,4 +1,6 @@
-﻿namespace BusinessLogic
+using Backend;
+
+namespace BusinessLogic
 {
     /// <summary>
     /// TODO: UserProfile will be a singleton of UserData? or maybe this is not even needed.
@@ -11,6 +13,9 @@
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public Location Location;
+
         public User(string _Name, string _LastName, string _UserName, string _Password)
         {
             Name = _Name;
@@ -18,10 +23,5 @@
             UserName = _UserName;
             Password = _Password;
         }
-        //Stuff like House Adress, Phone number (they can also be optional if people don't want to give their data)
-
-        //Token might be useful for authentification stuff maybe? 
-        //string Token;
-
     }
 }

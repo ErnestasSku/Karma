@@ -1,4 +1,5 @@
 ﻿using System;
+using Backend;
 
 namespace BusinessLogic
 {
@@ -11,8 +12,10 @@ namespace BusinessLogic
         public string Description { get; set; }
         public string ContactInfo { get; set; }
         public string Category { get; set; }
-        public string Location { get; set; }
+        public Location Location { get; set; }
         public DateTime Date { get; set; }
+
+        public User OriginalPoster;
 
         public enum SortType
         {
@@ -28,17 +31,18 @@ namespace BusinessLogic
             Clothing,
             KidStuff
         }
-        public enum Locations
-        {
-            Vilnius,
-            Kaunas,
-            Klaipėda,
-            Šiauliai,
-            Panevėžys,
-            Alytus,
-            Marijampolė,
-            Mažeikiai
-        }
+        //TODO: clear
+        //public enum Locations
+        //{
+        //    Vilnius,
+        //    Kaunas,
+        //    Klaipėda,
+        //    Šiauliai,
+        //    Panevėžys,
+        //    Alytus,
+        //    Marijampolė,
+        //    Mažeikiai
+        //}
 
         public Item()
         {
@@ -49,12 +53,13 @@ namespace BusinessLogic
         {
             try
             {
-                this.Name = itemInfo[0];
-                this.Description = itemInfo[1];
-                this.ContactInfo = itemInfo[2];
-                this.Category = itemInfo[3];
-                this.Location = itemInfo[4];
-                this.Date = DateTime.Parse(itemInfo[5]);
+                Name = itemInfo[0];
+                Description = itemInfo[1];
+                ContactInfo = itemInfo[2];
+                Category = itemInfo[3];
+                Location = new Location(City: itemInfo[4], Country: "Lithuania");
+                Date = DateTime.Parse(itemInfo[5]);
+
                 
             }
             catch (Exception)
@@ -62,9 +67,22 @@ namespace BusinessLogic
 
             } 
         }
+
+        public Item(string Name, string Description, string ContactInfo, string Category, string Country, string City, DateTime Date)
+        {
+            this.Name = Name;
+            this.Description = Description;
+            this.ContactInfo = ContactInfo;
+            this.Category = Category;
+            Location = new Location(Country: Country, City: City);
+            this.Date = Date;
+
+            OriginalPoster = LocalData.CurentUserData.currentUser;
+        }
+
         public int CompareTo(object obj)
         {
             return Date.CompareTo(obj);
-        }               
+        } 
     }
 }
