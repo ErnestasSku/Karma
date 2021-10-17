@@ -6,7 +6,6 @@
         public void LoadData();
         public void AddData(T data);
         public void RemoveData(T data);
-
         public void RemoveDataAt(int index);
         
     }
