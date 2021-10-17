@@ -16,7 +16,7 @@ namespace BusinessLogic.LocalData
     /// and RetrieveUserData?
     public class CurentUserData
     {
-        User currentUser;
+        public static User currentUser { get; }
         public User Authenticate(string userName, string password)
         {
             var fileText = File.ReadAllText("users.csv").Split('\n');

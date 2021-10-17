@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Backend;
 
 namespace BusinessLogic
 {
@@ -17,6 +18,9 @@ namespace BusinessLogic
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public Location Location;
+
         public User(string _Name, string _LastName, string _UserName, string _Password)
         {
             Name = _Name;
@@ -24,10 +28,5 @@ namespace BusinessLogic
             UserName = _UserName;
             Password = _Password;
         }
-        //Stuff like House Adress, Phone number (they can also be optional if people don't want to give their data)
-
-        //Token might be useful for authentification stuff maybe? 
-        //string Token;
-
     }
 }
