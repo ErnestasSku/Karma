@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessLogic
+﻿namespace BusinessLogic
 {
     /// <summary>
     /// TODO: UserProfile will be a singleton of UserData? or maybe this is not even needed.
