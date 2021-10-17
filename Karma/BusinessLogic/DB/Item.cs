@@ -11,7 +11,6 @@ namespace BusinessLogic
         public string Name { get; set; }
         public string Description { get; set; }
         public string ContactInfo { get; set; }
-
         public string Category { get; set; }
         public Location Location { get; set; }
         public DateTime Date { get; set; }
@@ -47,6 +46,7 @@ namespace BusinessLogic
 
         public Item()
         {
+
         }
 
         public Item(string[] itemInfo)

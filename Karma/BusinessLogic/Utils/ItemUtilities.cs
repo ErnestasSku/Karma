@@ -34,7 +34,6 @@ namespace BusinessLogic.Utils
                 return comp;
 
             });
-
             return list;
         }
         public static SortType GetSortType(int selected)
@@ -46,8 +45,6 @@ namespace BusinessLogic.Utils
                 default:
                     return Item.SortType.Date;
             }
-
-            
         }
     }
 }
