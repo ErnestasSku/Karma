@@ -11,7 +11,9 @@ namespace Karma
         {
             InitializeComponent();
             categoryComboBox.DataSource = Enum.GetValues(typeof(Item.Categories));
-            locationComboBox.DataSource = Enum.GetValues(typeof(Item.Locations));
+            //Todo: by changing location, I break this thing. But there's no need to fix it 
+            // As we will be switching to another UI framwork
+            locationComboBox.DataSource = Enum.GetValues(typeof(Item.Categories));
 
         }
 

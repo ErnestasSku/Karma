@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Backend;
 
 namespace BusinessLogic
@@ -83,6 +84,15 @@ namespace BusinessLogic
         public int CompareTo(object obj)
         {
             return Date.CompareTo(obj);
-        } 
+        }
+        
+        public static void GetRecomendedMeetingLocations()
+        {
+            var querry = from t in ItemData.GetData().ItemList
+                         join r in TemporaryData.RecomendedLocations
+                         on t.Location.City equals r.City
+                        
+                         select new {t, r};
+        }
     }
 }
