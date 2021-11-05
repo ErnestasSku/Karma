@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using BusinessLogic;
-using BusinessLogic.Utils;
+using Backend;
+using Backend.Utils;
 using System.Collections.Generic;
 
 namespace Karma

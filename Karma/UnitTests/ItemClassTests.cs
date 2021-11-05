@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using BusinessLogic;
-using BusinessLogic.Utils;
+using Backend;
+using Backend.Utils;
 
 namespace UnitTests
 {

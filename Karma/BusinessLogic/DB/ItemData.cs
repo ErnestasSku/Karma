@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using BusinessLogic.Utils;
+using Backend.Utils;
 
-namespace BusinessLogic
+namespace Backend
 {
     /// <summary>
     /// All loaded items are saved in this class.

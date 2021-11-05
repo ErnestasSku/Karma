@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace BusinessLogic.Utils
+namespace Backend.Utils
 {
     public static class ValidationUtils
     {

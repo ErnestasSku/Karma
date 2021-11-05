@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace BusinessLogic.Utils
+namespace Backend.Utils
 {
     public static class Logger
     {

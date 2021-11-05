@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BusinessLogic.Utils
+namespace Backend.Utils
 {
     public static class StringUtils
     {

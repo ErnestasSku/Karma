@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using static BusinessLogic.Item;
+using static Backend.Item;
 
-namespace BusinessLogic.Utils
+namespace Backend.Utils
 {
     /// <summary>
     /// Item utilities class.
