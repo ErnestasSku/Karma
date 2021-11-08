@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileUI.TabbedPage1"
+            xmlns:local="clr-namespace:MobileUI.Views"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" 
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="DarkSeaGreen"
+            BarTextColor="Black"
+            SelectedTabColor="Black">
+    <!--Pages can be added as references or inline-->
+  <local:MainPage Title="Home" IconImageSource="icon_home.png"/>
+  <local:ItemDetailPage Title="Item Details" IconImageSource="icon_donate.png"/>
+  <local:MarketPage Title="Market" IconImageSource="icon_market.png"/>
+</TabbedPage>
