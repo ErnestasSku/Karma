@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using BusinessLogic.Utils;
+using Backend.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assert = NUnit.Framework.Assert;
 

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karma", "Karma\Karma.csproj", "{93A65E8E-3BDE-40FD-9512-B81082F490D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{02F34D2B-6CBC-4E8F-8C91-C3DE18300544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend", "BusinessLogic\Backend.csproj", "{02F34D2B-6CBC-4E8F-8C91-C3DE18300544}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7F97FE8E-904E-406A-9D6E-F646004F4F16}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileUI.iOS", "MobileUI\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileUI", "MobileUI\MobileUI\MobileUI.csproj", "{52954202-40F1-4F23-A765-C1825D894EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{DDE05438-3212-4E38-99B5-031021BF0204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBase", "DataBase\DataBase.csproj", "{DDE05438-3212-4E38-99B5-031021BF0204}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

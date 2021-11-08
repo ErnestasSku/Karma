@@ -1,6 +1,6 @@
 using Backend;
 
-namespace BusinessLogic
+namespace Backend
 {
     /// <summary>
     /// TODO: UserProfile will be a singleton of UserData? or maybe this is not even needed.

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace BusinessLogic.Utils
+namespace Backend.Utils
 {
     public class UserUtilities
     {

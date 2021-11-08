@@ -1,7 +1,7 @@
 ﻿using Backend;
 using System.Collections.Generic;
 
-namespace BusinessLogic
+namespace Backend
 {
     class TemporaryData
     {

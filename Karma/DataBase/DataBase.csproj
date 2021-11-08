@@ -18,7 +18,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\BusinessLogic\Backend.csproj" />
   </ItemGroup>
   
 </Project>

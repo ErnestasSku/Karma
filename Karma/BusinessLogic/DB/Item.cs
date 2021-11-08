@@ -2,7 +2,7 @@
 using System.Linq;
 using Backend;
 
-namespace BusinessLogic
+namespace Backend
 {
     /// <summary>
     /// Item template.

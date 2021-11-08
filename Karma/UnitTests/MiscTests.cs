@@ -1,6 +1,6 @@
 using NUnit.Framework;
-using BusinessLogic;
-using BusinessLogic.Utils;
+using Backend;
+using Backend.Utils;
 
 namespace UnitTests
 {

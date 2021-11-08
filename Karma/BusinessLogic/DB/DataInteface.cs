@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic
+﻿namespace Backend
 {
     interface DataInteface<T>
     {
