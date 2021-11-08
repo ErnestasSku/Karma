@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.IO;
 using Backend;
 using Xamarin.Essentials;
@@ -25,4 +25,4 @@ namespace DataBase.Services
             optionsBuilder.UseSqlite($"Filename={dbPath}");
         }
     }
-}
+}*/
