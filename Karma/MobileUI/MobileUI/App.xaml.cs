@@ -9,6 +9,7 @@ namespace MobileUI
         public App()
         {
             InitializeComponent();
+            //FOR DEBUGING VARIOUS PAGES, CHANGE < new ...Page(); > into required page to view it
             var FirstPage = new MainPage();
             Current.MainPage = new NavigationPage(FirstPage);
         }
