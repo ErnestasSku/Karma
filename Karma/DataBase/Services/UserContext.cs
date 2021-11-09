@@ -9,7 +9,7 @@ namespace DataBase.Services
 {
     public class UserContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
+        public DbSet<Backend.User> Users { get; set; }
 
         public UserContext()
         {

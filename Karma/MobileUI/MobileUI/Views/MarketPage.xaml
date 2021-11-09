@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MobileUI.Views.MarketPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:MobileUI.Models;assembly=MobileUI"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:viewmodels="clr-namespace:MobileUI.ViewModels"
+             x:Name="ItemPage"
+             x:DataType="viewmodels:MarketPageViewModel"
+             BackgroundColor="Gray">
+    <ContentPage.BindingContext>
+        <viewmodels:MarketPageViewModel/>
+    </ContentPage.BindingContext>
+    <ListView ItemsSource="{Binding Items}" 
+              BackgroundColor="Transparent"
+              HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:Item">
+                <ViewCell>
+                    <Grid Padding="10">
+                        <Frame BackgroundColor="Beige"
+                               CornerRadius="10">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding ImgSource}"
+                                       WidthRequest="50"
+                                       HeightRequest="50"
+                                       Aspect="AspectFill"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding Location}"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Label Text="Market"
+                       TextColor="Black"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </ListView.Header>
+        
+    </ListView>
+</ContentPage>

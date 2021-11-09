@@ -1,23 +1,26 @@
 ﻿
+using MobileUI.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace MobileUI
+namespace MobileUI.ViewModels
 {
     public class HomeViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Item> Items;
+        private ObservableCollection<Item> items;
 
-        public ObservableCollection<Item> items
+        public ObservableCollection<Item> Items
         {
-            get { return Items; }
-            set { Items = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("items"));
+            get { return items; }
+            set
+            {
+                items = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             }
         }
-            
+
 
         public HomeViewModel()
         {
@@ -26,20 +29,20 @@ namespace MobileUI
         }
         private void AddData()
         {
-            items.Add(new Item
+            Items.Add(new Item
             {
                 Name = "Table",
                 Location = "Vilnius",
                 ImgSource = "https://images.pexels.com/photos/279626/pexels-photo-279626.jpeg"
             });
 
-            items.Add(new Item
+            Items.Add(new Item
             {
                 Name = "Chair",
                 Location = "Kaunas",
                 ImgSource = "https://images.pexels.com/photos/2258083/pexels-photo-2258083.jpeg"
             });
-            items.Add(new Item
+            Items.Add(new Item
             {
                 Name = "Lamp",
                 Location = "Vievis",

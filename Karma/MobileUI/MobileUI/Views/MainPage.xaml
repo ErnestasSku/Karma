@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MobileUI"
-             x:Class="MobileUI.MainPage">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm1="clr-namespace:MobileUI.ViewModels"
+             x:Class="MobileUI.Views.MainPage">
     <ContentPage.BindingContext>
-        <vm:HomeViewModel/>
+        <vm1:HomeViewModel/>
     </ContentPage.BindingContext>
-    <StackLayout BackgroundColor="White">
+    <StackLayout BackgroundColor="white">
         <Label Text="Home" TextColor ="Black" FontSize="24" FontAttributes="Bold" Margin="15"></Label>
 
-        <CarouselView ItemsSource="{Binding items}" HeightRequest="260" PeekAreaInsets="100">
+        <CarouselView ItemsSource="{Binding Items}" HeightRequest="260" PeekAreaInsets="100">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
