@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileUI.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,8 @@ namespace MobileUI
         public App()
         {
             InitializeComponent();
-            var FirstPage = new MainPage();
-            Current.MainPage = new NavigationPage(FirstPage);
+            MainPage = new TabbedPage1();
+            //Current.MainPage = new NavigationPage(FirstPage);
         }
 
         protected override void OnStart()
