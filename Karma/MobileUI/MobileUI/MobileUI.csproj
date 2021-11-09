@@ -28,8 +28,6 @@
       <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
     </Compile>
 
-    <EmbeddedResource Update="ItemDetailPage.xaml">
-
     <EmbeddedResource Update="Views\ItemDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
