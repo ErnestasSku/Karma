@@ -10,8 +10,9 @@ namespace MobileUI
         public App()
         {
             InitializeComponent();
-            MainPage = new TabbedPage1();
-            //Current.MainPage = new NavigationPage(FirstPage);
+            //FOR DEBUGING VARIOUS PAGES, CHANGE < new ...Page(); > into required page to view it
+            var FirstPage = new MainPage();
+            Current.MainPage = new NavigationPage(FirstPage);
         }
 
         protected override void OnStart()
