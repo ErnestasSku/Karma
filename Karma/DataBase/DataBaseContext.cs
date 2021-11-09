@@ -17,8 +17,7 @@ namespace DataBase.Services
 
         public DataBaseContext()
         {
-            /* SQLitePCL.Batteries_V2.Init();
-             Database.EnsureCreated();*/
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,15 +26,6 @@ namespace DataBase.Services
                 .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
         }
 
-
-        //TODO: old method, might be needed in the future.
-        /*  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-          {
-
-              string dbPath = Path.Combine(FileSystem.AppDataDirectory, "MainDataBase.db");
-
-              optionsBuilder.UseSqlite($"Filename={dbPath}");
-          }*/
 
     }
 }

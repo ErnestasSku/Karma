@@ -1,49 +1,70 @@
-﻿using System;
-using System.IO;
-//using Backend; TODO: refactor backend
-using Xamarin.Essentials;
-using DataBase.Models;
+﻿using DataBase.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace DataBase.Services
 {
-  public class ItemService
+    public class ItemService
     {
+        /// <summary>
+        /// Gets connection to the DataBase.
+        /// </summary>
+        /// <returns></returns>
         private DataBaseContext getContext()
         {
-            /* string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "item.db3");`
-             return DataBaseContext(dbPath);*/
             return new DataBaseContext();
         }
 
+      
+        /// <summary>
+        /// Gets all items from DataBase.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<Item>> GetAllItems()
         {
-            var _dbContext = getContext();
-            var res = await _dbContext.Items.ToListAsync();
+            DataBaseContext _dbContext = getContext();
+            List<Item> res = await _dbContext.Items.ToListAsync();
             return res;
         }
 
-        public int InsertItem(Item obj)
+        /// <summary>
+        /// Updates a certain item in the DataBase.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public async Task<int> UpdateItem(Item obj)
         {
-            var _dbContext = getContext();
-            _dbContext.Items.Add(obj);
-            int c = _dbContext.SaveChanges();
-            return c;
+            DataBaseContext _dbContext = getContext();
+            _dbContext.Items.Update(obj);
+            int res = await _dbContext.SaveChangesAsync();
+            return res;
         }
 
         /// <summary>
-        /// TODO: Fix, error with ID.
+        /// Inserts a new item to the DataBase.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int InsertItem(Item obj)
+        {
+            DataBaseContext _dbContext = getContext();
+            _dbContext.Items.Add(obj);
+            int res = _dbContext.SaveChanges();
+            return res;
+        }
+
+        /// <summary>
+        /// Removes an item from the DataBase.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
         public int DeleteItem(Item obj)
         {
-            var _dbContext = getContext();
+            DataBaseContext _dbContext = getContext();
             _dbContext.Items.Remove(obj);
-            int c = _dbContext.SaveChanges();
-            return c;
+            int res = _dbContext.SaveChanges();
+            return res;
         }
     }
 }
