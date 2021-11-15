@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobileUI.Models;
+using MobileUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,18 @@ namespace MobileUI.Views
         public MarketPage()
         {
             InitializeComponent();
+
+        }
+        public async void Item_Tapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = ((ListView)sender).SelectedItem as Item;
+            if (item == null)
+                return;
+
+            ItemDetailPageViewModel.Name = item.Name;
+            ItemDetailPageViewModel.Description = item.Description;
+            ItemDetailPageViewModel.Img = item.ImgSource;
+            await ItemPage.Navigation.PushAsync(new ItemDetailPage());
         }
     }
 }

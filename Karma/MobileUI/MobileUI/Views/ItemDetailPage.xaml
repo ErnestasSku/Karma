@@ -1,30 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileUI.Views.ItemDetailPage">
+             x:Class="MobileUI.Views.ItemDetailPage"
+             x:Name="ItemDetailsPage">
     <ContentPage.Content>
         <Grid>
             <StackLayout VerticalOptions="FillAndExpand">
                 <Grid>
                     <Frame Padding="0" HeightRequest="450">
-                        <Image Source="https://images.pexels.com/photos/279626/pexels-photo-279626.jpeg" Aspect="AspectFill">
-
-                        </Image>
+                        <Image Source="{Binding Img}" Aspect="AspectFill"/>
                     </Frame>
                 </Grid>
-
                 <Grid VerticalOptions="FillAndExpand" Margin="0,-30,0,0">
                     <Frame CornerRadius="20">
                         <StackLayout>
-                            <Label Text="Name" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="15"></Label>
-                            <Label Text="Description" TextColor ="Black" FontSize="20" FontAttributes="Bold" Margin="15"></Label>
+                            <Label Text="{Binding Name}" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="15"/>
+                            <Label Text="{Binding Description}" TextColor ="Black" FontSize="20" FontAttributes="Bold" Margin="15"/>
                         </StackLayout>
                     </Frame>
                 </Grid>
-                
             </StackLayout>
-            
-            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

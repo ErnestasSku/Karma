@@ -1,7 +1,9 @@
-﻿using MobileUI.Views;
+﻿using MobileUI.Models;
+using MobileUI.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 
 namespace MobileUI
 {
@@ -11,8 +13,11 @@ namespace MobileUI
         {
             InitializeComponent();
             //FOR DEBUGING VARIOUS PAGES, CHANGE < new ...Page(); > into required page to view it
-            var FirstPage = new MainPage();
-            Current.MainPage = new NavigationPage(FirstPage);
+            Item.Items = new MvvmHelpers.ObservableRangeCollection<Item>();
+            Item.AddData(Item.Items);
+            MainPage = new TabbedPage1();
+            
+            //Current.MainPage = new NavigationPage(FirstPage);
         }
 
         protected override void OnStart()

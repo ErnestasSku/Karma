@@ -9,7 +9,20 @@
             BarTextColor="Black"
             SelectedTabColor="Black">
     <!--Pages can be added as references or inline-->
-  <local:MainPage Title="Home" IconImageSource="icon_home.png"/>
-  <local:ItemDetailPage Title="Item Details" IconImageSource="icon_donate.png"/>
-  <local:MarketPage Title="Market" IconImageSource="icon_market.png"/>
+    <NavigationPage Title="Home" IconImageSource="icon_home.png" >
+        <x:Arguments>
+            <local:MainPage/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Market" IconImageSource="icon_market.png">
+        <x:Arguments>
+            <local:MarketPage/>
+        </x:Arguments>
+    </NavigationPage>
+
+    <local:LogInPage Title="Account" IconImageSource="icon_market.png"/>
+    <local:ForgotPasswordPage Title="Account" IconImageSource="icon_market.png"/>
+    <local:RegisterPage Title="Account" IconImageSource="icon_market.png"/>
 </TabbedPage>
+    
+  

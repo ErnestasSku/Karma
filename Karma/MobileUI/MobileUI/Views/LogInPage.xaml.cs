@@ -1,63 +1,51 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileUI
+namespace MobileUI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentPage
+    public partial class LogInPage : ContentPage
     {
         Label UsernameLabel;
-        Label EmailLabel;
         Label PasswordLabel;
-        Label RepeatLabel;
         Entry UsernameEntry;
-        Entry EmailEntry;
         Entry PasswordEntry;
-        Entry RepeatEntry;
-        Button RegisterButton;
-        public RegisterPage()
+        Label ForgotLink;
+        Button LogInButton;
+        public LogInPage()
         {
+            BackgroundColor = Color.White;
             UsernameLabel = new Label
             {
-                Text = "Enter your future username: ",
-                FontSize = 16
-            };
-            EmailLabel = new Label
-            {
-                Text = "Enter your email address: ",
-                FontSize = 16
+                Text = "Username",
+                FontSize = 24
             };
             PasswordLabel = new Label
             {
-                Text = "Enter your password: ",
-                FontSize = 16
-            };
-            RepeatLabel = new Label
-            {
-                Text = "Repeat your password: ",
-                FontSize = 16
+                Text = "Password",
+                FontSize = 24
             };
             UsernameEntry = new Entry
             {
-                MaxLength = 20
-            };
-            EmailEntry = new Entry
-            {
-                MaxLength = 20
+                MaxLength = 20,
+                FontSize = 28
             };
             PasswordEntry = new Entry
             {
                 MaxLength = 16,
+                FontSize = 28,
                 IsPassword = true
             };
-            RepeatEntry = new Entry
+            ForgotLink = new Label
             {
-                MaxLength = 16,
-                IsPassword = true
+                Text = "Forgot password?",
+                TextColor = Color.Blue,
+                TextDecorations = TextDecorations.Underline,
+                FontSize = 16
             };
-            RegisterButton = new Button
+            LogInButton = new Button
             {
-                Text = "Register",
+                Text = "Log in",
                 FontSize = 24,
                 TextColor = Color.White,
                 BackgroundColor = Color.Blue
@@ -75,34 +63,28 @@ namespace MobileUI
                 {
                     new RowDefinition { Height = new GridLength (0.3, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength (0.8, GridUnitType.Star) },
-
+                    new RowDefinition { Height = new GridLength (0.3, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength (0.3, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength (0.8, GridUnitType.Star) },
-
-                    new RowDefinition { Height = new GridLength (0.3, GridUnitType.Star) },
-                    new RowDefinition { Height = new GridLength (0.8, GridUnitType.Star) },
-
-                    new RowDefinition { Height = new GridLength (0.3, GridUnitType.Star) },
-                    new RowDefinition { Height = new GridLength (0.8, GridUnitType.Star) },
-
                     new RowDefinition { Height = new GridLength (0.7, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength (0.3, GridUnitType.Star) }
                 }
             };
 
+            //TODO FINISH TAP EVENT
+            var ForgotTap = new TapGestureRecognizer();
+            ForgotTap.Tapped += (s,e) =>
+            {
+                //TODO LINK TO FORGOT FORM
+            };
+            ForgotLink.GestureRecognizers.Add(ForgotTap);
+
             grid.Children.Add(UsernameLabel, 0, 0);
             grid.Children.Add(UsernameEntry, 0, 1);
-
-            grid.Children.Add(EmailLabel, 0, 2);
-            grid.Children.Add(EmailEntry, 0, 3);
-
-            grid.Children.Add(PasswordLabel, 0, 4);
-            grid.Children.Add(PasswordEntry, 0, 5);
-
-            grid.Children.Add(RepeatLabel, 0, 6);
-            grid.Children.Add(RepeatEntry, 0, 7);
-
-            grid.Children.Add(RegisterButton, 0, 8);
-
+            grid.Children.Add(PasswordLabel, 0, 3);
+            grid.Children.Add(PasswordEntry, 0, 4);
+            grid.Children.Add(LogInButton, 0, 5);
+            grid.Children.Add(ForgotLink, 0, 6);
             Content = grid;
         }
     }

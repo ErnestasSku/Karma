@@ -13,7 +13,9 @@
     </ContentPage.BindingContext>
     <ListView ItemsSource="{Binding Items}" 
               BackgroundColor="Transparent"
-              HasUnevenRows="True">
+              HasUnevenRows="True"
+              ItemTapped="Item_Tapped">
+        
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Item">
                 <ViewCell>

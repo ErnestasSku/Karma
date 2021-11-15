@@ -1,24 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
+using MobileUI.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MobileUI.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
     {
+        
         public ItemDetailPage()
         {
             InitializeComponent();
+            BindingContext = this;
         }
-        public void OnBackPressed()
+        public string Name
         {
-            App.Current.MainPage.Navigation.PopAsync();
+            get => ItemDetailPageViewModel.Name;
         }
+        public string Description
+        {
+            get => ItemDetailPageViewModel.Description;
+        }
+        public string Img
+        {
+            get => ItemDetailPageViewModel.Img;
+        }
+
     }
 }
