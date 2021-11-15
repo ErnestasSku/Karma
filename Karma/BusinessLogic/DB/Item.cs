@@ -78,7 +78,7 @@ namespace Backend
             Location = new Location(Country: Country, City: City);
             this.Date = Date;
 
-            OriginalPoster = LocalData.CurentUserData.currentUser;
+            //OriginalPoster = LocalData.CurentUserData.currentUser;
         }
 
         public int CompareTo(object obj)
@@ -86,13 +86,13 @@ namespace Backend
             return Date.CompareTo(obj);
         }
         
-        public static void GetRecomendedMeetingLocations()
+        /*public static void GetRecomendedMeetingLocations()
         {
             var querry = from t in ItemData.GetData().ItemList
                          join r in TemporaryData.RecomendedLocations
                          on t.Location.City equals r.City
                         
                          select new {t, r};
-        }
+        }*/
     }
 }
