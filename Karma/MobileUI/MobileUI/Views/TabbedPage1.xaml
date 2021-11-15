@@ -19,10 +19,11 @@
             <local:MarketPage/>
         </x:Arguments>
     </NavigationPage>
-
-    <local:LogInPage Title="Account" IconImageSource="icon_market.png"/>
-    <local:ForgotPasswordPage Title="Account" IconImageSource="icon_market.png"/>
-    <local:RegisterPage Title="Account" IconImageSource="icon_market.png"/>
+    <NavigationPage Title="Account" IconImageSource="icon_account.png">
+        <x:Arguments>
+            <local:AccountPage/>
+        </x:Arguments>
+    </NavigationPage>
 </TabbedPage>
     
   
