@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using DataBase.Models;
+using DataBase.Services;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MobileUI.Views
@@ -6,6 +8,11 @@ namespace MobileUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterPage : ContentPage
     {
+        string userName;
+        string email;
+        string password;
+        string repeatedPassword;
+
         Label UsernameLabel;
         Label EmailLabel;
         Label PasswordLabel;
@@ -41,20 +48,24 @@ namespace MobileUI.Views
             {
                 MaxLength = 20
             };
+            UsernameEntry.TextChanged += UsernameEntry_TextChanged;
             EmailEntry = new Entry
             {
                 MaxLength = 20
             };
+            EmailEntry.TextChanged += EmailEntry_TextChanged;
             PasswordEntry = new Entry
             {
                 MaxLength = 16,
                 IsPassword = true
             };
+            PasswordEntry.TextChanged += PasswordEntry_TextChanged;
             RepeatEntry = new Entry
             {
                 MaxLength = 16,
                 IsPassword = true
             };
+            RepeatEntry.TextChanged += RepeatEntry_TextChanged;
             RegisterButton = new Button
             {
                 Text = "Register",
@@ -62,6 +73,7 @@ namespace MobileUI.Views
                 TextColor = Color.White,
                 BackgroundColor = Color.Blue
             };
+            RegisterButton.Clicked += RegisterButton_Clicked;
 
             var grid = new Grid
             {
@@ -104,6 +116,37 @@ namespace MobileUI.Views
             grid.Children.Add(RegisterButton, 0, 8);
 
             Content = grid;
+        }
+
+        private void RegisterButton_Clicked(object sender, System.EventArgs e)
+        {
+            if (password.Equals(repeatedPassword))
+            {
+                User newUser = new User(userName, password, email);
+                UserService service = new UserService();
+                service.InsertUser(newUser);
+                Navigation.PopAsync();
+            }
+       }
+
+        private void EmailEntry_TextChanged(object sender, System.EventArgs e)
+        {
+            email = ((Entry)sender).Text;
+        }
+
+        private void RepeatEntry_TextChanged(object sender, System.EventArgs e)
+        {
+            repeatedPassword = ((Entry)sender).Text;
+        }
+
+        private void PasswordEntry_TextChanged(object sender, System.EventArgs e)
+        {
+            password = ((Entry)sender).Text;
+        }
+
+        private void UsernameEntry_TextChanged(object sender, System.EventArgs e)
+        {
+            userName = ((Entry)sender).Text;
         }
     }
 }

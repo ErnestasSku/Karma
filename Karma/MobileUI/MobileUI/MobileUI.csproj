@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BusinessLogic\Backend.csproj" />
+    <ProjectReference Include="..\..\DataBase\DataBase.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,9 @@
     <Compile Update="Views\ForgotPasswordPage.xaml.cs">
       <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
     </Compile>
+    <EmbeddedResource Update="Views\DebugPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
 
     <EmbeddedResource Update="Views\ItemDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
