@@ -1,4 +1,3 @@
 ## Karma
 
-This is a university project made in software engineering course. 
-Original authors of this project are: Ernestas Škudzinskas, Tadas Verbyla, Justas Stonkus
+And old branch where Windows form project still exists.
