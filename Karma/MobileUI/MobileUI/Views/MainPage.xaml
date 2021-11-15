@@ -2,19 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm1="clr-namespace:MobileUI.ViewModels"
-             x:Class="MobileUI.Views.MainPage">
+             x:Class="MobileUI.Views.MainPage"
+             x:Name="HomePage"
+             BackgroundColor="#C3DBC3">
     <ContentPage.BindingContext>
         <vm1:HomeViewModel/>
     </ContentPage.BindingContext>
-    <StackLayout BackgroundColor="white">
-        <Label Text="Home" TextColor ="Black" FontSize="24" FontAttributes="Bold" Margin="15"></Label>
-
-        <CarouselView ItemsSource="{Binding Items}" HeightRequest="260" PeekAreaInsets="100">
+    <StackLayout BackgroundColor="#C3DBC3">
+        <CarouselView ItemsSource="{Binding Items}"
+                      HeightRequest="260" 
+                      PeekAreaInsets="100" 
+                      Loop="False"
+                      IsBounceEnabled="True"
+                      CurrentItemChanged="OnCurrentItemChanged">
             <CarouselView.ItemTemplate>
+                
                 <DataTemplate>
                     <StackLayout>
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="Item_Tapped"/>
+                            <TapGestureRecognizer Tapped="Item_Tapped"  />
                         </StackLayout.GestureRecognizers>
                         <Frame HeightRequest="240" WidthRequest="180" 
                                BackgroundColor="White" Padding="0"
@@ -28,41 +34,38 @@
                                 </StackLayout>
                                 <StackLayout Margin="0,0,0,5">
                                     <Label Text="{Binding Name}" TextColor ="Black" FontSize="18"
-                           FontAttributes="Bold" Margin="15,0,0,-5" 
-                           VerticalOptions="EndAndExpand">
+                                           FontAttributes="Bold" Margin="15,0,0,-5" 
+                                           VerticalOptions="EndAndExpand">
                                     </Label>
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="https://www.pinclipart.com/picdir/big/347-3470877_map-pin-comments-map-pin-icon-png-clipart.png"
-                               HeightRequest="15" Margin="15,0,0,0"></Image>
+                                               HeightRequest="15" Margin="15,0,0,0"></Image>
                                         <Label Text="{Binding Location}" TextColor ="Black" FontSize="14"
-                           FontAttributes="Bold" Margin="0,0,0,0" 
-                           VerticalOptions="EndAndExpand">
+                                               FontAttributes="Bold" Margin="0,0,0,0" 
+                                               VerticalOptions="EndAndExpand">
                                         </Label>
-
                                     </StackLayout>
-
                                 </StackLayout>
                             </Grid>
                         </Frame>
-                    </StackLayout>
-                    
+                    </StackLayout>                    
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
 
         <StackLayout Margin="50">
             <Label Text="Maybe donate to these charities?" TextColor="Black" FontSize="24" HorizontalTextAlignment="Center"></Label>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <StackLayout WidthRequest="75">
-                    <ImageButton Source="https://www.palangostiltas.lt/cache/e1dd85c062e72d2fdf8bff94bcc933fd.jpg" HeightRequest="75" Aspect="AspectFill" ></ImageButton>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" BackgroundColor ="Transparent">
+                <StackLayout WidthRequest="75" BackgroundColor ="Transparent">
+                    <ImageButton BackgroundColor="Transparent" Source="circle.png" HeightRequest="75" Aspect="AspectFill" ></ImageButton>
                     <Label Text="Maisto bankas" TextColor="DarkGray" FontSize="10" HorizontalTextAlignment="Center"></Label>
                 </StackLayout>
                 <StackLayout WidthRequest="75">
-                    <ImageButton Source="https://rekvizitai.vz.lt/photos/angelo_akys-690.jpg" HeightRequest="75"  Aspect="AspectFill"></ImageButton>
+                    <ImageButton BackgroundColor="Transparent" Source="circle.png" HeightRequest="75"  Aspect="AspectFill"></ImageButton>
                     <Label Text="Angelo akys" TextColor="DarkGray" FontSize="10" HorizontalTextAlignment="Center"></Label>
                 </StackLayout>
                 <StackLayout WidthRequest="75">
-                    <ImageButton Source="https://lh3.googleusercontent.com/proxy/IYx-4jw6yVVjqO8Tl7L_F4AYZZG-2WgcXzEYIjxz25xAqZ0pa4EQEyjVReMQuKupK7gI-TY7fxK07YsR_Jau-1JWMMq6BpjuhecXXOR3dUsHEqbt3PHD" HeightRequest="75"  Aspect="AspectFill"></ImageButton>
+                    <ImageButton BackgroundColor="Transparent" Source="circle.png" HeightRequest="75"  Aspect="AspectFill"></ImageButton>
                     <Label Text="Caritas" TextColor="DarkGray" FontSize="10" HorizontalTextAlignment="Center"></Label>
                 </StackLayout>
             </StackLayout>

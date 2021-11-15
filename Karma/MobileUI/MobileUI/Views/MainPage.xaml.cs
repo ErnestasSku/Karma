@@ -1,24 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MobileUI.Models;
+using MobileUI.ViewModels;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MobileUI.Views
 {
     public partial class MainPage : ContentPage
     {
+        public Item currentItem = Item.Items.First();
+        public Item previousItem;
+        
         public MainPage()
         {
             InitializeComponent();
+            
         }
-        private void Item_Tapped(object sender, System.EventArgs e)
+        private async void Item_Tapped(object sender, System.EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new ItemDetailPage());
-
-            //throw new Exception();
+            ItemDetailPageViewModel.Name = currentItem.Name;
+            ItemDetailPageViewModel.Description = currentItem.Description;
+            ItemDetailPageViewModel.Img = currentItem.ImgSource;
+            await HomePage.Navigation.PushAsync(new ItemDetailPage()); 
+        }
+        void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
+        {
+            previousItem = e.PreviousItem as Item;
+            currentItem = e.CurrentItem as Item;
         }
     }
 }
