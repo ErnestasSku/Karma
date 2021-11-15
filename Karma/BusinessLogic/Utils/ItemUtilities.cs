@@ -38,16 +38,6 @@ namespace Backend.Utils
         }
         public static SortType GetSortType(int selected)
         {
-<<<<<<< HEAD
-            //switch (selected)
-            //{
-            //    case < 2:
-            //        return Item.SortType.Name;
-            //    default:
-            //        return Item.SortType.Date;
-            //}
-            return Item.SortType.Name;
-=======
             switch (selected)
             {
                 case 2:
@@ -55,7 +45,6 @@ namespace Backend.Utils
                 default:
                     return Item.SortType.Date;
             }
->>>>>>> 3d0abf4 (Add item service.)
         }
     }
 }

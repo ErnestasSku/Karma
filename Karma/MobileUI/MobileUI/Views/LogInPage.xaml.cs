@@ -12,6 +12,10 @@ namespace MobileUI.Views
         Entry PasswordEntry;
         Label ForgotLink;
         Button LogInButton;
+
+        string userName { get; set; }
+        string password { get; set; }
+
         public LogInPage()
         {
             BackgroundColor = Color.White;
@@ -30,12 +34,14 @@ namespace MobileUI.Views
                 MaxLength = 20,
                 FontSize = 28
             };
+            UsernameEntry.Completed += UsernameEntry_Completed;
             PasswordEntry = new Entry
             {
                 MaxLength = 16,
                 FontSize = 28,
                 IsPassword = true
             };
+            PasswordEntry.Completed += PasswordEntry_Completed;
             ForgotLink = new Label
             {
                 Text = "Forgot password?",
@@ -50,6 +56,7 @@ namespace MobileUI.Views
                 TextColor = Color.White,
                 BackgroundColor = Color.Blue
             };
+            LogInButton.Clicked += LogInButton_Clicked;
 
             var grid = new Grid
             {
@@ -86,6 +93,21 @@ namespace MobileUI.Views
             grid.Children.Add(LogInButton, 0, 5);
             grid.Children.Add(ForgotLink, 0, 6);
             Content = grid;
+        }
+
+        private void LogInButton_Clicked(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void PasswordEntry_Completed(object sender, System.EventArgs e)
+        {
+            password = ((Entry)sender).Text;
+        }
+
+        private void UsernameEntry_Completed(object sender, System.EventArgs e)
+        {
+            userName = ((Entry)sender).Text;
         }
     }
 }
