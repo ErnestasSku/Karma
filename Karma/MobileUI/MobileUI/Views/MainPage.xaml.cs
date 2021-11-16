@@ -1,5 +1,6 @@
 ﻿using MobileUI.Models;
 using MobileUI.ViewModels;
+using System;
 using System.Linq;
 using Xamarin.Forms;
 
@@ -15,7 +16,7 @@ namespace MobileUI.Views
             InitializeComponent();
             
         }
-        private async void Item_Tapped(object sender, System.EventArgs e)
+        private async void Item_Tapped(object sender, EventArgs e)
         {
             ItemDetailPageViewModel.Name = currentItem.Name;
             ItemDetailPageViewModel.Description = currentItem.Description;

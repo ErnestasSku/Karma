@@ -25,6 +25,7 @@ namespace MobileUI.Views
             if (item == null)
                 return;
 
+            ((ListView)sender).SelectedItem = null;
             ItemDetailPageViewModel.Name = item.Name;
             ItemDetailPageViewModel.Description = item.Description;
             ItemDetailPageViewModel.Img = item.ImgSource;
