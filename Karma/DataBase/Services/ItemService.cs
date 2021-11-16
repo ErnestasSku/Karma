@@ -42,6 +42,12 @@ namespace DataBase.Services
             return res;
         }
 
+        public async Task<Item> GetSpecificItem(int id)
+        {
+            DataBaseContext _dbContext = getContext();
+            return await _dbContext.Items.FindAsync(id);
+        }
+
         /// <summary>
         /// Updates a certain item in the DataBase.
         /// </summary>
