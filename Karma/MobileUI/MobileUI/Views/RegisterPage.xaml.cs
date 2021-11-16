@@ -123,7 +123,7 @@ namespace MobileUI.Views
             if (password.Equals(repeatedPassword))
             {
                 User newUser = new User(userName, password, email);
-                UserService service = new UserService();
+                UserService service = UserService.Instance;
                 service.InsertUser(newUser);
                 Navigation.PopAsync();
             }
