@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileUI.Views.StartPage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Frame HeightRequest="230" 
+                       BackgroundColor="DarkSeaGreen"
+                       HorizontalOptions="FillAndExpand">
+                    <Image Source="icon_karma.png"
+                           ScaleX="0.5"
+                           ScaleY="0.5"
+                           Margin="0,-20,0,0"/>
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="15,200,15,0">
+                <Frame CornerRadius="15"
+                       HasShadow="True"
+                       HeightRequest="280"
+                       HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="SIGN IN" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Margin="0,25,0,0">
+                            <Frame BackgroundColor="Transparent" 
+                                   BorderColor="DarkGreen" 
+                                   CornerRadius="50" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   Margin="0"
+                                   Padding="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="Transparent"
+                                           CornerRadius="50"
+                                           HeightRequest="25"
+                                           WidthRequest="25"
+                                           Margin="7,7,0,7"
+                                           Padding="0">
+                                        <Image Source="icon_account.png"/>
+                                    </Frame>
+                                    <Entry Placeholder="Username"
+                                           PlaceholderColor="DarkGreen"
+                                           TextColor="Black"
+                                           HorizontalOptions="FillAndExpand">
+                                    </Entry>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" 
+                                   BorderColor="DarkGreen" 
+                                   CornerRadius="50" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   Margin="0,10,0,0"
+                                   Padding="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BorderColor="Transparent"
+                                           CornerRadius="50"
+                                           HeightRequest="25"
+                                           WidthRequest="25"
+                                           Margin="7,7,0,7"
+                                           Padding="0">
+                                        <Image Source="icon_key.png"/>
+                                    </Frame>
+                                    <Entry Placeholder="Password"
+                                           IsPassword="True"
+                                           PlaceholderColor="DarkGreen"
+                                           TextColor="Black"
+                                           HorizontalOptions="FillAndExpand">
+                                    </Entry>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout Orientation="Horizontal"
+                                         BackgroundColor="Transparent">
+                                <Label Text="Forgot password?"
+                                       TextColor="DarkBlue"
+                                       TextDecorations="Underline"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="EndAndExpand"
+                                       HorizontalTextAlignment="End"/>
+                            </StackLayout>
+                            <Button BackgroundColor="DarkSeaGreen"
+                                    CornerRadius="50"
+                                    Margin="0,0,0,0"
+                                    Text="LOG IN"
+                                    FontSize="Medium"/>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Label Text="Not a user?"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Sign up!"
+                                       TextColor="DarkBlue"
+                                       TextDecorations="Underline"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -15,7 +15,7 @@ namespace MobileUI
             //FOR DEBUGING VARIOUS PAGES, CHANGE < new ...Page(); > into required page to view it
             Item.Items = new MvvmHelpers.ObservableRangeCollection<Item>();
             Item.AddData(Item.Items);
-            MainPage = new TabbedPage1();
+            MainPage = new StartPage();
             
             //Current.MainPage = new NavigationPage(FirstPage);
         }
