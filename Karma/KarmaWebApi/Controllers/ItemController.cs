@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace KarmaWebApi.Controllers
@@ -58,8 +59,29 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                itemService.InsertItem(value);
-                return Ok();
+                int res = itemService.InsertItem(value);
+                Email<Item> email = new Email<Item>();
+                email.EmailActionCompleted += (Item item) =>
+                {
+                    SmtpClient client = new SmtpClient();
+                    MailAddress from = new MailAddress("Karma@gmail.com");
+                    MailAddress to = new MailAddress(item.Poster.Email);
+                    MailMessage message = new MailMessage(from, to);
+                    message.Body = "Test message";
+                    message.BodyEncoding = System.Text.Encoding.UTF8;
+                    message.Subject = "Item posted";
+                    message.SubjectEncoding = System.Text.Encoding.UTF8;
+                    client.SendAsync(message, null);
+                };
+
+                if (res == 0)
+                {
+                    email.OnEmailActionCompleted(value);
+                    return Ok();
+                } else
+                {
+                    return NoContent();
+                }
             }
             catch (Exception ex)
             {
@@ -114,6 +136,8 @@ namespace KarmaWebApi.Controllers
 
             Items.Remove(item);*/
         }
+
+
 
     }
 }
