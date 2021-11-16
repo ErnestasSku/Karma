@@ -2,11 +2,24 @@
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System;
 
 namespace DataBase.Services
 {
     public class UserService
     {
+        private static readonly Lazy<UserService> instance = new Lazy<UserService>(() => new UserService());
+        private UserService()
+        { 
+
+        }
+        public static UserService Instance
+        {
+            get
+            {
+                return instance.Value;
+            }
+        }
         /// <summary>
         /// Gets connection to the DataBase.
         /// </summary>

@@ -2,11 +2,25 @@
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System;
 
 namespace DataBase.Services
 {
     public class ItemService
     {
+        private static readonly Lazy<ItemService> instance = new Lazy<ItemService>(delegate() { return new ItemService(); });
+        private ItemService()
+        { 
+
+        }
+        public static ItemService Instance
+        {
+            get
+            {
+                return instance.Value;
+            }
+        }
+
         /// <summary>
         /// Gets connection to the DataBase.
         /// </summary>
@@ -16,7 +30,7 @@ namespace DataBase.Services
             return new DataBaseContext();
         }
 
-      
+
         /// <summary>
         /// Gets all items from DataBase.
         /// </summary>
