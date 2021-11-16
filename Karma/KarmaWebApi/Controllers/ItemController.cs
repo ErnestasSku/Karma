@@ -17,7 +17,6 @@ namespace KarmaWebApi.Controllers
 
         public static ItemService itemService = ItemService.Instance;
 
-        public static List<Item> Items { get; } = new List<Item>();
 
         [HttpGet]
         public async Task<IEnumerable<Item>> Get()
@@ -80,7 +79,7 @@ namespace KarmaWebApi.Controllers
                     return Ok();
                 } else
                 {
-                    return NoContent();
+                    return BadRequest();
                 }
             }
             catch (Exception ex)
@@ -107,11 +106,7 @@ namespace KarmaWebApi.Controllers
                 Logger.Error("Error during Item API Put " + ex.Message);
                 return NoContent();
             }
-            
-            /*var item = Items.FirstOrDefault(c => c.ItemId == id);
-            if (item == null)
-                return;
-            item = value;*/
+
         }
 
         [HttpDelete("{id}")]
