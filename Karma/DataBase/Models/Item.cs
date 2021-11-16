@@ -18,6 +18,8 @@ namespace DataBase.Models
         //public Location Location { get; set; }
         public DateTime Date { get; set; }
 
+        public string Image { get; set; }
+
         public User Poster;
 
         public Item()
