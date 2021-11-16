@@ -15,7 +15,7 @@ namespace KarmaWebApi.Controllers
     public class ItemController : ControllerBase
     {
 
-        public static ItemService itemService = new ItemService();
+        public static ItemService itemService = ItemService.Instance;
 
         public static List<Item> Items { get; } = new List<Item>();
 

@@ -11,7 +11,7 @@ namespace KarmaWebApi.Controllers
     [ApiController]
     public class UserController
     {
-        public static UserService userService = new UserService();
+        //public static UserService userService = new UserService.Instance;
 
        
 
