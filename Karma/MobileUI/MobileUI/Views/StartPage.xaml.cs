@@ -16,5 +16,13 @@ namespace MobileUI.Views
         {
             InitializeComponent();
         }
+        private async void ForgotPassword_Tapped(object sender, EventArgs e)
+        {
+            await Startup.Navigation.PushAsync(new ForgotPasswordPage());
+        }
+        private async void SignUp_Tapped(object sender, EventArgs e)
+        {
+            await Startup.Navigation.PushAsync(new RegisterPage());
+        }
     }
 }
