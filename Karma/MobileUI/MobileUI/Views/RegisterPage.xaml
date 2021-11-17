@@ -43,7 +43,8 @@
                                     <Entry Placeholder="Username"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextChanged="UsernameEntry_TextChanged">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
@@ -65,7 +66,8 @@
                                     <Entry Placeholder="Email"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextChanged="EmailEntry_TextChanged">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
@@ -85,9 +87,11 @@
                                         <Image Source="icon_key.png"/>
                                     </Frame>
                                     <Entry Placeholder="Password"
+                                           IsPassword="True"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextChanged="PasswordEntry_TextChanged">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
@@ -110,7 +114,8 @@
                                            IsPassword="True"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextChanged="RepeatEntry_TextChanged">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
@@ -122,7 +127,8 @@
                                     CornerRadius="50"
                                     Margin="0,0,0,0"
                                     Text="SIGN UP"
-                                    FontSize="Medium"/>
+                                    FontSize="Medium"
+                                    Clicked="RegisterButton_Clicked"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

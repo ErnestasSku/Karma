@@ -24,5 +24,10 @@ namespace MobileUI.Views
         {
             await Startup.Navigation.PushAsync(new RegisterPage());
         }
+
+        private void LogIn_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new TabbedPage1();
+        }
     }
 }

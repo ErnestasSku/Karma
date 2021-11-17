@@ -88,7 +88,8 @@
                                     CornerRadius="50"
                                     Margin="0,0,0,0"
                                     Text="LOG IN"
-                                    FontSize="Medium"/>
+                                    FontSize="Medium"
+                                    Clicked="LogIn_Clicked"/>
                             <StackLayout Orientation="Horizontal"
                                          HorizontalOptions="CenterAndExpand">
                                 <Label Text="Not a user?"
