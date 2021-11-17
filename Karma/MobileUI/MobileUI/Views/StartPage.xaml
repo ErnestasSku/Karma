@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileUI.Views.RegisterPage"
-             BackgroundColor="White">
+             x:Class="MobileUI.Views.StartPage"
+             BackgroundColor="White"
+             x:Name="Startup">
     <ContentPage.Content>
         <Grid>
             <StackLayout>
@@ -18,11 +19,11 @@
             <StackLayout Margin="15,200,15,0">
                 <Frame CornerRadius="15"
                        HasShadow="True"
-                       HeightRequest="380"
+                       HeightRequest="280"
                        HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="REGISTER" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+                            <Label Text="SIGN IN" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Margin="0,25,0,0">
                             <Frame BackgroundColor="Transparent" 
@@ -43,31 +44,7 @@
                                     <Entry Placeholder="Username"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand"
-                                           TextChanged="UsernameEntry_TextChanged">
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="Transparent" 
-                                   BorderColor="DarkGreen" 
-                                   CornerRadius="50" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   Margin="0,10,0,0"
-                                   Padding="0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BorderColor="Transparent"
-                                           CornerRadius="50"
-                                           HeightRequest="25"
-                                           WidthRequest="25"
-                                           Margin="7,7,0,7"
-                                           Padding="0">
-                                        <Image Source="icon_email.png"/>
-                                    </Frame>
-                                    <Entry Placeholder="Email"
-                                           PlaceholderColor="DarkGreen"
-                                           TextColor="Black"
-                                           HorizontalOptions="FillAndExpand"
-                                           TextChanged="EmailEntry_TextChanged">
+                                           HorizontalOptions="FillAndExpand">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
@@ -90,45 +67,43 @@
                                            IsPassword="True"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand"
-                                           TextChanged="PasswordEntry_TextChanged">
-                                    </Entry>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="Transparent" 
-                                   BorderColor="DarkGreen" 
-                                   CornerRadius="50" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   Margin="0,10,0,0"
-                                   Padding="0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BorderColor="Transparent"
-                                           CornerRadius="50"
-                                           HeightRequest="25"
-                                           WidthRequest="25"
-                                           Margin="7,7,0,7"
-                                           Padding="0">
-                                        <Image Source="icon_key.png"/>
-                                    </Frame>
-                                    <Entry Placeholder="Repeat Password"
-                                           IsPassword="True"
-                                           PlaceholderColor="DarkGreen"
-                                           TextColor="Black"
-                                           HorizontalOptions="FillAndExpand"
-                                           TextChanged="RepeatEntry_TextChanged">
+                                           HorizontalOptions="FillAndExpand">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
                             <StackLayout Orientation="Horizontal"
                                          BackgroundColor="Transparent">
-                                <Label/>
+                                <Label Text="Forgot password?"
+                                       TextColor="DarkBlue"
+                                       TextDecorations="Underline"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="EndAndExpand"
+                                       HorizontalTextAlignment="End">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ForgotPassword_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </StackLayout>
                             <Button BackgroundColor="DarkSeaGreen"
                                     CornerRadius="50"
                                     Margin="0,0,0,0"
-                                    Text="SIGN UP"
+                                    Text="LOG IN"
                                     FontSize="Medium"
-                                    Clicked="RegisterButton_Clicked"/>
+                                    Clicked="LogIn_Clicked"/>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Label Text="Not a user?"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Sign up!"
+                                       TextColor="DarkBlue"
+                                       TextDecorations="Underline"
+                                       HorizontalOptions="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SignUp_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
