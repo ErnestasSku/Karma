@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using DataBase.Models;
+using Newtonsoft.Json;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MobileUI.Views
@@ -97,9 +99,25 @@ namespace MobileUI.Views
 
         private void LogInButton_Clicked(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+           
+            var json = App.Client.GetStringAsync($"api/User/username={userName}");
+            //Move this to a task/something like that
+            json.Wait();
+            var user = JsonConvert.DeserializeObject<User>(json.Result);
+            
+            if (user.Password == password)
+            {
+                Navigation.PushModalAsync(new TabbedPage1());
+            }
+            else
+            {
+                //TODO:
+                //Wrong password
+            }
+           
+            
         }
-
+        
         private void PasswordEntry_Completed(object sender, System.EventArgs e)
         {
             password = ((Entry)sender).Text;

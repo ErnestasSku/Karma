@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,6 +24,7 @@ namespace MobileUI.Views
         {
             await Startup.Navigation.PushAsync(new RegisterPage());
         }
+
         private void LogIn_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage = new TabbedPage1();

@@ -1,4 +1,5 @@
-﻿using MobileUI.ViewModels;
+﻿
+using MobileUI.ViewModels;
 using Xamarin.Forms;
 
 namespace MobileUI.Views
@@ -23,5 +24,6 @@ namespace MobileUI.Views
         {
             get => ItemDetailPageViewModel.Img;
         }
+
     }
 }

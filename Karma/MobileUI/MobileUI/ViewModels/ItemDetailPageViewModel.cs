@@ -1,4 +1,8 @@
-﻿namespace MobileUI.ViewModels
+﻿using MobileUI.Models;
+
+
+
+namespace MobileUI.ViewModels
 {
 
     public class ItemDetailPageViewModel

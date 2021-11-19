@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Backend;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,7 +30,7 @@ namespace DataBase.Models
 
         public User(string userName, string password, string email)
         {
-            UserName = UserName;
+            UserName = userName;
             Password = password;
             Email = email;
         }
