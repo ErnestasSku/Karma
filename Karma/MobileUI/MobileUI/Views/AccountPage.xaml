@@ -18,17 +18,17 @@
                            VerticalOptions="Center"/>
                 </Frame>
                 <StackLayout>
-                    <Button Text="Login"
+                    <Button Text="Logout"
                             Margin="40,10,0,0"
-                            Clicked="Login_Tapped"/>
-                    <Button Text="Register"
+                            Clicked="Logout_Tapped"/>
+                    <Button Text="Change password"
                             WidthRequest="125"
                             Margin="40,0,0,0"
-                            Clicked="Register_Tapped"/>
+                            Clicked="ChangePassword_Tapped"/>
                     <Label Text="Forgot Password?"
                            TextColor="Blue"
                            TextDecorations="Underline"
-                           Margin="40,0,0,0">
+                           Margin="46,0,0,0">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="ForgotPassword_Tapped"/>
                         </Label.GestureRecognizers>
