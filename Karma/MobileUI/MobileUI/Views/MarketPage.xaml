@@ -32,8 +32,8 @@
                                            TextColor="Black"
                                            VerticalOptions="Center"
                                            FontSize="Large"/>
-                                    <!--TODO: make this a binding -->
-                                    <Label Text="Vievis"
+                                    <!--TODO: make this a back to a binding. Temporarily changed to Text since item do not have that data atm -->
+                                    <Label Text="City"
                                            TextColor="Black"
                                            VerticalOptions="Center"/>
                                 </StackLayout>
