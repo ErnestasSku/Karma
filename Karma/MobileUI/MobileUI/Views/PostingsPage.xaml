@@ -1,30 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="MobileUI.Views.MarketPage"
+﻿<ContentPage x:Class="MobileUI.Views.PostingsPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:DataBase.Models;assembly=DataBase"
-             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:MobileUI.Models;assembly=MobileUI"
              xmlns:viewmodels="clr-namespace:MobileUI.ViewModels"
-             x:Name="ItemPage"
-             x:DataType="viewmodels:MarketPageViewModel"
+             x:Name="ListingsPage"
+             x:DataType="viewmodels:PostingsViewModel"
              BackgroundColor="#C3DBC3">
     <ContentPage.BindingContext>
-        <viewmodels:MarketPageViewModel/>
+        <viewmodels:PostingsViewModel/>
     </ContentPage.BindingContext>
     <ListView ItemsSource="{Binding Items}" 
               BackgroundColor="Transparent"
-              HasUnevenRows="True"
-              ItemTapped="Item_Tapped">
-        
+              HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Item">
                 <ViewCell>
-                    
-                    <Grid Padding="10">
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete" Clicked="Delete_Clicked" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                        <Grid Padding="10">
                         <Frame BackgroundColor="Beige"
                                CornerRadius="10">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding Image}"
+                                <Image Source="{Binding ImgSource}"
                                        WidthRequest="50"
                                        HeightRequest="50"
                                        Aspect="AspectFill"/>
@@ -33,8 +31,7 @@
                                            TextColor="Black"
                                            VerticalOptions="Center"
                                            FontSize="Large"/>
-                                    <!--TODO: make this a back to a binding. Temporarily changed to Text since item do not have that data atm -->
-                                    <Label Text="City"
+                                    <Label Text="{Binding Location}"
                                            TextColor="Black"
                                            VerticalOptions="Center"/>
                                 </StackLayout>
@@ -48,12 +45,13 @@
         <ListView.Header>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
-                <Label Text="Market"
+                <Label Text="Your Listings"
+                       Margin="0,20,0,0"
                        TextColor="Black"
                        FontSize="Large"
                        HorizontalOptions="Center"/>
             </StackLayout>
         </ListView.Header>
-        
+
     </ListView>
 </ContentPage>

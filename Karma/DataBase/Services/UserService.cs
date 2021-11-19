@@ -93,6 +93,5 @@ namespace DataBase.Services
             int res = _dbContext.SaveChanges();
             return res;
         }
-
     }
 }

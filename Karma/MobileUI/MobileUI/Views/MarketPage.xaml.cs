@@ -31,8 +31,5 @@ namespace MobileUI.Views
             ItemDetailPageViewModel.Img = item.Image;
             await ItemPage.Navigation.PushAsync(new ItemDetailPage());
         }
-
-         
-
     }
 }
