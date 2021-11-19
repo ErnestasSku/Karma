@@ -30,7 +30,7 @@ namespace DataBase.Models
 
         public User(string userName, string password, string email)
         {
-            UserName = UserName;
+            UserName = userName;
             Password = password;
             Email = email;
         }
