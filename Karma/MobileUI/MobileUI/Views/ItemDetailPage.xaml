@@ -8,7 +8,7 @@
             <StackLayout VerticalOptions="FillAndExpand">
                 <Grid>
                     <Frame Padding="0" HeightRequest="450">
-                        <Image Source="{Binding Img}" Aspect="AspectFill"/>
+                        <Image Source="{Binding Image}" Aspect="AspectFill"/>
                     </Frame>
                 </Grid>
                 <Grid VerticalOptions="FillAndExpand" Margin="0,-30,0,0">

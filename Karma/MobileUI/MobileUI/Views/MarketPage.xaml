@@ -2,7 +2,7 @@
 <ContentPage x:Class="MobileUI.Views.MarketPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:MobileUI.Models;assembly=MobileUI"
+             xmlns:model="clr-namespace:DataBase.Models;assembly=DataBase"
              xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
              xmlns:viewmodels="clr-namespace:MobileUI.ViewModels"
              x:Name="ItemPage"
@@ -23,7 +23,7 @@
                         <Frame BackgroundColor="Beige"
                                CornerRadius="10">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding ImgSource}"
+                                <Image Source="{Binding Image}"
                                        WidthRequest="50"
                                        HeightRequest="50"
                                        Aspect="AspectFill"/>
@@ -32,7 +32,8 @@
                                            TextColor="Black"
                                            VerticalOptions="Center"
                                            FontSize="Large"/>
-                                    <Label Text="{Binding Location}"
+                                    <!--TODO: make this a binding -->
+                                    <Label Text="Vievis"
                                            TextColor="Black"
                                            VerticalOptions="Center"/>
                                 </StackLayout>
