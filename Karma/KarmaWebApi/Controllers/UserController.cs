@@ -29,7 +29,7 @@ namespace KarmaWebApi.Controllers
             }
         }
 
-        [HttpGet("{username}")]
+        [HttpGet("username={username}")]
         public async Task<ActionResult<User>> Get(string username)
         {
             try
@@ -53,10 +53,8 @@ namespace KarmaWebApi.Controllers
             try
             {
                 int res = userService.InsertUser(value);
-                if (res == 0)
-                    return Ok();
-                else
-                    return BadRequest();
+                return Ok();
+                
             }
             catch
             {

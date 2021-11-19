@@ -73,14 +73,15 @@ namespace KarmaWebApi.Controllers
                     client.SendAsync(message, null);
                 };
 
-                if (res == 0)
-                {
+          /*      if (res == 0)
+                {*/
                     email.OnEmailActionCompleted(value);
                     return Ok();
-                } else
+                /*}Š
+                else
                 {
                     return BadRequest();
-                }
+                }*/
             }
             catch (Exception ex)
             {
