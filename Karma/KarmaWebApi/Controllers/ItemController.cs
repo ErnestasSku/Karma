@@ -19,7 +19,7 @@ namespace KarmaWebApi.Controllers
 
 
         [HttpGet]
-        public async Task<IEnumerable<Item>> Get()
+        public async Task<IEnumerable<Item>> GetAll()
         {
             try
             {
@@ -36,7 +36,7 @@ namespace KarmaWebApi.Controllers
 
         // GET api/Items/0
         [HttpGet("{id}")]
-        public async Task<ActionResult<Item>> Get(int id)
+        public async Task<ActionResult<Item>> GetById(int id)
         {
             try
             { 
@@ -48,13 +48,11 @@ namespace KarmaWebApi.Controllers
                 return NotFound();
             }
             
-            
-            //return Items.FirstOrDefault(c => c.ItemId == id);
         }
 
         // POST api/Item
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Item value)
+        public async Task<IActionResult> PostNewItem([FromBody] Item value)
         {
             try
             {
@@ -63,33 +61,33 @@ namespace KarmaWebApi.Controllers
                 email.EmailActionCompleted += (Item item) =>
                 {
                     SmtpClient client = new SmtpClient();
-                    MailAddress from = new MailAddress("Karma@gmail.com");
-                    MailAddress to = new MailAddress(item.Poster.Email);
+                    MailAddress from = new MailAddress("KarmaTeam@noreply.com");
+                    MailAddress to = new MailAddress("ernis2580@gmail.com");
+                    // MailAddress to = new MailAddress(item.Poster.Email);
                     MailMessage message = new MailMessage(from, to);
                     message.Body = "Test message";
                     message.BodyEncoding = System.Text.Encoding.UTF8;
-                    message.Subject = "Item posted";
+                    message.Subject = "Test message";
                     message.SubjectEncoding = System.Text.Encoding.UTF8;
+                    
+                    //client.Host = "smtp.gmail.com";
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
                     client.SendAsync(message, null);
                 };
 
-          /*      if (res == 0)
-                {*/
-                    email.OnEmailActionCompleted(value);
+                    // TODO: Need to verify credentials.
+                    //email.OnEmailActionCompleted(value);
                     return Ok();
-                /*}Š
-                else
-                {
-                    return BadRequest();
-                }*/
+
             }
             catch (Exception ex)
             {
                 Logger.Error("Error during Item API POST " + ex.Message);
-                return Forbid();
+                return BadRequest();
             }
             
-            //Items.Add(value);
+
         }
 
         // PUT api/Item
@@ -111,7 +109,7 @@ namespace KarmaWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteById(int id)
         {
             try
             {
@@ -126,11 +124,6 @@ namespace KarmaWebApi.Controllers
                 return NotFound();
             }
 
-            /*var item = Items.FirstOrDefault(c => c.ItemId == id);
-            if (item == null)
-                return;
-
-            Items.Remove(item);*/
         }
 
 
