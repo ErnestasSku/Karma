@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using Backend;
 using Backend.Utils;
 
 namespace UnitTests
@@ -9,10 +8,8 @@ namespace UnitTests
         [SetUp]
         public void Setup()
         {
+
         }
-
-
-    
 
         [Test]
         public void LoggerTest()
@@ -21,7 +18,5 @@ namespace UnitTests
             Logger.Warning("Test Warning");
             Logger.Info("Test Info");
         }
-
-     
     }
 }

@@ -13,7 +13,6 @@ namespace UnitTests
         {
 
         }
-
         public List<Item> GetMockItems1()
         {
             List<Item> mockList = new List<Item>();
@@ -44,7 +43,6 @@ namespace UnitTests
                     Assert.Fail();
             }
             Assert.Pass();
-
         }
 
         [Test]
@@ -65,7 +63,6 @@ namespace UnitTests
                     Assert.Fail();
             }
             Assert.Pass();
-
         }
 
         [Test]
@@ -86,7 +83,6 @@ namespace UnitTests
                     Assert.Fail();
             }
             Assert.Pass();
-
         }
 
         [Test]
@@ -107,8 +103,6 @@ namespace UnitTests
                     Assert.Fail();
             }
             Assert.Pass();
-
         }
-
     }
 }

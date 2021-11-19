@@ -1,9 +1,6 @@
 ﻿using MobileUI.Models;
 using MobileUI.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 
 namespace MobileUI
 {
@@ -16,20 +13,19 @@ namespace MobileUI
             Item.Items = new MvvmHelpers.ObservableRangeCollection<Item>();
             Item.AddData(Item.Items);
             MainPage = new NavigationPage(new StartPage());
-            
             //Current.MainPage = new NavigationPage(FirstPage);
         }
-
         protected override void OnStart()
         {
-        }
 
+        }
         protected override void OnSleep()
         {
-        }
 
+        }
         protected override void OnResume()
         {
+
         }
     }
 }

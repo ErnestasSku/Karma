@@ -5,13 +5,13 @@ namespace Backend.Utils
 {
     class HashingUtilities
     {
-        public String CreateSalt(int size)
-        {
-            var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
-            var buff = new byte[size];
-            rng.GetBytes(buff);
-            return Convert.ToBase64String(buff);
-        }
+            public String CreateSalt(int size)
+            {
+                var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+                var buff = new byte[size];
+                rng.GetBytes(buff);
+                return Convert.ToBase64String(buff);
+            }
         public String GenerateSHA256Hash(String input, String salt)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input + salt);
