@@ -16,5 +16,10 @@ namespace MobileUI.Views
         {
             InitializeComponent();
         }
+
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

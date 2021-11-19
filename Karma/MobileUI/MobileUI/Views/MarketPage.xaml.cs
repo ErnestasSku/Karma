@@ -25,5 +25,10 @@ namespace MobileUI.Views
             ItemDetailPageViewModel.Img = item.ImgSource;
             await ItemPage.Navigation.PushAsync(new ItemDetailPage());
         }
+
+        private void MenuItem_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,6 +19,7 @@
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Item">
                 <ViewCell>
+                    
                     <Grid Padding="10">
                         <Frame BackgroundColor="Beige"
                                CornerRadius="10">
