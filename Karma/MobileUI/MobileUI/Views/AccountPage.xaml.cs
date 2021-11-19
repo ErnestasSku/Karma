@@ -16,17 +16,17 @@ namespace MobileUI.Views
         {
             InitializeComponent();
         }
+        private void Logout_Tapped(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage(new StartPage());
+        }
         private async void ForgotPassword_Tapped(object sender, EventArgs e)
         {
             await ProfilePage.Navigation.PushAsync(new ForgotPasswordPage());
         }
-        private async void Login_Tapped(object sender, EventArgs e)
+        private async void ChangePassword_Tapped(object sender, EventArgs e)
         {
-            await ProfilePage.Navigation.PushAsync(new LogInPage());
-        }
-        private async void Register_Tapped(object sender, EventArgs e)
-        {
-            await ProfilePage.Navigation.PushAsync(new RegisterPage());
+            await ProfilePage.Navigation.PushAsync(new ChangePasswordPage());
         }
 
     }
