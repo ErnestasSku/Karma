@@ -1,8 +1,5 @@
-﻿
-using MobileUI.Models;
+﻿using MobileUI.Models;
 using MvvmHelpers;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace MobileUI.ViewModels
 {

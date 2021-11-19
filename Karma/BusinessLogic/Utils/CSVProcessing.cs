@@ -5,7 +5,6 @@ namespace Backend
 {
     public class CSVProcessing
     {
-
         public static List<Item> Items;
         public static void AppendToCSV(string text)
         {
@@ -19,12 +18,10 @@ namespace Backend
             if (Items == null) Items = new List<Item>();
             var newItem = new Item(text.Split(','));
             Items.Add(newItem);
-            
         }
 
         public static void LoadItems()
         {
-
             Items = new List<Item>();
             var csvFileLength = new System.IO.FileInfo("items.csv").Length;
             if (csvFileLength != 0)
@@ -36,10 +33,6 @@ namespace Backend
                     Items.Add(new Item(data.Split(',')));
                 }
             }
-
         }
     }
-
-
-
 }

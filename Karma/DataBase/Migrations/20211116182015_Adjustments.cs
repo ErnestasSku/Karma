@@ -18,7 +18,6 @@ namespace DataBase.Migrations
                 type: "nvarchar(max)",
                 nullable: true);
         }
-
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
