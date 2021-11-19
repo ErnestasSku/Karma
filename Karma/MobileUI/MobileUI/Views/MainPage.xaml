@@ -28,7 +28,7 @@
                                HorizontalOptions="CenterAndExpand">
                             <Grid>
                                 <StackLayout BackgroundColor="White" HeightRequest="180">
-                                    <Image Source="{Binding ImgSource}" 
+                                    <Image Source="{Binding Image}" 
                                            HeightRequest="180"
                                            Aspect="AspectFill"></Image>         
                                 </StackLayout>

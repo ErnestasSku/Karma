@@ -8,8 +8,8 @@ namespace MobileUI.Views
 {
     public partial class MainPage : ContentPage
     {
-        public Item currentItem = Item.Items.First();
-        public Item previousItem;
+        public DataBase.Models.Item currentItem = App.Items.First();
+        public DataBase.Models.Item previousItem;
         
         public MainPage()
         {
@@ -20,13 +20,13 @@ namespace MobileUI.Views
         {
             ItemDetailPageViewModel.Name = currentItem.Name;
             ItemDetailPageViewModel.Description = currentItem.Description;
-            ItemDetailPageViewModel.Img = currentItem.ImgSource;
+            ItemDetailPageViewModel.Img = currentItem.Image;
             await HomePage.Navigation.PushAsync(new ItemDetailPage()); 
         }
         void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
         {
-            previousItem = e.PreviousItem as Item;
-            currentItem = e.CurrentItem as Item;
+            previousItem = e.PreviousItem as DataBase.Models.Item;
+            currentItem = e.CurrentItem as DataBase.Models.Item;
         }
     }
 }

@@ -15,8 +15,10 @@ namespace KarmaWebApi.Controllers
     {
         public static UserService userService = UserService.Instance;
 
+        // TODO: maybe add GetAll for debug/testing purposes and delete it when "publishing"
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> Get(int id)
+        public async Task<ActionResult<User>> GetById(int id)
         {
             try
             {
@@ -29,8 +31,8 @@ namespace KarmaWebApi.Controllers
             }
         }
 
-        [HttpGet("{username}")]
-        public async Task<ActionResult<User>> Get(string username)
+        [HttpGet("username={username}")]
+        public async Task<ActionResult<User>> GetByUsername(string username)
         {
             try
             {
@@ -53,10 +55,8 @@ namespace KarmaWebApi.Controllers
             try
             {
                 int res = userService.InsertUser(value);
-                if (res == 0)
-                    return Ok();
-                else
-                    return BadRequest();
+                return Ok();
+                
             }
             catch
             {
@@ -80,7 +80,7 @@ namespace KarmaWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteById(int id)
         {
             try 
             {

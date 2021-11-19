@@ -8,11 +8,11 @@ namespace MobileUI.ViewModels
 {
     public class HomeViewModel
     {
-        public ObservableRangeCollection<Item> Items { get; set; }
+        public ObservableRangeCollection<DataBase.Models.Item> Items { get; set; }
 
         public HomeViewModel()
         {
-            Items = Item.Items;
+            Items = App.Items;
        
         }
 
