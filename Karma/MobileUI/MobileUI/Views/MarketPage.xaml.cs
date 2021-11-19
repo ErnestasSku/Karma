@@ -26,9 +26,5 @@ namespace MobileUI.Views
             await ItemPage.Navigation.PushAsync(new ItemDetailPage());
         }
 
-        private void MenuItem_Clicked(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }
