@@ -1,4 +1,6 @@
-﻿namespace Backend
+﻿
+
+namespace Backend
 {
     public struct Location 
     {

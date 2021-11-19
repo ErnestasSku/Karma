@@ -12,6 +12,7 @@ namespace MobileUI.Views
         string repeatedPassword;
         string userName;
         string email;
+        
         public RegisterPage()
         {
             InitializeComponent();
@@ -47,5 +48,7 @@ namespace MobileUI.Views
         {
             userName = ((Entry)sender).Text;
         }
+
+
     }
 }

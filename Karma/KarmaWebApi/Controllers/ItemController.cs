@@ -4,6 +4,7 @@ using DataBase.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace KarmaWebApi.Controllers
     public class ItemController : ControllerBase
     {
 
-        public static ItemService ItemService = ItemService.Instance;
+        public static ItemService itemService = ItemService.Instance;
 
 
         [HttpGet]
@@ -22,7 +23,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                return await ItemService.GetAllItems();
+                return await itemService.GetAllItems();
             }
             catch (Exception ex)
             {
@@ -39,7 +40,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             { 
-                return await ItemService.GetSpecificItem(id);
+                return await itemService.GetSpecificItem(id);
             }
             catch (Exception ex)
             {
@@ -57,7 +58,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                int res = ItemService.InsertItem(value);
+                int res = itemService.InsertItem(value);
                 Email<Item> email = new Email<Item>();
                 email.EmailActionCompleted += (Item item) =>
                 {
@@ -86,6 +87,7 @@ namespace KarmaWebApi.Controllers
                 Logger.Error("Error during Item API POST " + ex.Message);
                 return Forbid();
             }
+            
             //Items.Add(value);
         }
 
@@ -96,7 +98,7 @@ namespace KarmaWebApi.Controllers
             try
             {
                 value.ItemId = id;
-                _ = await ItemService.UpdateItem(value);
+                _ = await itemService.UpdateItem(value);
                 return Ok();
             }
             catch (Exception ex)
@@ -104,6 +106,7 @@ namespace KarmaWebApi.Controllers
                 Logger.Error("Error during Item API Put " + ex.Message);
                 return NoContent();
             }
+
         }
 
         [HttpDelete("{id}")]
@@ -111,8 +114,8 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                Item item = await ItemService.GetSpecificItem(id);
-                ItemService.DeleteItem(item);
+                Item item = await itemService.GetSpecificItem(id);
+                itemService.DeleteItem(item);
                 
                 return Ok();
             }
@@ -128,5 +131,8 @@ namespace KarmaWebApi.Controllers
 
             Items.Remove(item);*/
         }
+
+
+
     }
 }
