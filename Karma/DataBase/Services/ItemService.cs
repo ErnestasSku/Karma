@@ -30,7 +30,6 @@ namespace DataBase.Services
             return new DataBaseContext();
         }
 
-
         /// <summary>
         /// Gets all items from DataBase.
         /// </summary>
@@ -41,7 +40,6 @@ namespace DataBase.Services
             List<Item> res = await _dbContext.Items.ToListAsync();
             return res;
         }
-
         public async Task<Item> GetSpecificItem(int id)
         {
             DataBaseContext _dbContext = getContext();

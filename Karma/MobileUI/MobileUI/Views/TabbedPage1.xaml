@@ -19,6 +19,11 @@
             <local:MarketPage/>
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="My Postings" IconImageSource="icon_postings.png">
+        <x:Arguments>
+            <local:PostingsPage/>
+        </x:Arguments>
+    </NavigationPage>
     <NavigationPage Title="Account" IconImageSource="icon_account.png">
         <x:Arguments>
             <local:AccountPage/>
