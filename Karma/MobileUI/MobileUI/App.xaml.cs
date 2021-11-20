@@ -7,8 +7,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DataBase.Models;
 using Xamarin.Forms.Xaml;
-
+using System.Text;
 
 namespace MobileUI
 {
@@ -39,17 +40,19 @@ namespace MobileUI
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
 
             Client = new HttpClient(httpClientHandler);
-            Client.BaseAddress = new System.Uri("https://192.168.8.115:45455");
+            Client.BaseAddress = new System.Uri("https://192.168.0.108:45455/");
 
             Items = GetItems();
         }
 
         protected override void OnSleep()
         {
+
         }
 
         protected override void OnResume()
         {
+
         }
 
         public ObservableRangeCollection<DataBase.Models.Item> GetItems()
@@ -65,6 +68,25 @@ namespace MobileUI
 
             return new ObservableRangeCollection<DataBase.Models.Item>(items);
         }
+        public static async Task PostUser(User value)
+        {
+            var json = JsonConvert.SerializeObject(value);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await App.Client.PostAsync("api/User", content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+
+            }
+        }
+        public static async Task<User> GetByUsername(string username)
+        {
+            var json = await App.Client.GetStringAsync($"api/User/username={username}");
+            User user = JsonConvert.DeserializeObject<User>(json);
+            return user;
+        }
+
+
 
     }
 }

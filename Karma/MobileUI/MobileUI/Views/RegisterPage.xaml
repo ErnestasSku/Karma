@@ -128,7 +128,7 @@
                                     Margin="0,0,0,0"
                                     Text="SIGN UP"
                                     FontSize="Medium"
-                                    Clicked="RegisterButton_Clicked"/>
+                                    Clicked="RegisterButton_ClickedAsync"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>

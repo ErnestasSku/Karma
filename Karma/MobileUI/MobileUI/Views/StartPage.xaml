@@ -44,7 +44,8 @@
                                     <Entry Placeholder="Username"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextChanged="Username_TextChanged">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
@@ -67,7 +68,8 @@
                                            IsPassword="True"
                                            PlaceholderColor="DarkGreen"
                                            TextColor="Black"
-                                           HorizontalOptions="FillAndExpand">
+                                           HorizontalOptions="FillAndExpand"
+                                           TextChanged="Password_TextChanged">
                                     </Entry>
                                 </StackLayout>
                             </Frame>
