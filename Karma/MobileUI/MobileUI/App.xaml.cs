@@ -17,6 +17,8 @@ namespace MobileUI
     {
         public static HttpClient Client;
 
+        public static User currentUser;
+
         public static ObservableRangeCollection<DataBase.Models.Item> Items;
 
         public App()
@@ -28,7 +30,7 @@ namespace MobileUI
 
 
             MainPage = new NavigationPage(new StartPage());
-
+            //MainPage = new AddItemPage();  
             
 
             //Current.MainPage = new NavigationPage(FirstPage);
@@ -43,6 +45,7 @@ namespace MobileUI
             Client.BaseAddress = new System.Uri("https://192.168.0.108:45455/");
 
             Items = GetItems();
+            currentUser = GetByUsername("justas");
         }
 
         protected override void OnSleep()
@@ -79,11 +82,22 @@ namespace MobileUI
 
             }
         }
-        public static async Task<User> GetByUsername(string username)
+        public User GetByUsername(string username)
         {
-            var json = await App.Client.GetStringAsync($"api/User/username={username}");
-            User user = JsonConvert.DeserializeObject<User>(json);
+            var json = Client.GetStringAsync($"api/User/username={username}");
+            json.Wait();
+            User user = JsonConvert.DeserializeObject<User>(json.Result);
             return user;
+        }
+        public static async Task PostItem(DataBase.Models.Item value)
+        {
+            var json = JsonConvert.SerializeObject(value);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await App.Client.PostAsync("api/Item", content);
+            if (!response.IsSuccessStatusCode)
+            {
+
+            }
         }
 
 
