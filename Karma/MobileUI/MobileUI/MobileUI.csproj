@@ -22,9 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\LogInPage.xaml.cs">
-      <DependentUpon>LogInPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\ForgotPasswordPage.xaml.cs">
       <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
     </Compile>
@@ -33,12 +30,11 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
 
-    <EmbeddedResource Update="Views\ChangePasswordPage.xaml">
+    <EmbeddedResource Update="Views\AddItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
 
-    <EmbeddedResource Update="Views\DebugPage.xaml">
-
+    <EmbeddedResource Update="Views\ChangePasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
 
@@ -56,9 +52,6 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TabbedPage1.xaml">
 
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\LogInPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">

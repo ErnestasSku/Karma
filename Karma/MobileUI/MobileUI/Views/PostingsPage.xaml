@@ -9,16 +9,18 @@
     <ContentPage.BindingContext>
         <viewmodels:PostingsViewModel/>
     </ContentPage.BindingContext>
+    
     <ListView ItemsSource="{Binding Items}" 
               BackgroundColor="Transparent"
               HasUnevenRows="True">
         <ListView.ItemTemplate>
+
             <DataTemplate x:DataType="model:Item">
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Delete" Clicked="Delete_Clicked" IsDestructive="True"/>
                     </ViewCell.ContextActions>
-                        <Grid Padding="10">
+                    <Grid Padding="10">
                         <Frame BackgroundColor="Beige"
                                CornerRadius="10">
                             <StackLayout Orientation="Horizontal">
@@ -43,15 +45,25 @@
         </ListView.ItemTemplate>
 
         <ListView.Header>
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="Center">
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Button Text="Add new item"
+                            CornerRadius="50"
+                            Margin="0,20,0,0"
+                            BackgroundColor="DarkSeaGreen"
+                            Clicked="AddNewItem_Clicked"></Button>
+                </StackLayout>
+
                 <Label Text="Your Listings"
-                       Margin="0,20,0,0"
+                       Margin="0,0,0,0"
                        TextColor="Black"
                        FontSize="Large"
                        HorizontalOptions="Center"/>
             </StackLayout>
         </ListView.Header>
 
+
     </ListView>
+    
 </ContentPage>

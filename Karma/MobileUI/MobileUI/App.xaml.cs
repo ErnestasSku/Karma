@@ -7,14 +7,17 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DataBase.Models;
 using Xamarin.Forms.Xaml;
-
+using System.Text;
 
 namespace MobileUI
 {
     public partial class App : Application
     {
         public static HttpClient Client;
+
+        public static User currentUser;
 
         public static ObservableRangeCollection<DataBase.Models.Item> Items;
 
@@ -27,7 +30,7 @@ namespace MobileUI
 
 
             MainPage = new NavigationPage(new StartPage());
-
+            //MainPage = new AddItemPage();  
             
 
             //Current.MainPage = new NavigationPage(FirstPage);
@@ -39,17 +42,20 @@ namespace MobileUI
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
 
             Client = new HttpClient(httpClientHandler);
-            Client.BaseAddress = new System.Uri("https://192.168.8.115:45455");
+            Client.BaseAddress = new System.Uri("https://192.168.0.108:45455/");
 
             Items = GetItems();
+            currentUser = GetByUsername("justas");
         }
 
         protected override void OnSleep()
         {
+
         }
 
         protected override void OnResume()
         {
+
         }
 
         public ObservableRangeCollection<DataBase.Models.Item> GetItems()
@@ -65,6 +71,36 @@ namespace MobileUI
 
             return new ObservableRangeCollection<DataBase.Models.Item>(items);
         }
+        public static async Task PostUser(User value)
+        {
+            var json = JsonConvert.SerializeObject(value);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await App.Client.PostAsync("api/User", content);
+
+            if (!response.IsSuccessStatusCode)
+            {
+
+            }
+        }
+        public User GetByUsername(string username)
+        {
+            var json = Client.GetStringAsync($"api/User/username={username}");
+            json.Wait();
+            User user = JsonConvert.DeserializeObject<User>(json.Result);
+            return user;
+        }
+        public static async Task PostItem(DataBase.Models.Item value)
+        {
+            var json = JsonConvert.SerializeObject(value);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await App.Client.PostAsync("api/Item", content);
+            if (!response.IsSuccessStatusCode)
+            {
+
+            }
+        }
+
+
 
     }
 }

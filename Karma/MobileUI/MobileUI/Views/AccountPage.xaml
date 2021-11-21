@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileUI.Views.AccountPage"
+             xmlns:local="clr-namespace:MobileUI.ViewModels"
              BackgroundColor="#C3DBC3"
              x:Name="ProfilePage">
     <ContentPage.Content>
@@ -36,7 +37,15 @@
                 </StackLayout>
                 
             </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Label Text="{Binding User.UserName, StringFormat='Hello {0}!'}" TextColor="Black" FontSize="Large">
+                    <Label.BindingContext>
+                        <local:AccountViewModel/>
+                    </Label.BindingContext>
+                </Label>
                 
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileUI.Views.AddItemPage"
+             xmlns:local="clr-namespace:MobileUI.ViewModels"
+             BackgroundColor="DarkSeaGreen">
+    <ContentPage.Content>
+        <StackLayout Margin="15,100,15,0">
+            <Frame CornerRadius="15"
+                   HasShadow="True"
+                   HeightRequest="500"
+                   HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Add new item" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Margin="0,25,0,0">
+                        <Frame BackgroundColor="Transparent" 
+                               BorderColor="DarkGreen" 
+                               CornerRadius="50" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="0"
+                               Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BorderColor="Transparent"
+                                       CornerRadius="50"
+                                       HeightRequest="25"
+                                       WidthRequest="25"
+                                       Margin="7,7,0,7"
+                                       Padding="0">
+                                    <Image Source=""/>
+                                </Frame>
+                                <Entry Placeholder="Title"
+                                       PlaceholderColor="DarkGreen"
+                                       TextColor="Black"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextChanged="Title_TextChanged">
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+                        <Frame BackgroundColor="Transparent" 
+                               BorderColor="DarkGreen" 
+                               CornerRadius="25" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="0,10,0,0"
+                               Padding="0"
+                               HeightRequest="100">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BorderColor="Transparent"
+                                       CornerRadius="50"
+                                       HeightRequest="25"
+                                       WidthRequest="25"
+                                       Margin="10,7,0,7"
+                                       Padding="0"
+                                       VerticalOptions="Center">
+                                    <Image Source=""/>
+                                </Frame>
+                                <Editor Placeholder="Description"
+                                        PlaceholderColor="DarkGreen"
+                                        TextColor="Black"
+                                        HorizontalOptions="FillAndExpand"
+                                        TextChanged="Description_TextChanged">
+                                </Editor>
+
+                            </StackLayout>
+                        </Frame>
+                        <Frame BackgroundColor="Transparent" 
+                               BorderColor="DarkGreen" 
+                               CornerRadius="50" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="0,10,0,0"
+                               Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BorderColor="Transparent"
+                                       CornerRadius="50"
+                                       HeightRequest="25"
+                                       WidthRequest="25"
+                                       Margin="7,7,0,7"
+                                       Padding="0">
+                                    <Image Source=""/>
+                                </Frame>
+                                <Entry Placeholder="Contact info"
+                                       PlaceholderColor="DarkGreen"
+                                       TextColor="Black"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextChanged="ContactInfo_TextChanged">
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+                        <Frame BackgroundColor="Transparent" 
+                               BorderColor="DarkGreen" 
+                               CornerRadius="50" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="0,10,0,0"
+                               Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BorderColor="Transparent"
+                                       CornerRadius="50"
+                                       HeightRequest="25"
+                                       WidthRequest="25"
+                                       Margin="7,7,0,7"
+                                       Padding="0">
+                                    <Image Source=""/>
+                                </Frame>
+                                <Picker Title="Category"
+                                        TitleColor="DarkGreen"
+                                        TextColor="black"       
+                                        ItemsSource="{Binding Categories}"
+                                        ItemDisplayBinding="{Binding Value}"
+                                        HorizontalOptions="FillAndExpand"
+                                        SelectedIndexChanged="Category_SelectedIndexChanged"
+                                        x:Name="categoryPicker">
+
+                                    <Picker.BindingContext>
+                                        <local:AddItemViewModel/>
+                                    </Picker.BindingContext>
+                                </Picker>
+
+                            </StackLayout>
+                        </Frame>
+                        <Frame BackgroundColor="Transparent" 
+                               BorderColor="DarkGreen" 
+                               CornerRadius="50" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="0,10,0,0"
+                               Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BorderColor="Transparent"
+                                       CornerRadius="50"
+                                       HeightRequest="25"
+                                       WidthRequest="25"
+                                       Margin="7,7,0,7"
+                                       Padding="0">
+                                    <Image Source=""/>
+                                </Frame>
+                                <Entry Placeholder="Image link"
+                                       PlaceholderColor="DarkGreen"
+                                       TextColor="Black"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextChanged="Image_TextChanged">
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout Orientation="Horizontal"
+                                     BackgroundColor="Transparent">
+                            <Label/>
+                        </StackLayout>
+                        <Button BackgroundColor="DarkSeaGreen"
+                                CornerRadius="50"
+                                Margin="0,0,0,0"
+                                Text="Add item"
+                                FontSize="Medium"
+                                Clicked="AddItem_Clicked"
+                               />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

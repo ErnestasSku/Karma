@@ -21,5 +21,10 @@ namespace MobileUI.Views
         {
 
         }
+
+        private void AddNewItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddItemPage());
+        }
     }
 }
