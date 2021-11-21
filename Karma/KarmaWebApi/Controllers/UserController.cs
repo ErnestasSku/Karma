@@ -13,16 +13,22 @@ namespace KarmaWebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        public static UserService userService = UserService.Instance;
 
-        // TODO: maybe add GetAll for debug/testing purposes and delete it when "publishing"
+        private static UserService _userService;
 
-        [HttpGet("{id}")]
+       // TODO: maybe add GetAll for debug/testing purposes and delete it when "publishing"
+
+        public UserController(IDataBaseContext dataBaseContext)
+        {
+            _userService = new UserService(dataBaseContext);
+        }
+
+       [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetById(int id)
         {
             try
             {
-                return await userService.GetUserById(id);
+                return await _userService.GetUserById(id);
             }
             catch (Exception ex)
             {
@@ -36,7 +42,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                List<User> users = await userService.GetUsers();
+                List<User> users = await _userService.GetUsers();
                 return users.FirstOrDefault(c => c.UserName.Equals(username));
 
 
@@ -54,7 +60,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                int res = userService.InsertUser(value);
+                int res = _userService.InsertUser(value);
                 return Ok();
                 
             }
@@ -70,7 +76,7 @@ namespace KarmaWebApi.Controllers
             try
             {
                 value.UserId = id;
-                _ = await userService.UpdateUser(value);
+                _ = await _userService.UpdateUser(value);
                 return Ok();
             }
             catch (Exception ex)
@@ -84,8 +90,8 @@ namespace KarmaWebApi.Controllers
         {
             try 
             {
-                User user = await userService.GetUserById(id);
-                userService.DeleteUser(user);
+                User user = await _userService.GetUserById(id);
+                _userService.DeleteUser(user);
                 return Ok();
             }
             catch
