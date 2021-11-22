@@ -42,9 +42,11 @@ namespace MobileUI
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
 
             Client = new HttpClient(httpClientHandler);
-            Client.BaseAddress = new System.Uri("https://192.168.0.108:45455/");
+            Client.BaseAddress = new System.Uri("https://karmawebapi-in2.conveyor.cloud/");
 
             Items = GetItems();
+
+
             currentUser = GetByUsername("justas");
         }
 
@@ -58,13 +60,26 @@ namespace MobileUI
 
         }
 
-        public ObservableRangeCollection<DataBase.Models.Item> GetItems()
+        public static async Task<ObservableRangeCollection<DataBase.Models.Item>> GetItemsAsync()
+        {
+            var json = await Client.GetStringAsync("api/Item");
+            //json.Wait();
+            var items = JsonConvert.DeserializeObject< List<DataBase.Models.Item>>(json);
+
+            foreach(var i in items)
+            {
+                i.Image = i.Image ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Text-x-generic.svg/2048px-Text-x-generic.svg.png";
+            }
+
+            return new ObservableRangeCollection<DataBase.Models.Item>(items);
+        }
+        public static ObservableRangeCollection<DataBase.Models.Item> GetItems()
         {
             var json = Client.GetStringAsync("api/Item");
             json.Wait();
-            var items = JsonConvert.DeserializeObject< List<DataBase.Models.Item>>(json.Result);
+            var items = JsonConvert.DeserializeObject<List<DataBase.Models.Item>>(json.Result);
 
-            foreach(var i in items)
+            foreach (var i in items)
             {
                 i.Image = i.Image ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Text-x-generic.svg/2048px-Text-x-generic.svg.png";
             }

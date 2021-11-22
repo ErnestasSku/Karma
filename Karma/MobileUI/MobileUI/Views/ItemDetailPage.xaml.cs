@@ -25,5 +25,10 @@ namespace MobileUI.Views
             get => ItemDetailPageViewModel.Img;
         }
 
+        public string ContactInfo
+        {
+            get => ItemDetailPageViewModel.ContactInfo;
+        }
+
     }
 }
