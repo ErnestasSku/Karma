@@ -21,7 +21,8 @@ namespace DataBase.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         
-        [Phone]
+        //Note: temporarily remove phone number requirement
+        //[Phone]
         public string PhoneNumber { get; set; }
 
         //public Location Location { get; set; }

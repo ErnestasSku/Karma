@@ -15,6 +15,9 @@ namespace DataBase.Models
         public string Description { get; set; }
         public string ContactInfo { get; set; }
         public string Category { get; set; }
+        
+        public string City { get; set; }
+
         //public Location Location { get; set; }
         public DateTime Date { get; set; }
 
