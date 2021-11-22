@@ -61,7 +61,7 @@ namespace MobileUI.Views
             item.Description = description;
             item.ContactInfo = contactInfo;
             item.Image = image;
-            item.Poster = App.currentUser;
+            item.Poster = App.CurrentUser;
 
             App.PostItem(item);
 

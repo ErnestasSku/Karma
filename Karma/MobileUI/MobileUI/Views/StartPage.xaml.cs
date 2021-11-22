@@ -1,4 +1,5 @@
 ﻿using DataBase.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +29,17 @@ namespace MobileUI.Views
             await Startup.Navigation.PushAsync(new RegisterPage());
         }
 
-        private void LogIn_Clicked(object sender, EventArgs e)
+        private async void LogIn_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new TabbedPage1();
+            
+            if (await AuthenticateUser(username, password))
+            {
+                App.Current.MainPage = new TabbedPage1();
+            }
+            else
+            {
+                //TODO: show that password is incorect
+            }
         }
 
         private void Username_TextChanged(object sender, TextChangedEventArgs e)
@@ -42,5 +51,22 @@ namespace MobileUI.Views
         {
             password = ((Entry)sender).Text;
         }
+
+        private async Task<bool> AuthenticateUser(string username, string password)
+        {
+            var json = await App.Client.GetStringAsync($"api/User/username={username}");
+            User user = JsonConvert.DeserializeObject<User>(json);
+
+            if (user.Password == password)
+            {
+                App.CurrentUser = user;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
