@@ -8,6 +8,7 @@ namespace MobileUI.Views
 {
     public partial class MainPage : ContentPage
     {
+        //Still breaks for being null
         public DataBase.Models.Item currentItem = App.Items.First();
         public DataBase.Models.Item previousItem;
         

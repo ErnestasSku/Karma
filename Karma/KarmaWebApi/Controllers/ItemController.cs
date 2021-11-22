@@ -14,16 +14,19 @@ namespace KarmaWebApi.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
+        private static ItemService _itemService;
 
-        public static ItemService itemService = ItemService.Instance;
-
+        public ItemController(IDataBaseContext databaseContext)
+        {
+            _itemService = new ItemService(databaseContext);
+        }
 
         [HttpGet]
         public async Task<IEnumerable<Item>> GetAll()
         {
             try
             {
-                return await itemService.GetAllItems();
+                return await _itemService.GetAllItems();
             }
             catch (Exception ex)
             {
@@ -40,7 +43,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             { 
-                return await itemService.GetSpecificItem(id);
+                return await _itemService.GetSpecificItem(id);
             }
             catch (Exception ex)
             {
@@ -56,7 +59,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                int res = itemService.InsertItem(value);
+                int res = _itemService.InsertItem(value);
                 Email<Item> email = new Email<Item>();
                 email.EmailActionCompleted += (Item item) =>
                 {
@@ -97,7 +100,7 @@ namespace KarmaWebApi.Controllers
             try
             {
                 value.ItemId = id;
-                _ = await itemService.UpdateItem(value);
+                _ = await _itemService.UpdateItem(value);
                 return Ok();
             }
             catch (Exception ex)
@@ -113,8 +116,8 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                Item item = await itemService.GetSpecificItem(id);
-                itemService.DeleteItem(item);
+                Item item = await _itemService.GetSpecificItem(id);
+                _itemService.DeleteItem(item);
                 
                 return Ok();
             }

@@ -1,5 +1,4 @@
-﻿using MobileUI.Models;
-using MobileUI.Views;
+﻿using MobileUI.Views;
 using MvvmHelpers;
 using Newtonsoft.Json;
 using System;
@@ -10,6 +9,7 @@ using Xamarin.Forms;
 using DataBase.Models;
 using Xamarin.Forms.Xaml;
 using System.Text;
+using System.Threading;
 
 namespace MobileUI
 {
@@ -17,9 +17,20 @@ namespace MobileUI
     {
         public static HttpClient Client;
 
-        public static User currentUser;
+        public static User CurrentUser;
 
-        public static ObservableRangeCollection<DataBase.Models.Item> Items;
+        public static ObservableRangeCollection<Item> Items;
+
+        private Lazy<List<Item>> _userPostedItems;
+
+        public ObservableRangeCollection<Item> UserPostedItems
+        {
+            get
+            {
+                return new ObservableRangeCollection<Item>(_userPostedItems.Value);
+            }
+        }
+
 
         public App()
         {
@@ -42,12 +53,15 @@ namespace MobileUI
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
 
             Client = new HttpClient(httpClientHandler);
-            Client.BaseAddress = new System.Uri("https://karmawebapi-in2.conveyor.cloud/");
 
+            Client.BaseAddress = new System.Uri("https://192.168.8.115:45455/");
+
+            // TODO: can't do this as the UI requires App.Items.First and it can't be null, so that needs to be fixed
+           // Task.Factory.StartNew(() => Items = GetItems());
             Items = GetItems();
 
 
-            currentUser = GetByUsername("justas");
+
         }
 
         protected override void OnSleep()
@@ -59,6 +73,7 @@ namespace MobileUI
         {
 
         }
+
 
         public static async Task<ObservableRangeCollection<DataBase.Models.Item>> GetItemsAsync()
         {
@@ -83,6 +98,12 @@ namespace MobileUI
             {
                 i.Image = i.Image ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Text-x-generic.svg/2048px-Text-x-generic.svg.png";
             }
+
+            // Lazy way
+           /* return new Lazy<ObservableRangeCollection<Item>>(() =>
+            {
+                return new ObservableRangeCollection<Item>(items);
+            });*/
 
             return new ObservableRangeCollection<DataBase.Models.Item>(items);
         }
@@ -114,8 +135,5 @@ namespace MobileUI
 
             }
         }
-
-
-
     }
 }

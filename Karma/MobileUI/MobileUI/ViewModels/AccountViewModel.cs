@@ -14,7 +14,7 @@ namespace MobileUI.ViewModels
 
         public AccountViewModel()
         {
-            _user = App.currentUser;
+            _user = App.CurrentUser;
         }
         public User User
         {
