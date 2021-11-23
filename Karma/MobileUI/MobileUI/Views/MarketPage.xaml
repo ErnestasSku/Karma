@@ -37,9 +37,13 @@
                                            VerticalOptions="Center"
                                            FontSize="Large"/>
                                     <!--TODO: make this a back to a binding. Temporarily changed to Text since item do not have that data atm -->
-                                    <Label Text="City"
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="icon_pin.png"/>
+                                        <Label Text="{Binding City}"
                                            TextColor="Black"
                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                    
                                 </StackLayout>
                             </StackLayout>
                         </Frame>

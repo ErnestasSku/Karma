@@ -21,6 +21,7 @@ namespace MobileUI.Views
         string title;
         string description;
         string contactInfo;
+        string city;
 
         public AddItemPage()
         {
@@ -61,11 +62,17 @@ namespace MobileUI.Views
             item.Description = description;
             item.ContactInfo = contactInfo;
             item.Image = image;
+            item.City = city;
             item.Poster = App.CurrentUser;
 
             App.PostItem(item);
 
             Navigation.PopAsync();
+        }
+
+        private void City_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            city = ((Entry)sender).Text;
         }
     }
 }

@@ -7,9 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using DataBase.Models;
-using Xamarin.Forms.Xaml;
 using System.Text;
-using System.Threading;
 
 namespace MobileUI
 {
@@ -54,11 +52,13 @@ namespace MobileUI
 
             Client = new HttpClient(httpClientHandler);
 
-            Client.BaseAddress = new System.Uri("https://192.168.8.115:45455/");
+            Client.BaseAddress = new System.Uri("https://karmawebapi-in2.conveyor.cloud/");
 
             // TODO: can't do this as the UI requires App.Items.First and it can't be null, so that needs to be fixed
            // Task.Factory.StartNew(() => Items = GetItems());
             Items = GetItems();
+
+            //CurrentUser = GetByUsername("justas");
 
 
 
