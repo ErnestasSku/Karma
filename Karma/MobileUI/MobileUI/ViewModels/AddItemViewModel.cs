@@ -21,6 +21,7 @@ namespace MobileUI.ViewModels
                 new Category(){Key = 2, Value = "Electronics"},
                 new Category(){Key = 3, Value = "Kids"},
                 new Category(){Key = 4, Value = "Kitchen"},
+                new Category(){Key = 5, Value = "Outdoors"}
             };
             return categories;
         }

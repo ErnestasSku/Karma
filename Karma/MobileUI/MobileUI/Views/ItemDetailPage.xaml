@@ -14,9 +14,14 @@
                 <Grid VerticalOptions="FillAndExpand" Margin="0,-30,0,0">
                     <Frame CornerRadius="20">
                         <StackLayout>
-                            <Label Text="{Binding Name}" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="15"/>
-                            <Label Text="{Binding Description}" TextColor ="Black" FontSize="20" FontAttributes="Bold" Margin="15"/>
+                            <Label Text="{Binding Name}" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="15,0,0,0"/>
+                            <Label Text="Description" TextColor ="Black" FontSize="20" FontAttributes="Bold" Margin="0,15,0,0"/>
+                            <Label Text="{Binding Description}" TextColor ="Black" FontSize="16" FontAttributes="None" Margin="0,15"/>
+                            <Label Text="Contact Info" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="{Binding ContactInfo}" TextColor="Black" FontSize="16"/>
+                            
                         </StackLayout>
+                        
                     </Frame>
                 </Grid>
             </StackLayout>

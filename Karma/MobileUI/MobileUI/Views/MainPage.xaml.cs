@@ -22,6 +22,7 @@ namespace MobileUI.Views
             ItemDetailPageViewModel.Name = currentItem.Name;
             ItemDetailPageViewModel.Description = currentItem.Description;
             ItemDetailPageViewModel.Img = currentItem.Image;
+            ItemDetailPageViewModel.ContactInfo = currentItem.ContactInfo;
             await HomePage.Navigation.PushAsync(new ItemDetailPage()); 
         }
         void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
