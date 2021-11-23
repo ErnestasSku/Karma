@@ -102,6 +102,29 @@
                                        Padding="0">
                                     <Image Source=""/>
                                 </Frame>
+                                <Entry Placeholder="City"
+                                       PlaceholderColor="DarkGreen"
+                                       TextColor="Black"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextChanged="City_TextChanged">
+                                </Entry>
+                            </StackLayout>
+                        </Frame>
+                        <Frame BackgroundColor="Transparent" 
+                               BorderColor="DarkGreen" 
+                               CornerRadius="50" 
+                               HorizontalOptions="FillAndExpand" 
+                               Margin="0,10,0,0"
+                               Padding="0">
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BorderColor="Transparent"
+                                       CornerRadius="50"
+                                       HeightRequest="25"
+                                       WidthRequest="25"
+                                       Margin="7,7,0,7"
+                                       Padding="0">
+                                    <Image Source=""/>
+                                </Frame>
                                 <Picker Title="Category"
                                         TitleColor="DarkGreen"
                                         TextColor="black"       
