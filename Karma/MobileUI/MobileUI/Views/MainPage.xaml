@@ -38,9 +38,9 @@
                                            VerticalOptions="EndAndExpand">
                                     </Label>
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="https://www.pinclipart.com/picdir/big/347-3470877_map-pin-comments-map-pin-icon-png-clipart.png"
+                                        <Image Source="icon_pin.png"
                                                HeightRequest="15" Margin="15,0,0,0"></Image>
-                                        <Label Text="{Binding Location}" TextColor ="Black" FontSize="14"
+                                        <Label Text="{Binding City}" TextColor ="Black" FontSize="14"
                                                FontAttributes="Bold" Margin="0,0,0,0" 
                                                VerticalOptions="EndAndExpand">
                                         </Label>

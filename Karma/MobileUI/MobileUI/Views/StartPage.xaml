@@ -75,6 +75,11 @@
                             </Frame>
                             <StackLayout Orientation="Horizontal"
                                          BackgroundColor="Transparent">
+                                <Label Text="" 
+                                       TextColor="Red"
+                                       IsVisible="False"
+                                       HorizontalOptions="StartAndExpand"
+                                       x:Name="wrong_password"/>
                                 <Label Text="Forgot password?"
                                        TextColor="DarkBlue"
                                        TextDecorations="Underline"

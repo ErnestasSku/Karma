@@ -27,10 +27,14 @@
                         <Frame BackgroundColor="Beige"
                                CornerRadius="10">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding Image}"
-                                       WidthRequest="50"
+                                <Frame Padding="0" Margin="0"
+                                       CornerRadius="10">
+                                    <Image Source="{Binding Image}"
+                                       WidthRequest="50"                             
                                        HeightRequest="50"
                                        Aspect="AspectFill"/>
+                                </Frame>
+                                
                                 <StackLayout>
                                     <Label Text="{Binding Name}"
                                            TextColor="Black"
@@ -38,7 +42,8 @@
                                            FontSize="Large"/>
                                     <!--TODO: make this a back to a binding. Temporarily changed to Text since item do not have that data atm -->
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="icon_pin.png"/>
+                                        <Image Source="icon_pin.png"
+                                               HeightRequest="10"/>
                                         <Label Text="{Binding City}"
                                            TextColor="Black"
                                            VerticalOptions="Center"/>
