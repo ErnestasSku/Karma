@@ -6,9 +6,18 @@ using System.ComponentModel;
 
 namespace MobileUI.ViewModels
 {
-    public class HomeViewModel
+    public class HomeViewModel : INotifyPropertyChanged
     {
-        public ObservableRangeCollection<DataBase.Models.Item> Items { get; set; }
+
+        private ObservableRangeCollection<DataBase.Models.Item> _items;
+        public ObservableRangeCollection<DataBase.Models.Item> Items 
+        {
+            get { return _items; }
+            set { _items = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+
+            } 
+        }
 
         public HomeViewModel()
         {
@@ -16,5 +25,6 @@ namespace MobileUI.ViewModels
        
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -31,15 +31,21 @@ namespace MobileUI.Views
 
         private async void LogIn_Clicked(object sender, EventArgs e)
         {
+            try {
+                if (await AuthenticateUser(username, password))
+                {
+                    App.Current.MainPage = new TabbedPage1();
+                }
+                else
+                {
+                    wrong_password.IsVisible = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
             
-            if (await AuthenticateUser(username, password))
-            {
-                App.Current.MainPage = new TabbedPage1();
-            }
-            else
-            {
-                //TODO: show that password is incorect
-            }
         }
 
         private void Username_TextChanged(object sender, TextChangedEventArgs e)
@@ -54,8 +60,21 @@ namespace MobileUI.Views
 
         private async Task<bool> AuthenticateUser(string username, string password)
         {
+            if(username == null || password == null || password == "" || username == "")
+            {
+                wrong_password.Text = "Enter username or password";
+                return false;
+            }
+            //User user = null;
+            
             var json = await App.Client.GetStringAsync($"api/User/username={username}");
             User user = JsonConvert.DeserializeObject<User>(json);
+
+            if(user == null)
+            {
+                wrong_password.Text = "User was not found";
+                return false;
+            }
 
             if (user.Password == password)
             {
@@ -64,6 +83,7 @@ namespace MobileUI.Views
             }
             else
             {
+                wrong_password.Text = "Wrong password";
                 return false;
             }
         }

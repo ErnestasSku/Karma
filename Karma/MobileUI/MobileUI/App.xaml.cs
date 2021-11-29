@@ -19,7 +19,9 @@ namespace MobileUI
 
         public static ObservableRangeCollection<Item> Items;
 
+
         private Lazy<List<Item>> _userPostedItems;
+
 
         public ObservableRangeCollection<Item> UserPostedItems
         {
@@ -55,7 +57,10 @@ namespace MobileUI
             Client.BaseAddress = new System.Uri("https://karmawebapi-in2.conveyor.cloud/");
 
             // TODO: can't do this as the UI requires App.Items.First and it can't be null, so that needs to be fixed
-           // Task.Factory.StartNew(() => Items = GetItems());
+            // Task.Factory.StartNew(() => Items = GetItems());
+
+            //Items = new ObservableRangeCollection<Item>();
+            //Items.Add(new Item());
             Items = GetItems();
 
             //CurrentUser = GetByUsername("justas");
