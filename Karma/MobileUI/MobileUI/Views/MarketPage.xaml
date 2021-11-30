@@ -36,7 +36,6 @@
                                            TextColor="Black"
                                            VerticalOptions="Center"
                                            FontSize="Large"/>
-                                    <!--TODO: make this a back to a binding. Temporarily changed to Text since item do not have that data atm -->
                                     <StackLayout Orientation="Horizontal">
                                         <Image Source="icon_pin.png"/>
                                         <Label Text="{Binding City}"
@@ -53,14 +52,42 @@
         </ListView.ItemTemplate>
 
         <ListView.Header>
-            <StackLayout Orientation="Horizontal"
+            <StackLayout>
+                <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center">
-                <Label Text="Market"
+                    <Label Text="Market"
                        TextColor="Black"
                        FontSize="Large"
                        HorizontalOptions="Center"/>
+                </StackLayout>
+                <Grid VerticalOptions="CenterAndExpand" BackgroundColor="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Column="0" Padding="0" CornerRadius="10">
+                        <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#9AB39A" >
+                            <Label Text="Sort by" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                            <Picker x:Name="SortType"
+                                    ItemsSource="{Binding SortTypes}"
+                                    WidthRequest="120"
+                                    HorizontalOptions="FillAndExpand"
+                                    SelectedIndex="2"
+                                    HorizontalTextAlignment="Center"
+                                    SelectedIndexChanged="SortType_SelectedIndexChanged"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame  Grid.Column="1" Padding="0" CornerRadius="10">
+                        <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#9AB39A">
+                            <Label Text="Search" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                            <Entry HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                    </Frame>
+
+                </Grid>
             </StackLayout>
         </ListView.Header>
-        
+
+
     </ListView>
 </ContentPage>

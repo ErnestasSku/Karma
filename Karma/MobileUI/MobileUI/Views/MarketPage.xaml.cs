@@ -36,5 +36,10 @@ namespace MobileUI.Views
             await ItemPage.Navigation.PushAsync(new ItemDetailPage());
         }
 
+        private void SortType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            MarketPageViewModel.Sort(SortType.SelectedIndex);
+        }
     }
 }
