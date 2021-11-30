@@ -66,10 +66,10 @@ namespace MobileUI.ViewModels
                     sorted = new ObservableRangeCollection<DataBase.Models.Item>(_items.OrderByDescending(i => i.Name));
                     break;
                 case 2:
-                    sorted = new ObservableRangeCollection<DataBase.Models.Item>(_items.OrderBy(i => i.ItemId));
+                    sorted = new ObservableRangeCollection<DataBase.Models.Item>(_items.OrderByDescending(i => i.ItemId));
                     break;
                 case 3:
-                    sorted = new ObservableRangeCollection<DataBase.Models.Item>(_items.OrderByDescending(i => i.ItemId));
+                    sorted = new ObservableRangeCollection<DataBase.Models.Item>(_items.OrderBy(i => i.ItemId));
                     break;
                 case 4:
                     sorted = new ObservableRangeCollection<DataBase.Models.Item>(_items.OrderBy(i => i.City));
