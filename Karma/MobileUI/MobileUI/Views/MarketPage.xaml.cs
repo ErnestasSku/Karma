@@ -41,5 +41,10 @@ namespace MobileUI.Views
             
             MarketPageViewModel.Sort(SortType.SelectedIndex);
         }
+
+        private void Filter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            MarketPageViewModel.Filter(filter.Text);
+        }
     }
 }

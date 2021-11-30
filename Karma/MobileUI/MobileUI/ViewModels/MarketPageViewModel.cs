@@ -33,6 +33,7 @@ namespace MobileUI.ViewModels
         public AsyncCommand RefreshCommand { get; }
 
         private static ObservableRangeCollection<DataBase.Models.Item> _items;
+        private static ObservableRangeCollection<DataBase.Models.Item> _itemsDup = new ObservableRangeCollection<DataBase.Models.Item>();
         public ObservableRangeCollection<DataBase.Models.Item> Items
         {
             get { return _items; }
@@ -47,6 +48,8 @@ namespace MobileUI.ViewModels
         {
             
             _items = App.Items;
+            _itemsDup.AddRange(_items);
+
             SortTypes = GetSortTypes();
             //_items = new ObservableRangeCollection<DataBase.Models.Item>(Items.OrderBy(i => i.Name));
             RefreshCommand = new AsyncCommand(Refresh);
@@ -85,6 +88,16 @@ namespace MobileUI.ViewModels
            
             _items.AddRange(sorted);
         }
+        public static void Filter(string filter)
+        {
+            ObservableRangeCollection<DataBase.Models.Item> filtered;
+            var old = _itemsDup;
+            
+            filtered = new ObservableRangeCollection<DataBase.Models.Item>(_itemsDup.Where((item) => item.Name.ToLower().Contains(filter)));
+            _itemsDup = old;
+            _items.Clear();
+            _items.AddRange(filtered);
+        }
         async Task Refresh()
         {
             IsRefreshing = true;
@@ -93,6 +106,7 @@ namespace MobileUI.ViewModels
 
             var items = await App.GetItemsAsync();
            _items.AddRange(items);
+            _itemsDup = items;
 
             IsRefreshing = false;
         }

@@ -80,7 +80,7 @@
                     <Frame  Grid.Column="1" Padding="0" CornerRadius="10">
                         <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#9AB39A">
                             <Label Text="Search" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
-                            <Entry HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"/>
+                            <Entry x:Name="filter" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextChanged="Filter_TextChanged"/>
                         </StackLayout>
                     </Frame>
 
