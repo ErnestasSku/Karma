@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System;
+using Database.Repositories;
 
 namespace DataBase.Services
 {
@@ -12,17 +12,17 @@ namespace DataBase.Services
         /// <summary>
         /// Database context.
         /// </summary>
-        private readonly IDataBaseContext _dbContext;
+        private readonly RepositoriesWrapper _repositoryWrapper;
 
-        public UserService(IDataBaseContext dbContext)
+        public UserService(IDatabaseContext repositoryWrapper)
         {
-            _dbContext = dbContext;
+            _repositoryWrapper = new RepositoriesWrapper(repositoryWrapper);
         }
 
         
         public async Task<List<User>> GetUsers()
         {
-            List<User> res = await _dbContext.Users.ToListAsync();
+            List<User> res = await _repositoryWrapper.UserRepository.GetAll();
             return res;
         }
         
@@ -32,7 +32,7 @@ namespace DataBase.Services
         /// <returns></returns>
         public async Task<User> GetUserById(int id)
         {
-            User user = await _dbContext.Users.FindAsync(id);
+            User user = await _repositoryWrapper.UserRepository.GetById(id);
             return user;
         }
 
@@ -43,8 +43,8 @@ namespace DataBase.Services
         /// <returns></returns>
         public async Task<User> GetUserByUsername(string username)
         {
-            User user = await _dbContext.Users.FindAsync(username);
-            return user;
+            List <User> users = await _repositoryWrapper.UserRepository.GetAll();
+            return users.Find(x => x.Username.Equals(username));
         }
 
         /// <summary>
@@ -52,10 +52,11 @@ namespace DataBase.Services
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public async Task<int> UpdateUser(User obj)
+        public async Task<int> UpdateUser(int id, User obj)
         {
-            _dbContext.Users.Update(obj);
-            int res = await _dbContext.SaveChangesAsync();
+            obj.UserId = id;
+            _repositoryWrapper.UserRepository.Delete(obj);
+            int res = await _repositoryWrapper.SaveChanges();
             return res;
         }
 
@@ -64,17 +65,18 @@ namespace DataBase.Services
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public int InsertUser(User obj)
+        public async Task<int> InsertUser(User obj)
         {
-            _dbContext.Users.Add(obj);
-            int res = _dbContext.SaveChanges();
+            _repositoryWrapper.UserRepository.Add(obj);
+            int res = await _repositoryWrapper.SaveChanges();
             return res;
         }
 
-        public int DeleteUser(User obj)
+        public async Task<int> DeleteUser(int id)
         {
-            _dbContext.Users.Remove(obj);
-            int res = _dbContext.SaveChanges();
+            User user = await _repositoryWrapper.UserRepository.GetById(id);
+            _repositoryWrapper.UserRepository.Delete(user);
+            int res = await _repositoryWrapper.SaveChanges();
             return res;
         }
     }
