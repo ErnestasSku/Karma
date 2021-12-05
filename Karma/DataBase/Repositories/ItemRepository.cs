@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class ItemRepository : IItemRepository
+    public class ItemRepository : IRepository<Item>
     {
         private IDatabaseContext _dbContext;
 
@@ -18,7 +18,7 @@ namespace Repository.Repositories
 
         public void Add(Item item) => _dbContext.Items.Add(item);
 
-        public async Task<List<Item>> GetAllItems() => await _dbContext.Items.ToListAsync();
+        public async Task<List<Item>> GetAll() => await _dbContext.Items.ToListAsync();
 
         public async Task<Item> GetById(int id) => await _dbContext.Items.FindAsync(id);
 

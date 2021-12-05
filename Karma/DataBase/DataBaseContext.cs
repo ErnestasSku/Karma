@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Database.Models;
 
 namespace DataBase.Services
 {
@@ -8,8 +9,9 @@ namespace DataBase.Services
     {
         public DbSet<Models.Item> Items { get; set; }
         public DbSet<Models.User> Users { get; set; }
-
-        //TODO: add other models
+        public DbSet<UserTakenItem> UserTakenItems { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<SentMessage> SentMessages { get; set; }
 
 
         public DatabaseContext()
