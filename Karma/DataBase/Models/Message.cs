@@ -22,5 +22,10 @@ namespace Database.Models
         public int SenderId { get; set; }
         public User Sender { get; set; }
 
+        public Message()
+        {
+
+        }
+
     }
 }

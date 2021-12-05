@@ -26,7 +26,7 @@ namespace DataBase.Services
         /// <returns></returns>
         public async Task<List<Item>> GetAllItems()
         {
-            List<Item> res = await _repository.ItemRepository.GetAllItems();
+            List<Item> res = await _repository.ItemRepository.GetAll();
             return res;
         }
         public async Task<Item> GetSpecificItem(int id)
@@ -54,6 +54,7 @@ namespace DataBase.Services
         /// <returns></returns>
         public async Task<int> InsertItem(Item obj)
         {
+            obj.Poster = null;
             _repository.ItemRepository.Add(obj);
             int res = await _repository.SaveChanges();
             return res;
@@ -79,7 +80,31 @@ namespace DataBase.Services
         /// <returns></returns>
         public async Task<IEnumerable<Item>> GetPageItems(int pageNumber, int itemNumber)
         {
-            return (await _repository.ItemRepository.GetAllItems()).Skip(pageNumber * itemNumber).Take(itemNumber);
+            return (await _repository.ItemRepository.GetAll()).Skip(pageNumber * itemNumber).Take(itemNumber);
+        }
+
+        public async Task<IEnumerable<Item>> GetUserPostedItems(int id)
+        { 
+            return (await _repository.ItemRepository.GetAll()).Where(a => a.PosterId == id);
+        }
+
+        /// <summary>
+        /// Returns all user posted items.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public async Task<List<Item>> GetUserPostedItems(string username)
+        {
+            var id = from i in (await _repository.UserRepository.GetAll())
+                    where i.Username.Equals(username)
+                    select i.UserId;
+            var c = (await _repository.ItemRepository.GetAll()).Where(a => a.PosterId == id.First());
+            //TODO: find a cleanerr solution
+            foreach (var i in c)
+            {
+                i.Poster = null;
+            }
+            return c.ToList();
         }
     }
 }

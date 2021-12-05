@@ -12,9 +12,9 @@ namespace DataBase.Services
     {
         DbSet<Item> Items { get; set; }
         DbSet<User> Users { get; set; }
-        DbSet<UserTakenItem> UserTakenItems {get; set;}
-        DbSet<Message> Messages { get; set; }
-        DbSet<SentMessage> SentMessages { get; set; }
+        //DbSet<UserTakenItem> UserTakenItems {get; set;}
+        //DbSet<Message> Messages { get; set; }
+        //DbSet<SentMessage> SentMessages { get; set; }
 
         int SaveChanges();
 

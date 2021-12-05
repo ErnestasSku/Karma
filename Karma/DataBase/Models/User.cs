@@ -1,5 +1,4 @@
-﻿using Backend;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,6 +26,12 @@ namespace DataBase.Models
         //public Location Location { get; set; }
 
         public List<Item> PostedItems { get; set; }
+
+
+        public User()
+        {
+            
+        }
 
         public User(string userName, string password, string email)
         {

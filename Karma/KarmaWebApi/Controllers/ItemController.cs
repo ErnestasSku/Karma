@@ -125,10 +125,16 @@ namespace KarmaWebApi.Controllers
             }
         }
 
-        [HttpGet("?item_page={pageNumber}&item_view={itemNumber}")]
+        [HttpGet("item_page={pageNumber}&item_view={itemNumber}")]
         public async Task<IEnumerable<Item>> GetPageItems(int pageNumber, int itemNumber)
         {
             return await _itemService.GetPageItems(pageNumber, itemNumber);
+        }
+
+        [HttpGet("user={username}/posted")]
+        public async Task<IEnumerable<Item>> GetPostedItems(string username)
+        {
+            return await _itemService.GetUserPostedItems(username);
         }
     }
     
