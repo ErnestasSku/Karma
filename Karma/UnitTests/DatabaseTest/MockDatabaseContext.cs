@@ -5,7 +5,7 @@ using DataBase.Services;
 
 namespace UnitTests
 {
-    public class MockdDtabaseContext : DbContext, IDataBaseContext
+    public class MockdDtabaseContext : DbContext, IDatabaseContext
     {
         public DbSet<DataBase.Models.Item> Items { get; set; }
         public DbSet<DataBase.Models.User> Users { get; set; }

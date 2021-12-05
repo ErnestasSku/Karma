@@ -22,9 +22,6 @@ namespace MobileUI.Views
             if (password.Equals(repeatedPassword))
             {
                 User newUser = new User(userName, password, email);
-                newUser.PhoneNumber = "+3706222222"; //TEMPORARY, need to change DB settings to not require phone number
-                newUser.Name = "string";
-                newUser.LastName = "string";
 
                 App.PostUser(newUser);
 

@@ -4,13 +4,15 @@ using System.Threading.Tasks;
 
 namespace DataBase.Services
 {
-    public class DataBaseContext : DbContext, IDataBaseContext
+    public class DatabaseContext : DbContext, IDatabaseContext
     {
         public DbSet<Models.Item> Items { get; set; }
         public DbSet<Models.User> Users { get; set; }
 
+        //TODO: add other models
 
-        public DataBaseContext()
+
+        public DatabaseContext()
         {
 
         }

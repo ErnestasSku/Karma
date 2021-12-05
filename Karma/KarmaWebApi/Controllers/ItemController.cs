@@ -4,7 +4,6 @@ using DataBase.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
@@ -16,7 +15,7 @@ namespace KarmaWebApi.Controllers
     {
         private static ItemService _itemService;
 
-        public ItemController(IDataBaseContext databaseContext)
+        public ItemController(IDatabaseContext databaseContext)
         {
             _itemService = new ItemService(databaseContext);
         }
@@ -33,7 +32,7 @@ namespace KarmaWebApi.Controllers
                 Logger.Info("Error during Item API GET " + ex.Message);
                 return null;
             }
-            
+
             //return Items;
         }
 
@@ -42,7 +41,7 @@ namespace KarmaWebApi.Controllers
         public async Task<ActionResult<Item>> GetById(int id)
         {
             try
-            { 
+            {
                 return await _itemService.GetSpecificItem(id);
             }
             catch (Exception ex)
@@ -50,7 +49,7 @@ namespace KarmaWebApi.Controllers
                 Logger.Error("Error during Item API GET " + ex.Message);
                 return NotFound();
             }
-            
+
         }
 
         // POST api/Item
@@ -59,7 +58,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                int res = _itemService.InsertItem(value);
+                int res = await _itemService.InsertItem(value);
                 Email<Item> email = new Email<Item>();
                 email.EmailActionCompleted += (Item item) =>
                 {
@@ -72,16 +71,14 @@ namespace KarmaWebApi.Controllers
                     message.BodyEncoding = System.Text.Encoding.UTF8;
                     message.Subject = "Test message";
                     message.SubjectEncoding = System.Text.Encoding.UTF8;
-                    
+
                     //client.Host = "smtp.gmail.com";
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.UseDefaultCredentials = false;
                     client.SendAsync(message, null);
                 };
 
-                    // TODO: Need to verify credentials.
-                    //email.OnEmailActionCompleted(value);
-                    return Ok();
+                return Ok();
 
             }
             catch (Exception ex)
@@ -89,7 +86,7 @@ namespace KarmaWebApi.Controllers
                 Logger.Error("Error during Item API POST " + ex.Message);
                 return BadRequest();
             }
-            
+
 
         }
 
@@ -99,8 +96,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                value.ItemId = id;
-                _ = await _itemService.UpdateItem(value);
+                await _itemService.UpdateItem(id, value);
                 return Ok();
             }
             catch (Exception ex)
@@ -117,19 +113,23 @@ namespace KarmaWebApi.Controllers
             try
             {
                 Item item = await _itemService.GetSpecificItem(id);
-                _itemService.DeleteItem(item);
-                
+                await _itemService.DeleteItem(item);
+
                 return Ok();
             }
             catch (Exception ex)
             {
                 Logger.Error("Error during Item API DELETE " + ex.Message);
                 return NotFound();
-            }
 
+            }
         }
 
-
-
+        [HttpGet("?item_page={pageNumber}&item_view={itemNumber}")]
+        public async Task<IEnumerable<Item>> GetPageItems(int pageNumber, int itemNumber)
+        {
+            return await _itemService.GetPageItems(pageNumber, itemNumber);
+        }
     }
+    
 }

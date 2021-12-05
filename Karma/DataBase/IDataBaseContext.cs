@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataBase.Services
 {
-    public interface IDataBaseContext
+    public interface IDatabaseContext
     {
         DbSet<Item> Items { get; set; }
         DbSet<User> Users { get; set; }

@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "DataBase\Databa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarmaWebApi", "KarmaWebApi\KarmaWebApi.csproj", "{54190F04-2B6E-48B4-B548-36C56751B135}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,18 +115,6 @@ Global
 		{54190F04-2B6E-48B4-B548-36C56751B135}.Release|iPhone.Build.0 = Release|Any CPU
 		{54190F04-2B6E-48B4-B548-36C56751B135}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{54190F04-2B6E-48B4-B548-36C56751B135}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Release|iPhone.Build.0 = Release|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{7A7EAA98-07CF-4E5E-8DBD-DE57373413D1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
