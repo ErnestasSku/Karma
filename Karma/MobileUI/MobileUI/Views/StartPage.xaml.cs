@@ -31,7 +31,8 @@ namespace MobileUI.Views
 
         private async void LogIn_Clicked(object sender, EventArgs e)
         {
-            try {
+            //try 
+            {
                 if (await AuthenticateUser(username, password))
                 {
                     App.Current.MainPage = new TabbedPage1();
@@ -41,10 +42,10 @@ namespace MobileUI.Views
                     wrong_password.IsVisible = true;
                 }
             }
-            catch (Exception)
-            {
+            //catch (Exception)
+            //{
 
-            }
+            //}
             
         }
 
