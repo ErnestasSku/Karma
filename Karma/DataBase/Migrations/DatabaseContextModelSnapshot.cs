@@ -4,21 +4,19 @@ using DataBase.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DataBase.Migrations
+namespace Database.Migrations
 {
-    [DbContext(typeof(DataBaseContext))]
-    [Migration("20211116182015_Adjustments")]
-    partial class Adjustments
+    [DbContext(typeof(DatabaseContext))]
+    partial class DatabaseContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.11")
+                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("DataBase.Models.Item", b =>
@@ -29,6 +27,9 @@ namespace DataBase.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ContactInfo")
@@ -46,12 +47,12 @@ namespace DataBase.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("PosterId")
                         .HasColumnType("int");
 
                     b.HasKey("ItemId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("PosterId");
 
                     b.ToTable("Items");
                 });
@@ -66,35 +67,30 @@ namespace DataBase.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("UserName")
+                    b.HasIndex("Username")
                         .IsUnique()
-                        .HasFilter("[UserName] IS NOT NULL");
+                        .HasFilter("[Username] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("DataBase.Models.Item", b =>
                 {
-                    b.HasOne("DataBase.Models.User", null)
+                    b.HasOne("DataBase.Models.User", "Poster")
                         .WithMany("PostedItems")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("PosterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Poster");
                 });
 
             modelBuilder.Entity("DataBase.Models.User", b =>

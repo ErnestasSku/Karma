@@ -1,9 +1,8 @@
 ﻿using DataBase.Models;
-using Microsoft.EntityFrameworkCore;
+using Database.Repositories;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System;
-using DataBase;
+using System.Linq;
 
 namespace DataBase.Services
 {
@@ -13,11 +12,11 @@ namespace DataBase.Services
         /// <summary>
         /// Database context.
         /// </summary>
-        private IDataBaseContext _dbContext;
+        private RepositoriesWrapper _repository;
 
-        public ItemService(IDataBaseContext dbContext)
+        public ItemService(IDatabaseContext dbContext)
         {
-            _dbContext = dbContext;
+            _repository = new RepositoriesWrapper(dbContext);
         }
 
 
@@ -27,12 +26,12 @@ namespace DataBase.Services
         /// <returns></returns>
         public async Task<List<Item>> GetAllItems()
         {
-            List<Item> res = await _dbContext.Items.ToListAsync();
+            List<Item> res = await _repository.ItemRepository.GetAll();
             return res;
         }
         public async Task<Item> GetSpecificItem(int id)
         {
-            return await _dbContext.Items.FindAsync(id);
+            return await _repository.ItemRepository.GetById(id);
         }
 
         /// <summary>
@@ -40,10 +39,11 @@ namespace DataBase.Services
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public async Task<int> UpdateItem(Item obj)
+        public async Task<int> UpdateItem(int id, Item obj)
         {
-            _dbContext.Items.Update(obj);
-            int res = await _dbContext.SaveChangesAsync();
+            obj.ItemId = id;
+            _repository.ItemRepository.UpdateItem(obj);
+            int res = await _repository.SaveChanges();
             return res;
         }
 
@@ -52,10 +52,11 @@ namespace DataBase.Services
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public int InsertItem(Item obj)
+        public async Task<int> InsertItem(Item obj)
         {
-            _dbContext.Items.Add(obj);
-            int res = _dbContext.SaveChanges();
+            obj.Poster = null;
+            _repository.ItemRepository.Add(obj);
+            int res = await _repository.SaveChanges();
             return res;
         }
 
@@ -64,11 +65,46 @@ namespace DataBase.Services
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public int DeleteItem(Item obj)
+        public async Task<int> DeleteItem(Item obj)
         {
-            _dbContext.Items.Remove(obj);
-            int res = _dbContext.SaveChanges();
+            _repository.ItemRepository.Delete(obj);
+            int res = await _repository.SaveChanges();
             return res;
+        }
+
+        /// <summary>
+        /// Returns a specific page items.
+        /// </summary>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="itemNumber">Number of items shown on page</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<Item>> GetPageItems(int pageNumber, int itemNumber)
+        {
+            return (await _repository.ItemRepository.GetAll()).Skip(pageNumber * itemNumber).Take(itemNumber);
+        }
+
+        public async Task<IEnumerable<Item>> GetUserPostedItems(int id)
+        { 
+            return (await _repository.ItemRepository.GetAll()).Where(a => a.PosterId == id);
+        }
+
+        /// <summary>
+        /// Returns all user posted items.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public async Task<List<Item>> GetUserPostedItems(string username)
+        {
+            var id = from i in (await _repository.UserRepository.GetAll())
+                    where i.Username.Equals(username)
+                    select i.UserId;
+            var c = (await _repository.ItemRepository.GetAll()).Where(a => a.PosterId == id.First());
+            //TODO: find a cleanerr solution
+            foreach (var i in c)
+            {
+                i.Poster = null;
+            }
+            return c.ToList();
         }
     }
 }

@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileUI.iOS", "MobileUI\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobileUI", "MobileUI\MobileUI\MobileUI.csproj", "{52954202-40F1-4F23-A765-C1825D894EFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBase", "DataBase\DataBase.csproj", "{DDE05438-3212-4E38-99B5-031021BF0204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "DataBase\Database.csproj", "{DDE05438-3212-4E38-99B5-031021BF0204}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KarmaWebApi", "KarmaWebApi\KarmaWebApi.csproj", "{54190F04-2B6E-48B4-B548-36C56751B135}"
 EndProject

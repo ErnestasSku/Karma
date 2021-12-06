@@ -23,7 +23,9 @@ namespace DataBase.Models
 
         public string Image { get; set; }
 
-        public User Poster;
+        public int PosterId { get; set; }
+
+        public User Poster { get; set; }
 
         public Item()
         {

@@ -40,7 +40,7 @@ namespace KarmaWebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KarmaWebApi", Version = "v1" });
             });
 
-            services.AddDbContext<DataBaseContext>();
+            services.AddDbContext<DatabaseContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

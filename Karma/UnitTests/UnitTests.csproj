@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\Backend.csproj" />
-    <ProjectReference Include="..\DataBase\DataBase.csproj" />
+    <ProjectReference Include="..\DataBase\Database.csproj" />
   </ItemGroup>
 
 </Project>

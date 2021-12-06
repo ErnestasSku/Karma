@@ -18,7 +18,7 @@ namespace KarmaWebApi.Controllers
 
        // TODO: maybe add GetAll for debug/testing purposes and delete it when "publishing"
 
-        public UserController(IDataBaseContext dataBaseContext)
+        public UserController(IDatabaseContext dataBaseContext)
         {
             _userService = new UserService(dataBaseContext);
         }
@@ -43,7 +43,7 @@ namespace KarmaWebApi.Controllers
             try
             {
                 List<User> users = await _userService.GetUsers();
-                return users.FirstOrDefault(c => c.UserName.Equals(username));
+                return users.FirstOrDefault(c => c.Username.Equals(username));
 
 
                 //return await userService.GetUserByUsername(username);
@@ -60,7 +60,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                int res = _userService.InsertUser(value);
+                int res = await _userService.InsertUser(value);
                 return Ok();
                 
             }
@@ -75,8 +75,7 @@ namespace KarmaWebApi.Controllers
         {
             try
             {
-                value.UserId = id;
-                _ = await _userService.UpdateUser(value);
+                await _userService.UpdateUser(id, value);
                 return Ok();
             }
             catch (Exception ex)
@@ -91,7 +90,7 @@ namespace KarmaWebApi.Controllers
             try 
             {
                 User user = await _userService.GetUserById(id);
-                _userService.DeleteUser(user);
+                _userService.DeleteUser(id);
                 return Ok();
             }
             catch
