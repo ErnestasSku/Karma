@@ -1,7 +1,7 @@
 ﻿<ContentPage x:Class="MobileUI.Views.PostingsPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:MobileUI.Models;assembly=MobileUI"
+             xmlns:model="clr-namespace:DataBase.Models;assembly=DataBase"
              xmlns:viewmodels="clr-namespace:MobileUI.ViewModels"
              x:Name="ListingsPage"
              x:DataType="viewmodels:PostingsViewModel"
@@ -11,8 +11,13 @@
     </ContentPage.BindingContext>
     
     <ListView ItemsSource="{Binding Items}" 
+              x:Name="listview"
               BackgroundColor="Transparent"
-              HasUnevenRows="True">
+              HasUnevenRows="True"
+              ItemTapped="Item_Tapped"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsRefreshing, Mode=OneWay}"
+              RefreshCommand="{Binding RefreshCommand}">
         <ListView.ItemTemplate>
 
             <DataTemplate x:DataType="model:Item">
@@ -24,7 +29,7 @@
                         <Frame BackgroundColor="Beige"
                                CornerRadius="10">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding ImgSource}"
+                                <Image Source="{Binding Image}"
                                        WidthRequest="50"
                                        HeightRequest="50"
                                        Aspect="AspectFill"/>
@@ -33,9 +38,13 @@
                                            TextColor="Black"
                                            VerticalOptions="Center"
                                            FontSize="Large"/>
-                                    <Label Text="{Binding Location}"
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="icon_pin.png"
+                                               HeightRequest="10"/>
+                                        <Label Text="{Binding City}"
                                            TextColor="Black"
                                            VerticalOptions="Center"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </Frame>

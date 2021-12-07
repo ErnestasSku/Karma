@@ -18,6 +18,7 @@ namespace MobileUI
         public static User CurrentUser;
 
         public static ObservableRangeCollection<Item> Items;
+        public static ObservableRangeCollection<Item> UserItems;
 
 
         private Lazy<List<Item>> _userPostedItems;
@@ -62,6 +63,7 @@ namespace MobileUI
             //Items = new ObservableRangeCollection<Item>();
             //Items.Add(new Item());
             Items = GetItems();
+            //Items = GetUserItems(CurrentUser.Username);
 
             //CurrentUser = GetByUsername("justas");
 
@@ -135,6 +137,26 @@ namespace MobileUI
             var json = JsonConvert.SerializeObject(value);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await App.Client.PostAsync("api/Item", content);
+            if (!response.IsSuccessStatusCode)
+            {
+               
+            }
+        }
+        public static ObservableRangeCollection<DataBase.Models.Item> GetUserItems(string username)
+        {
+            var json = Client.GetStringAsync($"api/Item/user={username}/posted");
+            json.Wait();
+            var items = JsonConvert.DeserializeObject<List<DataBase.Models.Item>>(json.Result);
+
+            foreach (var i in items)
+            {
+                i.Image = i.Image ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Text-x-generic.svg/2048px-Text-x-generic.svg.png";
+            }
+            return new ObservableRangeCollection<DataBase.Models.Item>(items);
+        }
+        public static async Task DeleteItem(DataBase.Models.Item value)
+        {
+            var response = await Client.DeleteAsync($"api/Item/{value.ItemId}");
             if (!response.IsSuccessStatusCode)
             {
 

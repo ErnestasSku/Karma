@@ -63,6 +63,7 @@ namespace MobileUI.Views
             item.ContactInfo = contactInfo;
             item.Image = image;
             item.City = city;
+            item.PosterId = App.CurrentUser.UserId;
             item.Poster = App.CurrentUser;
 
             App.PostItem(item);
