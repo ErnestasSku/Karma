@@ -4,43 +4,59 @@ using DataBase.Services;
 using Moq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Data.Entity.Infrastructure;
 
 namespace DataBaseTests
 {
     public class ItemServiceTests
     {
-        
         [Fact]
         public async void InsertItem_GetAllItems_Test()
         {
+            var name1 = "stalas";
+            var name2 = "kede";
+
+            var data = new List<Item>
+            {
+                new Item { Name = name1 },
+                new Item { Name = name2 },
+            }.AsQueryable();
+
             var mockSet = new Mock<DbSet<Item>>();
-            
+            mockSet.As<IDbAsyncEnumerable<Item>>()
+                .Setup(m => m.GetAsyncEnumerator())
+                .Returns(new TestDbAsyncEnumerator<Item>(data.GetEnumerator()));
+
+            mockSet.As<IQueryable<Item>>()
+                .Setup(m => m.Provider)
+                .Returns(new TestDbAsyncQueryProvider<Item>(data.Provider));
+
+            mockSet.As<IQueryable<Item>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockSet.As<IQueryable<Item>>().Setup(m => m.ElementType).Returns(data.ElementType);
+            mockSet.As<IQueryable<Item>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+
+
             var mock = new Mock<MockDatabaseContext>();
             mock.Setup(m => m.Items).Returns(mockSet.Object);
-            
+
             var itemService = new ItemService(mock.Object);
+            var items = await itemService.GetAllItems();
 
-            var name1 = "stalas";
-            var item1 = new Item { Name = name1 };
-
-            var name2 = "kede";
-            var item2 = new Item { Name = name2 };
-
-            await itemService.InsertItem(item1);
-            await itemService.InsertItem(item2);
-
-            //You can verify if the data was added at least one with this method,
-            //user other similar methods for more accuracity
-            mockSet.Verify(m => m.Add(It.IsAny<Item>()), Times.AtLeastOnce());
-            //In this example IQuerrable is not setup, so GetAllItems won't work at the moment
-            /*List<Item> items = await itemService.GetAllItems();
+            Assert.Equal(2, items.Count);
             Assert.Equal(items[0].Name, name1);
-            Assert.Equal(items[1].Name, name2);*/
+            Assert.Equal(items[1].Name, name2);
         }
+
+
         [Fact]
         public async void DeleteItem_Test()
         {
-            var mock = new Mock<IDatabaseContext>();
+            var mockSet = new Mock<DbSet<Item>>();
+
+            var mock = new Mock<MockDatabaseContext>();
+            mock.Setup(m => m.Items).Returns(mockSet.Object);
+
             var itemService = new ItemService(mock.Object);
 
             var name1 = "stalas";
