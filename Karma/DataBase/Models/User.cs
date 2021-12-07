@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Database.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,6 +28,7 @@ namespace DataBase.Models
 
         public List<Item> PostedItems { get; set; }
 
+        public IList<UserTakenItem> UserTakenItems { get; set; }
 
         public User()
         {

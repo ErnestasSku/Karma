@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Backend;
+using Database.Models;
 
 namespace DataBase.Models
 {
@@ -15,7 +16,7 @@ namespace DataBase.Models
         public string Description { get; set; }
         public string ContactInfo { get; set; }
         public string Category { get; set; }
-        
+
         public string City { get; set; }
 
         //public Location Location { get; set; }
@@ -26,6 +27,8 @@ namespace DataBase.Models
         public int PosterId { get; set; }
 
         public User Poster { get; set; }
+
+        public IList<UserTakenItem> UserTakenItems { get; set; }
 
         public Item()
         {

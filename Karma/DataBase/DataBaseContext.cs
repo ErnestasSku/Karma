@@ -11,7 +11,7 @@ namespace DataBase.Services
         public DbSet<Item> Items { get; set; }
         public DbSet<User> Users { get; set; }
         //Todo: figure out how to create model with these
-        //public DbSet<UserTakenItem> UserTakenItems { get; set; }
+        public DbSet<UserTakenItem> UserTakenItems { get; set; }
         //public DbSet<Message> Messages { get; set; }
         //public DbSet<SentMessage> SentMessages { get; set; }
 
@@ -36,6 +36,18 @@ namespace DataBase.Services
                 .HasForeignKey(u => u.PosterId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<UserTakenItem>()
+                .HasKey(sc => new { sc.ItemId, sc.UserId });
+
+            modelBuilder.Entity<UserTakenItem>()
+                .HasOne<User>(sc => sc.User)
+                .WithMany(s => s.UserTakenItems)
+                .HasForeignKey(sc => sc.UserId);
+
+            modelBuilder.Entity<UserTakenItem>()
+                .HasOne<Item>(sc => sc.Item)
+                .WithMany(s => s.UserTakenItems)
+                .HasForeignKey(sc => sc.ItemId);
            
         }
 
