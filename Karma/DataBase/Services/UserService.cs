@@ -55,7 +55,7 @@ namespace DataBase.Services
         public async Task<int> UpdateUser(int id, User obj)
         {
             obj.UserId = id;
-            _repositoryWrapper.UserRepository.Delete(obj);
+            _repositoryWrapper.UserRepository.UpdateItem(obj);
             int res = await _repositoryWrapper.SaveChanges();
             return res;
         }
