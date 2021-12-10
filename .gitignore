@@ -1,5 +1,7 @@
 *.user
 
+Log.txt
+
 # Ignore common IDE's files
 *.idea
 *.vscode

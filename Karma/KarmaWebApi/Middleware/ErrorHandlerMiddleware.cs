@@ -41,7 +41,7 @@ namespace KarmaWebApi.Middleware
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-            var errorMessage = (_environment.IsDevelopment()) ? "Internal server error happened." : JsonConvert.SerializeObject(exception, Formatting.Indented);
+            var errorMessage = (_environment.IsDevelopment()) ? JsonConvert.SerializeObject("Internal server error happened.") : JsonConvert.SerializeObject(exception, Formatting.Indented);
 
             return context.Response.WriteAsync(new
             {
@@ -60,8 +60,8 @@ namespace KarmaWebApi.Middleware
 
                 _logger.Error(
                     exception,
-                    $"WebApi exception, Method {{method}}, Contesxt : {{faultMessage}}",
-                    $"{context.Request.Method} {context.Request.GetDisplayUrl()}", JsonConvert.SerializeObject(body);
+                    $"WebApi exception, Method: {{method}}, Content: {{faultMessage}}",
+                    $"{context.Request.Method} {context.Request.GetDisplayUrl()}", JsonConvert.SerializeObject(body));
                 context.Request.Body.Seek(0, SeekOrigin.Begin);
 
             }

@@ -21,7 +21,7 @@ namespace KarmaWebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Item>> GetAll()
+        public async Task<ActionResult<IEnumerable<Item>>> GetAll()
         {
             try
             {
