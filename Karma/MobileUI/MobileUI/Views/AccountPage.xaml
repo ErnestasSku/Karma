@@ -38,7 +38,7 @@
                 
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <Label Text="{Binding User.UserName, StringFormat='Hello {0}!'}" TextColor="Black" FontSize="Large">
+                <Label Text="{Binding User.Username, StringFormat='Hello {0}!'}" TextColor="Black" FontSize="Large">
                     <Label.BindingContext>
                         <local:AccountViewModel/>
                     </Label.BindingContext>

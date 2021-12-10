@@ -19,11 +19,7 @@ namespace MobileUI.Views
         }
         private async void Item_Tapped(object sender, EventArgs e)
         {
-            ItemDetailPageViewModel.Name = currentItem.Name;
-            ItemDetailPageViewModel.Description = currentItem.Description;
-            ItemDetailPageViewModel.Img = currentItem.Image;
-            ItemDetailPageViewModel.ContactInfo = currentItem.ContactInfo;
-            await HomePage.Navigation.PushAsync(new ItemDetailPage()); 
+            await HomePage.Navigation.PushAsync(new ItemDetailPage(currentItem)); 
         }
         void OnCurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
         {
