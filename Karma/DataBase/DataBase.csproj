@@ -22,10 +22,5 @@
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\Backend.csproj" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
   
 </Project>

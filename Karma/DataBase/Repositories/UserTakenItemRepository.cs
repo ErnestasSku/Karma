@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Database.Repositories
 {
-    public class UserTakenItemRepository /*: IRepository<UserTakenItem>*/
+    public class UserTakenItemRepository : IRepository<UserTakenItem>
     {
         private IDatabaseContext _dbContext;
 
-       /* public UserTakenItemRepository(IDatabaseContext dbContext)
+        public UserTakenItemRepository(IDatabaseContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -25,7 +25,7 @@ namespace Database.Repositories
         public void UpdateItem(UserTakenItem obj) => _dbContext.UserTakenItems.Update(obj);
 
         public void Delete(UserTakenItem obj) => _dbContext.UserTakenItems.Remove(obj);
-    */
+    
     }
 }
 
