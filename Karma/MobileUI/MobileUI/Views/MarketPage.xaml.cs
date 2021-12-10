@@ -27,13 +27,8 @@ namespace MobileUI.Views
             var item = ((ListView)sender).SelectedItem as DataBase.Models.Item;
             if (item == null)
                 return;
-
             ((ListView)sender).SelectedItem = null;
-            ItemDetailPageViewModel.Name = item.Name;
-            ItemDetailPageViewModel.Description = item.Description;
-            ItemDetailPageViewModel.Img = item.Image;
-            ItemDetailPageViewModel.ContactInfo = item.ContactInfo;
-            await ItemPage.Navigation.PushAsync(new ItemDetailPage());
+             await ItemPage.Navigation.PushAsync(new ItemDetailPage(item));
         }
 
         private void SortType_SelectedIndexChanged(object sender, EventArgs e)

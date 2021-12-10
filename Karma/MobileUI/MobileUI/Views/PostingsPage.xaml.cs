@@ -39,11 +39,7 @@ namespace MobileUI.Views
                 return;
 
             //((ListView)sender).SelectedItem = null;
-            ItemDetailPageViewModel.Name = item.Name;
-            ItemDetailPageViewModel.Description = item.Description;
-            ItemDetailPageViewModel.Img = item.Image;
-            ItemDetailPageViewModel.ContactInfo = item.ContactInfo;
-            await ListingsPage.Navigation.PushAsync(new ItemDetailPage());
+            await ListingsPage.Navigation.PushAsync(new ItemDetailPage(item));
         }
     }
 }

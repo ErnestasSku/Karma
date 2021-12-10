@@ -1,34 +1,31 @@
 ﻿
+using DataBase.Models;
 using MobileUI.ViewModels;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace MobileUI.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
-        
-        public ItemDetailPage()
+        public Item ChosenItem 
+        { 
+            get => ItemDetailPageViewModel.ChosenItem; 
+        }
+        public User Poster { get => ItemDetailPageViewModel.Poster; }   
+        public ItemDetailPage(Item item)
         {
+            ItemDetailPageViewModel.ChosenItem = item;
+            
+            var json = App.Client.GetStringAsync($"api/User/{item.PosterId}");
+            json.Wait();
+            ItemDetailPageViewModel.Poster = JsonConvert.DeserializeObject<User>(json.Result);
+
             InitializeComponent();
             BindingContext = this;
         }
-        public string Name
-        {
-            get => ItemDetailPageViewModel.Name;
-        }
-        public string Description
-        {
-            get => ItemDetailPageViewModel.Description;
-        }
-        public string Img
-        {
-            get => ItemDetailPageViewModel.Img;
-        }
+       
 
-        public string ContactInfo
-        {
-            get => ItemDetailPageViewModel.ContactInfo;
-        }
 
     }
 }
