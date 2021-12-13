@@ -29,16 +29,16 @@ namespace DataBaseTests
 
             var items = new List<Item>
             {
-                new Item {Name = "Item1", Poster = users[0], PosterId = 1},
-                new Item {Name = "Item2", Poster = users[0], PosterId = 1},
-                new Item {Name = "Item3", Poster = users[0], PosterId = 1},
-                new Item {Name = "Item4", Poster = users[1], PosterId = 2},
-                new Item {Name = "Item5", Poster = users[1], PosterId = 2},
-                new Item {Name = "Item6", Poster = users[1], PosterId = 2},
-                new Item {Name = "Item7", Poster = users[1], PosterId = 2},
-                new Item {Name = "Item8", Poster = users[2], PosterId = 3},
-                new Item {Name = "Item9", Poster = users[3], PosterId = 4},
-                new Item {Name = "Item10", Poster = users[3], PosterId = 4},
+                new Item {Name = "Item1", Poster = users[0], PosterId = 1, Category = "outdoors"},
+                new Item {Name = "Item2", Poster = users[0], PosterId = 1, Category = "outdoors"},
+                new Item {Name = "Item3", Poster = users[0], PosterId = 1, Category = "outdoors"},
+                new Item {Name = "Item4", Poster = users[1], PosterId = 2, Category = "outdoors"},
+                new Item {Name = "Item5", Poster = users[1], PosterId = 2, Category = "outdoors"},
+                new Item {Name = "Item6", Poster = users[1], PosterId = 2, Category = "outdoors"},
+                new Item {Name = "Item7", Poster = users[1], PosterId = 2, Category = "outdoors"},
+                new Item {Name = "Item8", Poster = users[2], PosterId = 3, Category = "outdoors"},
+                new Item {Name = "Item9", Poster = users[3], PosterId = 4, Category = "outdoors"},
+                new Item {Name = "Item10", Poster = users[3], PosterId = 4, Category = "electronics"},
             };
 
             var userTakenItem = new List<UserTakenItem>
@@ -99,14 +99,100 @@ namespace DataBaseTests
         }
 
         [Fact]
-        public void Test()
+        public async void Test()
         {
             using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI1"))
             {
                 FillContextWithData(context);
                 var statisticsService = new StatisticsService(context);
-                statisticsService.GetCount();
-                statisticsService.GetTakenItemDetails();
+                await statisticsService.GetCount();
+                await statisticsService.GetTakenItemDetails();
+            }
+        }
+
+        [Fact]
+        public async void CountTest()
+        {
+            using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI2"))
+            {
+                FillContextWithData(context);
+                var statisticsService = new StatisticsService(context);
+
+                var res = await statisticsService.GetCount();
+
+                Assert.True(res.Count == 1);
+            }
+
+        }
+
+        [Fact]
+        public async void CountByCategoryTest()
+        {
+            using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI3"))
+            {
+                FillContextWithData(context);
+                var statisticsService = new StatisticsService(context);
+
+                var res = statisticsService.GetCountByCatgory("furniture");
+
+                Assert.True(res.Value == 0);
+            }
+        }
+
+        [Fact]
+        public async void CountByCategoryTest_2()
+        {
+            using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI4"))
+            {
+                FillContextWithData(context);
+                var statisticsService = new StatisticsService(context);
+
+                var res = statisticsService.GetCountByCatgory("electronics");
+
+                Assert.True(res.Value == 0);
+            }
+        }
+
+        [Fact]
+        public async void GetTakenItemsTest()
+        {
+            using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI5"))
+            {
+                FillContextWithData(context);
+                var statisticsService = new StatisticsService(context);
+
+                var res = await statisticsService.GetTakenItemDetails();
+
+                Assert.True(res.Count == 6);
+            }
+        }
+
+        [Fact]
+        public async void GetTakenItemsByCategory()
+        {
+            using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI6"))
+            {
+                FillContextWithData(context);
+                var statisticsService = new StatisticsService(context);
+
+                var res = await statisticsService.GetTakenItemsByCategory("electronics");
+
+                Assert.True(res.Count == 0);
+
+            }
+        }
+
+        public async void GetTakenItemsByCategory_2()
+        {
+            using (var context = MockDatabaseContext.GetMockDatabaseContext("UTI7"))
+            {
+                FillContextWithData(context);
+                var statisticsService = new StatisticsService(context);
+
+                var res = await statisticsService.GetTakenItemsByCategory("furniture");
+
+                Assert.True(res.Count == 0);
+
             }
         }
 
