@@ -7,6 +7,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Http.Extensions;
+using Backend;
 
 namespace KarmaWebApi.Middleware
 {
@@ -29,6 +30,11 @@ namespace KarmaWebApi.Middleware
             {
                 await _next(context);
             }
+            catch (BusinessException ex)
+            {
+                await LogErrorExceptionWithRequestBody(context, ex);
+                await HandleBuisnessExceptionAsync(context, ex);
+            }
             catch (Exception ex)
             {
                 await LogErrorExceptionWithRequestBody(context, ex);
@@ -49,6 +55,20 @@ namespace KarmaWebApi.Middleware
             }.ToString());
             
         }
+        private Task HandleBuisnessExceptionAsync(HttpContext context, Exception exception)
+        {
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            var errorMessage = (_environment.IsDevelopment()) ? JsonConvert.SerializeObject("An error happened with Business code.") : JsonConvert.SerializeObject(exception, Formatting.Indented);
+
+            return context.Response.WriteAsync(new
+            {
+                Message = errorMessage
+            }.ToString());
+
+        }
+
 
         private async Task LogErrorExceptionWithRequestBody(HttpContext context, Exception exception)
         {
