@@ -1,4 +1,5 @@
-﻿using DataBase.Models;
+﻿using Database.Models;
+using DataBase.Models;
 using DataBase.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace DataBaseTests
     {
         public DbSet<Item> Items { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserTakenItem> UserTakenItems { get; set; }
 
         public MockDatabaseContext(DbContextOptions<MockDatabaseContext> options) : base(options)
         {
