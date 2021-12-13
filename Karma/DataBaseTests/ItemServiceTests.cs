@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory;
 using System.Linq;
-using System.Data.Entity.Infrastructure;
 
 namespace DataBaseTests
 {
