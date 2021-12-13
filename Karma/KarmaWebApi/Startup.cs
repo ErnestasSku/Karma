@@ -82,6 +82,7 @@ namespace KarmaWebApi
             app.UseRouting();
 
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

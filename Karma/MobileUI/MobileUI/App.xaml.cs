@@ -95,7 +95,7 @@ namespace MobileUI
 
             return new ObservableRangeCollection<DataBase.Models.Item>(items);
         }
-        public static ObservableRangeCollection<DataBase.Models.Item> GetItems()
+        public static ObservableRangeCollection<Item> GetItems()
         {
             var json = Client.GetStringAsync("api/Item");
             json.Wait();

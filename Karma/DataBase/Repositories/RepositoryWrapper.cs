@@ -11,13 +11,14 @@ namespace Database.Repositories
 
         public ItemRepository ItemRepository;
         public UserRepository UserRepository;
-
+        public ConversationRepository ConversationRepository;
 
         public RepositoriesWrapper(IDatabaseContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
             ItemRepository = new ItemRepository(_repositoryContext);
             UserRepository = new UserRepository(_repositoryContext);
+            ConversationRepository = new ConversationRepository(_repositoryContext);
         }
 
         public async Task<int> SaveChanges() => await _repositoryContext.SaveChangesAsync();
