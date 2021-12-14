@@ -48,16 +48,18 @@
                                            VerticalOptions="Center"/>
                                 </Frame>
                                 <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
 
-                                    <Label Text="Posted by: " TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding Poster.Username}" FontAttributes="Bold" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
-                                    
-                                </StackLayout>
-                                <StackLayout>
-                                    <Label Text="Email: " TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
-                                    <Label Text="{Binding Poster.Email}" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="Posted by: " TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Poster.Username}" FontAttributes="Bold" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="Email: " TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="{Binding Poster.Email}" TextColor="Black" FontSize="16" HorizontalOptions="Center"/>
 
+                                    </StackLayout>
+                                    <Button Text="Message"
+                                            Clicked="Button_Clicked"/>
                                 </StackLayout>
+                                
                                 
 
                             </StackLayout>
