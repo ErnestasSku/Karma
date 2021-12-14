@@ -13,7 +13,8 @@ namespace DataBase.Services
         //Todo: figure out how to create model with these
         public DbSet<UserTakenItem> UserTakenItems { get; set; }
         public DbSet<Conversation> Conversations { get; set; }
-
+        public DbSet<Reply> Replies { get; set; }
+        
         //public DbSet<Message> Messages { get; set; }
         //public DbSet<SentMessage> SentMessages { get; set; }
 

@@ -24,8 +24,10 @@ namespace MobileUI.Views
             InitializeComponent();
             BindingContext = this;
         }
-       
 
+        private void Button_Clicked(object sender, System.EventArgs e)
+        {
 
+        }
     }
 }

@@ -11,8 +11,8 @@ namespace UnitTests
         public DbSet<DataBase.Models.Item> Items { get; set; }
         public DbSet<DataBase.Models.User> Users { get; set; }
         public DbSet<UserTakenItem> UserTakenItems { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DbSet<Message> Messages { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DbSet<SentMessage> SentMessages { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DbSet<Conversation> Conversations { get; set; }
+        public DbSet<Reply> Replies { get; set; }
 
         public MockdDtabaseContext()
         {

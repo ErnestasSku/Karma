@@ -11,9 +11,7 @@ namespace Database.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ConversationId   { get; set; }
-        [Key]
         public int UserOne { get; set; }
-        [Key]
         public int UserTwo { get; set; }
 
     }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Database.Models
 {
-    public class ConversationReplies
+    public class Reply
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

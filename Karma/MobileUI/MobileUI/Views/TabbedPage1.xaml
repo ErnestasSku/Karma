@@ -24,6 +24,11 @@
             <local:PostingsPage/>
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="Messages" IconImageSource="icon_message.png">
+        <x:Arguments>
+            <local:MessagesPage/>
+        </x:Arguments>
+    </NavigationPage>
     <NavigationPage Title="Account" IconImageSource="icon_account.png">
         <x:Arguments>
             <local:AccountPage/>
