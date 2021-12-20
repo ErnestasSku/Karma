@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:MobileUI.ViewModels"
+             x:Class="MobileUI.Views.Chatroom"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <viewmodels:ChatViewModel/>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="*, auto"
+          Margin="10">
+        <ListView ItemsSource="{Binding MessagesList}"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowDefinitions="auto, auto">
+                            <Grid ColumnDefinitions="40, *" IsVisible="{Binding IsOwnerMessage}">
+                                <!--<Label Text="{Binding UserName}"/>-->
+                                <Frame CornerRadius="30"
+                                       Grid.Column="1"
+                                       HorizontalOptions="End"
+                                       HasShadow="True"
+                                       Margin="0"
+                                       BackgroundColor="Gray"
+                                       Padding="10">
+                                    <Label Text="{Binding Text}"
+                                           Margin="10"
+                                           TextColor="White"
+                                           LineBreakMode="WordWrap"/>
+                                </Frame>
+                            </Grid>
+                            <Grid ColumnDefinitions="*, 40"
+                                  Grid.Row="1"
+                                  IsVisible="{Binding IsOwnerMessage, Converter={StaticResource  BooleanToVisibility}, ConverterParameter=Inverse}">
+                                <!--<Label Text="{Binding UserName}"/>-->
+                                <Frame CornerRadius="30"
+                                       HasShadow="True"
+                                       Margin="0"
+                                       BackgroundColor="DarkBlue"
+                                       Padding="10">
+                                    <Label Text="{Binding Text}"
+                                           Margin="10"
+                                           TextColor="White"
+                                           LineBreakMode="WordWrap"/>
+                                </Frame>
+                            </Grid>
+                            <!--<Grid RowDefinitions="auto, auto"  >
+                                <Label Text="{Binding UserName}"/>
+                                <Label Text="{Binding Message}"/>
+                            </Grid>-->
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Grid.Row="1"
+                     Orientation="Horizontal">
+            <Entry Text="{Binding Message}"
+
+                   HorizontalOptions="FillAndExpand"></Entry>
+            <Button Text="Send" Command="{Binding SendMessageCommand}"/>
+            <ActivityIndicator  Color="DarkGray"
+                                HorizontalOptions="CenterAndExpand"
+                                IsRunning="{Binding IsBusy}"
+                                IsVisible="{Binding IsBusy}"
+                                VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>

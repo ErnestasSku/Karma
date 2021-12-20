@@ -43,7 +43,9 @@
                         <local:AccountViewModel/>
                     </Label.BindingContext>
                 </Label>
-                
+                <Button Text="Join chat"
+                        Clicked="Button_Clicked"/>
+
             </StackLayout>
             
         </StackLayout>

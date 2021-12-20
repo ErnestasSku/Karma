@@ -29,5 +29,9 @@ namespace MobileUI.Views
             await ProfilePage.Navigation.PushAsync(new ChangePasswordPage());
         }
 
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await ProfilePage.Navigation.PushAsync(new Chatroom(new Database.Models.Conversation(null, null)));
+        }
     }
 }

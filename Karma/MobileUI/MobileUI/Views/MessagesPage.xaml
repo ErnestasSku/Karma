@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileUI.Views.MessagesPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:MobileUI.ViewModels"
+             x:Class="MobileUI.Views.MessagesPage"
+             BackgroundColor="#C3DBC3"
+             x:Name="MessagePage">
+    <ContentPage.BindingContext>
+        <local:MessagesPageViewModel/>
+    </ContentPage.BindingContext>
+    <ListView ItemsSource="{Binding Conversations}"
+              x:Name="listview"
+              BackgroundColor="Transparent"
+              HasUnevenRows="True"
+              ItemTapped="ListView_ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10">
+                        <Frame BackgroundColor="Beige"
+                               CornerRadius="10">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Frame CornerRadius="10">
+                                    <Image Source="profile.png"
+                                           WidthRequest="25"
+                                           HeightRequest="25"
+                                           Aspect="Fill"/>
+                                </Frame>
+                                <Label Text="{Binding UserTwo}"
+                                       TextColor="Black"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       FontSize="Large"/>
+
+                            </StackLayout>
+                            
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

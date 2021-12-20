@@ -11,9 +11,19 @@ namespace Database.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int SenderId { get; set; }
+        public string SenderUsername { get; set; }
         public string Content { get; set; }
         public int ConversationId { get; set; }
+        public Reply()
+        {
 
-    }
+        }
+
+        public Reply(string senderUsername, string content, int conversationId)
+        {
+            SenderUsername = senderUsername;
+            Content = content;
+            ConversationId = conversationId;
+        }
+    } 
 }

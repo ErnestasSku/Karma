@@ -36,12 +36,14 @@ namespace MobileUI.Views
                 if (await AuthenticateUser(username, password))
                 {
                     App.Current.MainPage = new TabbedPage1();
+                    //App.LoadConversations(App.CurrentUser.UserId);
                 }
                 else
                 {
                     wrong_password.IsVisible = true;
                 }
             }
+            
             //catch (Exception)
             //{
 

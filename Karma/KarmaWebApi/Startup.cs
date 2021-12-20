@@ -15,6 +15,7 @@ using Database.Interfaces;
 using KarmaWebApi.Interceptors;
 using Autofac.Extras.DynamicProxy;
 using Repository.Repositories;
+using KarmaWebApi.Hubs;
 
 namespace KarmaWebApi
 {
@@ -40,6 +41,9 @@ namespace KarmaWebApi
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
             
             services.AddControllers();
+
+            services.AddSignalR();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "KarmaWebApi", Version = "v1" });
@@ -88,6 +92,7 @@ namespace KarmaWebApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("chathub");
             });
         }
     }
