@@ -64,7 +64,7 @@ artifacts/
 *.svclog
 *.scc
 *.cache
-*.json
+# *.json
 *.editorconfig
 *.dll
 *.exe
