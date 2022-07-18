@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using DataBase.Models;
 using System.Text;
+using MobileUI.Services.Core;
+using Database.Models;
 
 namespace MobileUI
 {
@@ -31,21 +33,15 @@ namespace MobileUI
                 return new ObservableRangeCollection<Item>(_userPostedItems.Value);
             }
         }
-
+        
 
         public App()
         {
             InitializeComponent();
-            //FOR DEBUGING VARIOUS PAGES, CHANGE < new ...Page(); > into required page to view it
-            /*Item.Items = new MvvmHelpers.ObservableRangeCollection<Item>();
-            Item.AddData(Item.Items);*/
-
+            DependencyService.Register<ChatService>();
 
             MainPage = new NavigationPage(new StartPage());
-            //MainPage = new AddItemPage();  
-            
 
-            //Current.MainPage = new NavigationPage(FirstPage);
         }
 
         protected override void OnStart()
@@ -57,16 +53,7 @@ namespace MobileUI
 
             Client.BaseAddress = new System.Uri("https://karmawebapi-in2.conveyor.cloud/");
 
-            // TODO: can't do this as the UI requires App.Items.First and it can't be null, so that needs to be fixed
-            // Task.Factory.StartNew(() => Items = GetItems());
-
-            //Items = new ObservableRangeCollection<Item>();
-            //Items.Add(new Item());
             Items = GetItems();
-            //Items = GetUserItems(CurrentUser.Username);
-
-            //CurrentUser = GetByUsername("justas");
-
 
 
         }
@@ -95,7 +82,7 @@ namespace MobileUI
 
             return new ObservableRangeCollection<DataBase.Models.Item>(items);
         }
-        public static ObservableRangeCollection<DataBase.Models.Item> GetItems()
+        public static ObservableRangeCollection<Item> GetItems()
         {
             var json = Client.GetStringAsync("api/Item");
             json.Wait();
@@ -162,5 +149,6 @@ namespace MobileUI
 
             }
         }
+
     }
 }

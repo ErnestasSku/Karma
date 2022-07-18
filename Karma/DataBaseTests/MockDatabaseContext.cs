@@ -11,6 +11,8 @@ namespace DataBaseTests
         public DbSet<Item> Items { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserTakenItem> UserTakenItems { get; set; }
+        public DbSet<Conversation> Conversations { get; set; }
+        public DbSet<Reply> Replies { get; set; }
 
         public MockDatabaseContext(DbContextOptions<MockDatabaseContext> options) : base(options)
         {

@@ -12,6 +12,8 @@ namespace DataBase.Services
     {
         DbSet<Item> Items { get; set; }
         DbSet<User> Users { get; set; }
+        DbSet<Conversation> Conversations { get; set; }
+        DbSet<Reply> Replies { get; set; }
         DbSet<UserTakenItem> UserTakenItems { get; set; }
         //DbSet<Message> Messages { get; set; }
         //DbSet<SentMessage> SentMessages { get; set; }

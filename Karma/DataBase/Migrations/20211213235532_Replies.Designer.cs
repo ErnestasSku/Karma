@@ -4,14 +4,16 @@ using DataBase.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Database.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20211213235532_Replies")]
+    partial class Replies
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,11 +91,11 @@ namespace Database.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserOne")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserOne")
+                        .HasColumnType("int");
 
-                    b.Property<string>("UserTwo")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserTwo")
+                        .HasColumnType("int");
 
                     b.HasKey("ConversationId");
 
@@ -113,8 +115,8 @@ namespace Database.Migrations
                     b.Property<int>("ConversationId")
                         .HasColumnType("int");
 
-                    b.Property<string>("SenderUsername")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
